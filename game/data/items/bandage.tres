@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://it0m5c6ne21m"]
+
+[ext_resource type="Texture2D" uid="uid://kxys6l6adp27" path="res://game/icons/bandage.png" id="1_ene1w"]
+[ext_resource type="Script" uid="uid://caxfluwpro32s" path="res://game/data/items/ItemData.gd" id="1_wsxly"]
+
+[resource]
+script = ExtResource("1_wsxly")
+item_name = "Vendaje"
+description = "vendaje"
+icon = ExtResource("1_ene1w")
+can_rotate = false
+max_charges = 2
+use_text = "Cura 10 de vida"
+metadata/_custom_type_script = "uid://caxfluwpro32s"

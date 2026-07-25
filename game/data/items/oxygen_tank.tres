@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dgibarl4fjh4r"]
+
+[ext_resource type="Script" uid="uid://caxfluwpro32s" path="res://game/data/items/ItemData.gd" id="1_a6fg3"]
+[ext_resource type="Texture2D" uid="uid://bwujgjd6jhdcw" path="res://game/icons/oxygen_tank.png" id="1_cm5u0"]
+
+[resource]
+script = ExtResource("1_a6fg3")
+item_name = "Tanque oxigeno"
+description = "Respiracion"
+icon = ExtResource("1_cm5u0")
+width = 2
+height = 2
+can_rotate = false
+max_charges = 30
+use_text = "cada carga permite respirar 10 segundos"
+metadata/_custom_type_script = "uid://caxfluwpro32s"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://gahb1c6ayboj"]
+
+[ext_resource type="Script" uid="uid://caxfluwpro32s" path="res://game/data/items/ItemData.gd" id="1_jqmp5"]
+[ext_resource type="Texture2D" uid="uid://b12gtkv0lx04j" path="res://game/icons/water.png" id="1_l5mqu"]
+
+[resource]
+script = ExtResource("1_jqmp5")
+item_name = "Botella de Agua"
+description = "Recupera hidratación."
+icon = ExtResource("1_l5mqu")
+height = 2
+max_charges = 3
+use_text = "Recupera 20% de agua"
+metadata/_custom_type_script = "uid://caxfluwpro32s"

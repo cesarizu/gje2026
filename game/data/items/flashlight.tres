@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c785sn71qxsqw"]
+
+[ext_resource type="Texture2D" uid="uid://x7w3rfmt62kq" path="res://game/icons/flashligth.png" id="1_7x4xa"]
+[ext_resource type="Script" uid="uid://caxfluwpro32s" path="res://game/data/items/ItemData.gd" id="1_ndyqu"]
+
+[resource]
+script = ExtResource("1_ndyqu")
+item_name = "Linterna"
+description = "linterna"
+icon = ExtResource("1_7x4xa")
+height = 3
+max_charges = 3
+use_text = "Alumbra por 10 segundos"
+metadata/_custom_type_script = "uid://caxfluwpro32s"

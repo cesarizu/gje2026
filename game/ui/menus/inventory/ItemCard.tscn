@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://br21n8ht7p3rx"]
+
+[ext_resource type="Script" uid="uid://ddef21s0sqcuk" path="res://game/ui/menus/inventory/ItemCard.gd" id="1_cgs67"]
+
+[node name="ItemCard" type="PanelContainer" unique_id=814442404]
+custom_minimum_size = Vector2(200, 50)
+script = ExtResource("1_cgs67")
+
+[node name="ContentMargin" type="MarginContainer" parent="." unique_id=1722320183]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Content" type="HBoxContainer" parent="ContentMargin" unique_id=229592101]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="ItemIcon" type="TextureRect" parent="ContentMargin/Content" unique_id=1928446795]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ItemInfo" type="VBoxContainer" parent="ContentMargin/Content" unique_id=2010658684]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 50
+
+[node name="NameLabel" type="Label" parent="ContentMargin/Content/ItemInfo" unique_id=1372650132]
+layout_mode = 2
+text = "Bolsa de agua"
+
+[node name="StatsLabel" type="Label" parent="ContentMargin/Content/ItemInfo" unique_id=468854279]
+layout_mode = 2
+text = "1×2 · 3 cargas"
+
+[node name="DescriptionLabel" type="Label" parent="ContentMargin/Content/ItemInfo" unique_id=265032502]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+text = "Recupera hidratación."
+autowrap_mode = 3

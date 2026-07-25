@@ -14,15 +14,6 @@ corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4mtm5"]
 bg_color = Color(0.12941177, 0.22352941, 0.26666668, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.3882353, 0.9019608, 0.9098039, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tc06c"]
 content_margin_left = 24.0
@@ -80,6 +71,8 @@ Button/styles/pressed = SubResource("StyleBoxFlat_s582f")
 GridContainer/constants/h_separation = 12
 GridContainer/constants/v_separation = 12
 HBoxContainer/constants/separation = 16
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 27
 MarginContainer/constants/margin_bottom = 32
 MarginContainer/constants/margin_left = 32
 MarginContainer/constants/margin_right = 32
