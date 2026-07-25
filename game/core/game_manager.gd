@@ -6,13 +6,13 @@ signal state_changed(new_state: GameState)
 enum GameState {
 	NONE,
 	NOT_STARTED,
-	IN_SHIP,
-	IN_WORLD,
+	PLAYING,
 	GAME_OVER,
 }
 
 @export var boot_scene: PackedScene
 @export var ship_scene: PackedScene
+@export var hill_scene: PackedScene
 @export var world_scene: PackedScene
 
 var state: GameState = GameState.NONE:
@@ -33,13 +33,13 @@ func start_game() -> void:
 
 
 func enter_ship() -> void:
-	state = GameState.IN_SHIP
+	state = GameState.PLAYING
 	get_tree().change_scene_to_packed(ship_scene)
 
 
-func enter_world() -> void:
-	state = GameState.IN_WORLD
-	get_tree().change_scene_to_packed(world_scene)
+func enter_hill() -> void:
+	state = GameState.PLAYING
+	get_tree().change_scene_to_packed(hill_scene)
 
 
 func end_game() -> void:
@@ -64,4 +64,4 @@ func quit_game() -> void:
 
 
 func is_playing() -> bool:
-	return state == GameState.IN_SHIP or state == GameState.IN_WORLD
+	return state == GameState.PLAYING
