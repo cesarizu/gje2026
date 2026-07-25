@@ -4,6 +4,9 @@ const SPEED = 300.0
 var last_direction: Vector2 = Vector2.RIGHT
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
+func _ready() -> void:
+	Dialogic.start("player_dialog")
+
 func _physics_process(_delta: float) -> void:
 	process_movement()
 	process_animation() 
