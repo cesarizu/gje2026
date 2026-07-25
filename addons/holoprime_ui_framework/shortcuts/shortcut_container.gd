@@ -19,6 +19,12 @@ extends HBoxContainer
 ## have their icons updated when the input method changes.
 var _buttons: Array[Button] = []
 
+## Resolved fresh from the MultiplayerContext ancestor; the binding that drives it may set
+## the context's player_index after this node is ready, so it must not be cached.
+var _player_index: int:
+	get:
+		return MultiplayerContext.get_player_index(self)
+
 
 func _enter_tree() -> void:
 	for children in get_children():
@@ -31,13 +37,18 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	InputManager.input_method_changed.connect(_on_input_method_changed)
-	_on_input_method_changed(InputManager.current_input_method)
+	_update_icons()
 
 
-func _on_input_method_changed(_new_input_method: InputManager.InputMethod) -> void:
+func _on_input_method_changed(_new_input_method: InputManager.InputMethod, player_index: int) -> void:
+	if player_index == _player_index:
+		_update_icons()
+
+
+func _update_icons() -> void:
 	for button in _buttons:
 		for event: InputEvent in button.shortcut.events:
-			button.icon = ControllerIcons.get_icon(event)
+			button.icon = ControllerIcons.get_icon(event, _player_index)
 
 
 func _on_button_pressed(button: Button) -> void:

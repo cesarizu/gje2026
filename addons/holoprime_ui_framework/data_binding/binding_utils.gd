@@ -5,7 +5,7 @@ class_name BindingUtils
 
 ## Returns true if the node is bindable (has a BindingContext or is a supported UI type).
 static func is_bindable(node: Node, property_path: StringName) -> bool:
-	if node is BindingContext or node is Binding or node is BindingAction:
+	if node is BindingContext or node is Binding or node is BindingCommand:
 		return false
 
 	if property_path != &"" or BindingContext.has_self_context(node):
@@ -24,17 +24,24 @@ static func bind_value(node: Node, value: Variant, target_property := "") -> voi
 		if value is Texture2D:
 			node.icon = value
 		elif value is String:
-			node.text = value
+			set_text(node, value)
 
 	elif node is Label:
-		node.text = str(value)
+		set_text(node, value)
 
 	elif node is RichTextLabel:
-		node.text = str(value)
+		set_text(node, value)
 
 	elif node is TextureRect:
 		if value is Texture2D:
 			node.texture = value
+
+
+static func set_text(node: Node, value: Variant) -> void:
+	if node.has_method("set_text"):
+		node.call("set_text", str(value))
+	else:
+		node.text = str(value)
 
 
 ## Evaluates an expression on the given data object using GDScript Expression.

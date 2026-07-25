@@ -12,6 +12,10 @@ extends Node
 		expression = value
 		_evaluate_bound_value()
 
+## When false (default), the binding will skip refreshing while the parent node is hidden,
+## and will re-evaluate as soon as the parent becomes visible again.
+@export var evaluate_when_hidden: bool = false
+
 ## A debug string representing the source of this binding.
 var debug_source: String:
 	get:
@@ -48,19 +52,34 @@ var bound_value: Variant
 
 
 func _evaluate_bound_value() -> void:
-	if not _bound_data_source:
+	if _bound_data_source == null:
 		bound_value = null
 	else:
 		bound_value = BindingUtils.evaluate_expression(_bound_data_source, expression)
 
-	_refresh_binding()
+	if evaluate_when_hidden or _is_parent_visible():
+		_refresh_binding()
+
+
+func _is_parent_visible() -> bool:
+	var parent := get_parent()
+	if parent is CanvasItem:
+		return parent.is_visible_in_tree()
+	return true
 
 
 func _ready() -> void:
+	var parent := get_parent()
+	if parent is CanvasItem:
+		parent.visibility_changed.connect(_on_parent_visibility_changed)
 	_context = BindingContext.get_parent_context(self)
 
 
 func _exit_tree() -> void:
+	var parent := get_parent()
+	if parent is CanvasItem:
+		if parent.visibility_changed.is_connected(_on_parent_visibility_changed):
+			parent.visibility_changed.disconnect(_on_parent_visibility_changed)
 	_context = null
 
 
@@ -76,6 +95,11 @@ func _on_context_data_source_property_changed(_data_source: Variant, property: S
 
 	# For complex expressions or when property matches, evaluate
 	_evaluate_bound_value()
+
+
+func _on_parent_visibility_changed() -> void:
+	if not evaluate_when_hidden and _is_parent_visible():
+		_refresh_binding()
 
 
 @abstract

@@ -1,0 +1,5 @@
+# Override root LFS rules — holoprime_ui_framework manages its own binary files directly
+*.jpg !filter !diff !merge -text
+*.jpeg !filter !diff !merge -text
+*.png !filter !diff !merge -text
+*.ttf !filter !diff !merge -text

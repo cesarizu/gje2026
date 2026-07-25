@@ -33,18 +33,23 @@ extends Texture2D
 
 		_update_texture()
 
+## Player index used for icon lookup. Set by the owning node at creation time. Defaults to
+## AUTO (no multiplayer context) so standalone textures follow the global last-used device.
+var player_index: int = MultiplayerContext.AUTO_PLAYER_INDEX
+
 var _current_texture: Texture2D
 
 
 func _init() -> void:
-	if InputManager:
+	if not Engine.is_editor_hint():
 		InputManager.input_method_changed.connect(_on_input_method_changed)
 
 	_update_texture()
 
 
-func _on_input_method_changed(_new_input_method: InputManager.InputMethod) -> void:
-	_update_texture()
+func _on_input_method_changed(_new_input_method: InputManager.InputMethod, changed_player_index: int) -> void:
+	if changed_player_index == player_index:
+		_update_texture()
 
 
 func _update_texture() -> void:
@@ -52,7 +57,7 @@ func _update_texture() -> void:
 
 	if shortcut:
 		for event: InputEvent in shortcut.events:
-			var icon := ControllerIcons.get_icon(event, resource_name)
+			var icon := ControllerIcons.get_icon(event, player_index, resource_name)
 			if icon:
 				new_texture = icon
 				break

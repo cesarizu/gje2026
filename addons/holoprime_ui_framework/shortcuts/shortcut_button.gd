@@ -22,6 +22,12 @@ const GENERIC_BUTTON_CIRCLE = preload("uid://cqtjp15cpcxov")
 var _original_text := ""
 var _original_icon: Texture2D = null
 
+## Resolved fresh from the MultiplayerContext ancestor; the binding that drives it may set
+## the context's player_index after this node is ready, so it must not be cached.
+var _player_index: int:
+	get:
+		return MultiplayerContext.get_player_index(self)
+
 
 func _enter_tree() -> void:
 	_original_text = text
@@ -36,7 +42,6 @@ func _ready() -> void:
 
 	if not Engine.is_editor_hint():
 		InputManager.input_method_changed.connect(_on_input_method_changed)
-		_on_input_method_changed(InputManager.current_input_method)
 
 	_update_icon()
 
@@ -48,12 +53,16 @@ func change_text(new_text: String) -> void:
 
 
 func _on_visibility_changed() -> void:
-	if visible and not icon:
+	if visible:
 		_update_icon()
 
 
-func _on_input_method_changed(_new_input_method: InputManager.InputMethod) -> void:
-	_update_icon()
+func _on_input_method_changed(_new_input_method: InputManager.InputMethod, player_index: int) -> void:
+	if not is_inside_tree():
+		return
+
+	if player_index == _player_index:
+		_update_icon()
 
 
 func _update_icon() -> void:
@@ -66,7 +75,7 @@ func _update_icon() -> void:
 		return
 
 	if not shortcut:
-		if handle_icon_and_text and InputManager.current_input_method in hide_icon_on:
+		if handle_icon_and_text and InputManager.get_input_method_for(_player_index) in hide_icon_on:
 			icon = null
 		return
 
@@ -76,7 +85,7 @@ func _update_icon() -> void:
 		icon = _original_icon
 
 	for event: InputEvent in shortcut.events:
-		var input_method := ControllerIcons.get_input_method(event)
+		var input_method := ControllerIcons.get_input_method(event, _player_index)
 
 		if input_method == InputManager.InputMethod.UNKNOWN:
 			continue
@@ -86,7 +95,7 @@ func _update_icon() -> void:
 			continue
 
 		if handle_icon_and_text:
-			icon = ControllerIcons.get_icon(event, get_path())
+			icon = ControllerIcons.get_icon(event, _player_index, get_path())
 			text = _original_text if icon or keep_visible_if_no_shortcut else ""
 
 

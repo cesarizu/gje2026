@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b2g1uqjapm6c7"
 path.s3tc="res://.godot/imported/grid-2k.jpg-21d1e6aaa36f3023bc4c4d7df7bfc142.s3tc.ctex"
+path.etc2="res://.godot/imported/grid-2k.jpg-21d1e6aaa36f3023bc4c4d7df7bfc142.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://addons/holoprime_ui_framework/debug/assets/grid-2k.jpg"
-dest_files=["res://.godot/imported/grid-2k.jpg-21d1e6aaa36f3023bc4c4d7df7bfc142.s3tc.ctex"]
+dest_files=["res://.godot/imported/grid-2k.jpg-21d1e6aaa36f3023bc4c4d7df7bfc142.s3tc.ctex", "res://.godot/imported/grid-2k.jpg-21d1e6aaa36f3023bc4c4d7df7bfc142.etc2.ctex"]
 
 [params]
 

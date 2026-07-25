@@ -20,9 +20,19 @@ var top: Menu:
 ## The menu at the bottom of the stack
 var bottom: Menu:
 	get:
-		return null if _stack.is_empty() else _stack.back()
+		return null if _stack.is_empty() else _stack.back() if is_instance_valid(_stack.back()) else null
 
 var _stack: Array[Menu] = []
+
+
+func _enter_tree() -> void:
+	if not is_instance_valid(main_stack):
+		main_stack = self
+
+
+func _exit_tree() -> void:
+	if main_stack == self:
+		main_stack = null
 
 #region Public methods
 
@@ -41,7 +51,7 @@ func size() -> int:
 
 
 ## Indicates whether a menu is empty or not
-func is_empty() -> int:
+func is_empty() -> bool:
 	return _stack.is_empty()
 
 
@@ -82,7 +92,9 @@ func reset_to(menu: Variant, ...params) -> Menu:
 
 ## Pops the menu on top
 func pop_top() -> void:
-	_pop(top)
+	var menu := top
+	if menu:
+		_pop(menu)
 
 
 ## Clear all menus above the requested menu
@@ -113,7 +125,7 @@ func try_set_as_top(menu: Menu) -> void:
 ## Get a menu by type
 func get_menu(menu_type: Variant) -> Menu:
 	for menu in _stack:
-		if is_instance_of(menu, menu_type):
+		if is_instance_valid(menu) and is_instance_of(menu, menu_type):
 			return menu
 
 	return null
@@ -160,6 +172,9 @@ func _push(menu: Menu, ...params) -> void:
 
 ## Pops this menu, blurring it if it was the top menu and focusing the next top menu if it has changed.
 func _pop(menu: Menu) -> void:
+	if not is_instance_valid(menu):
+		return
+
 	var was_top := menu == top
 
 	if was_top:
@@ -185,12 +200,18 @@ func _pop(menu: Menu) -> void:
 
 ## Called when a menu needs focus
 func _focus_menu(menu: Menu) -> void:
+	if not is_instance_valid(menu):
+		return
+
 	menu.has_focus = true
 	await menu._focus_in()
 
 
 ## Called when a menu is blurred
 func _blur_menu(menu: Menu, from_pop: bool) -> void:
+	if not is_instance_valid(menu):
+		return
+
 	menu.has_focus = false
 	menu.is_popped = from_pop
 	await menu._focus_out()

@@ -1,0 +1,247 @@
+[gd_resource type="Resource" script_class="ControllerIconsData" format=3 uid="uid://ct4obf6enslyf"]
+
+[ext_resource type="Texture2D" uid="uid://bwpojj2nsn8wn" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_alt.svg" id="1_u0n4e"]
+[ext_resource type="Texture2D" uid="uid://bfyakdm6ee3kx" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_backspace_icon.svg" id="2_jmk2f"]
+[ext_resource type="Texture2D" uid="uid://bhxcps76hygiq" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_c.svg" id="3_kfdpm"]
+[ext_resource type="Texture2D" uid="uid://dy2bng6jfls8p" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_ctrl.svg" id="4_hvb6m"]
+[ext_resource type="Texture2D" uid="uid://bldkv3moigtph" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_delete.svg" id="5_mcc5t"]
+[ext_resource type="Texture2D" uid="uid://cl3181ub75w54" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_e.svg" id="6_if1as"]
+[ext_resource type="Texture2D" uid="uid://ccqdv2xbqjgpk" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_enter.svg" id="7_il20s"]
+[ext_resource type="Texture2D" uid="uid://db3oalqu524r0" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_escape.svg" id="8_6ga2m"]
+[ext_resource type="Texture2D" uid="uid://cjdpytdcyp5ff" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_f.svg" id="9_f38m5"]
+[ext_resource type="Texture2D" uid="uid://da2dn3dm50b8f" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_arrow_left.svg" id="10_wfkl5"]
+[ext_resource type="Texture2D" uid="uid://cfg786budflgk" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_q.svg" id="11_hylmg"]
+[ext_resource type="Texture2D" uid="uid://b8r4g4vcrw0mm" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_r.svg" id="12_hq76i"]
+[ext_resource type="Texture2D" uid="uid://b13yw38hr52ml" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_arrow_right.svg" id="13_r2q8u"]
+[ext_resource type="Texture2D" uid="uid://b3e3f270h5uf5" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_space_icon.svg" id="14_vknex"]
+[ext_resource type="Texture2D" uid="uid://cpbt4b0m5n6qq" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_t.svg" id="15_k8unl"]
+[ext_resource type="Texture2D" uid="uid://dsap2itrkn4gp" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_tab.svg" id="16_4ue8t"]
+[ext_resource type="Texture2D" uid="uid://c35dj1h3udlx2" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_v.svg" id="17_qtmcg"]
+[ext_resource type="Texture2D" uid="uid://66nw8w6clth8" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_arrow_up.svg" id="18_kfdpm"]
+[ext_resource type="Texture2D" uid="uid://3728ua77serr" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/mouse_left.svg" id="18_va7t6"]
+[ext_resource type="Texture2D" uid="uid://7m7dpt0k8xoe" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/mouse_right.svg" id="19_0jkni"]
+[ext_resource type="Texture2D" uid="uid://baorwg73bnr1q" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_arrow_down.svg" id="19_hvb6m"]
+[ext_resource type="Texture2D" uid="uid://7m7oxts2fpql" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/mouse_scroll.svg" id="20_57ykp"]
+[ext_resource type="Texture2D" uid="uid://iijx1gtt2fwd" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_g.svg" id="20_nupyb"]
+[ext_resource type="Texture2D" uid="uid://bjdkbfhfqadyp" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/mouse_scroll_up.svg" id="21_7myaf"]
+[ext_resource type="Texture2D" uid="uid://b0rbdtthtsjqi" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/mouse_scroll_down.svg" id="22_w1boj"]
+[ext_resource type="Texture2D" uid="uid://vk22o5o6m1wi" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/playstation_series/playstation_trigger_l2.svg" id="23_8trii"]
+[ext_resource type="Texture2D" uid="uid://btwcmybhpnpbs" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/playstation_series/playstation_trigger_r2.svg" id="24_qwvox"]
+[ext_resource type="Texture2D" uid="uid://crehfu5i0xylm" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/playstation_series/playstation_button_cross.svg" id="25_1yfl6"]
+[ext_resource type="Texture2D" uid="uid://couq7eif1413t" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/playstation_series/playstation_button_circle.svg" id="26_mjvhv"]
+[ext_resource type="Texture2D" uid="uid://bhtkyvowjn85k" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/playstation_series/playstation_trigger_r1_alternative.svg" id="27_y7fn7"]
+[ext_resource type="Texture2D" uid="uid://dp0m3m5xdjnxh" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/playstation_series/playstation_dpad_up.svg" id="28_rdt8g"]
+[ext_resource type="Texture2D" uid="uid://bflbik8ks2tp0" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/playstation_series/playstation_dpad_down.svg" id="29_3fhgy"]
+[ext_resource type="Texture2D" uid="uid://bqo1mejxrue15" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/playstation_series/playstation_dpad_left.svg" id="30_vugqd"]
+[ext_resource type="Texture2D" uid="uid://blmi70rip1wqb" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/playstation_series/playstation_dpad_right.svg" id="31_w0nos"]
+[ext_resource type="Texture2D" uid="uid://up7xc7gli8e0" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/playstation_series/playstation_button_square.svg" id="32_s8kfc"]
+[ext_resource type="Texture2D" uid="uid://cfmym3cbwsqua" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/playstation_series/playstation_button_triangle.svg" id="33_fjilr"]
+[ext_resource type="Texture2D" uid="uid://d2abnc6jsjr7g" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/playstation_series/playstation5_button_create.svg" id="34_h53x3"]
+[ext_resource type="Texture2D" uid="uid://cwgodthge8q88" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/playstation_series/playstation5_button_options.svg" id="35_dewgp"]
+[ext_resource type="Texture2D" uid="uid://dsfcmq637fusy" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/playstation_series/playstation_trigger_l1_alternative.svg" id="36_chyl7"]
+[ext_resource type="Texture2D" uid="uid://docm5smjxvgwt" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/xbox_series/xbox_lt.svg" id="37_c27mt"]
+[ext_resource type="Texture2D" uid="uid://vqmd6nq0vit3" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/xbox_series/xbox_rt.svg" id="38_5uvtj"]
+[ext_resource type="Texture2D" uid="uid://bnguttbivuv68" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/playstation_series/playstation_stick_l.svg" id="39_hvb6m"]
+[ext_resource type="Texture2D" uid="uid://61detebc22vx" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/xbox_series/xbox_button_a.svg" id="39_prjq1"]
+[ext_resource type="Texture2D" uid="uid://c77rect2080lj" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/xbox_series/xbox_button_b.svg" id="40_hgnkw"]
+[ext_resource type="Texture2D" uid="uid://j3463slkmbgq" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/xbox_series/xbox_rb.svg" id="41_1s1kh"]
+[ext_resource type="Texture2D" uid="uid://nw4ecpb5j3kv" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/playstation_series/playstation_stick_r.svg" id="41_3m4mg"]
+[ext_resource type="Texture2D" uid="uid://h8yde3mgy5b4" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/xbox_series/xbox_dpad_up.svg" id="42_txu7m"]
+[ext_resource type="Texture2D" uid="uid://dc36lub4ttj5s" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/xbox_series/xbox_dpad_down.svg" id="43_e0pw0"]
+[ext_resource type="Texture2D" uid="uid://dvxkauy68w4pm" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/xbox_series/xbox_dpad_left.svg" id="44_b8tfl"]
+[ext_resource type="Texture2D" uid="uid://dtjpoeafw2cum" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/xbox_series/xbox_dpad_right.svg" id="45_n4cyx"]
+[ext_resource type="Texture2D" uid="uid://ch1cxlgbdtte6" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/xbox_series/xbox_button_x.svg" id="46_awk0y"]
+[ext_resource type="Texture2D" uid="uid://dwwrlsfd4mlpy" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/xbox_series/xbox_button_y.svg" id="47_13hu4"]
+[ext_resource type="Texture2D" uid="uid://bmwe82opfoiea" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/xbox_series/xbox_button_back_icon.svg" id="48_h4twl"]
+[ext_resource type="Texture2D" uid="uid://cp5pi45bkdb2x" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/xbox_series/xbox_button_start_icon.svg" id="49_6wfk2"]
+[ext_resource type="Texture2D" uid="uid://dbk3ymybh8sg8" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/xbox_series/xbox_lb.svg" id="50_shkw3"]
+[ext_resource type="Script" uid="uid://b6ls6d1rke4wy" path="res://addons/holoprime_ui_framework/input/controller_icons_data.gd" id="51_ok3g6"]
+[ext_resource type="Texture2D" uid="uid://dxcpejci8suxo" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/xbox_series/xbox_button_view.svg" id="55_8gfec"]
+[ext_resource type="Texture2D" uid="uid://cocgb8mruovu5" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/xbox_series/xbox_button_menu.svg" id="56_4eje1"]
+[ext_resource type="Texture2D" uid="uid://0kchtpv1b4eq" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/xbox_series/xbox_stick_l.svg" id="56_5md4v"]
+[ext_resource type="Texture2D" uid="uid://btkernap0gu0k" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/xbox_series/xbox_stick_r.svg" id="57_3bnvb"]
+[ext_resource type="Texture2D" uid="uid://dapqgs8eqj0fx" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/playstation_series/playstation4_button_share.svg" id="57_lyw0d"]
+[ext_resource type="Texture2D" uid="uid://bn4bqaaiwy470" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/playstation_series/playstation4_button_options.svg" id="58_ghlqd"]
+[ext_resource type="Texture2D" uid="uid://dhhpayiw4h3hi" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/nintendo_switch/switch_button_a.svg" id="59_015rw"]
+[ext_resource type="Texture2D" uid="uid://pc8d6x00ljot" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/nintendo_switch/switch_button_b.svg" id="60_rv2qx"]
+[ext_resource type="Texture2D" uid="uid://c3v7pibqwukqc" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/playstation_series/playstation5_button_create_alternative.svg" id="61_a7b4p"]
+[ext_resource type="Texture2D" uid="uid://yqcbrkv5nq16" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/nintendo_switch/switch_button_x.svg" id="61_se2n0"]
+[ext_resource type="Texture2D" uid="uid://c0kje04gi4u8g" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/playstation_series/playstation5_button_options_alternative.svg" id="62_bvqyt"]
+[ext_resource type="Texture2D" uid="uid://d2ilt0uy4reg5" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/nintendo_switch/switch_button_y.svg" id="62_xlm8o"]
+[ext_resource type="Texture2D" uid="uid://m3rag4apnc6" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/nintendo_switch/switch_button_l.svg" id="63_3tr1k"]
+[ext_resource type="Texture2D" uid="uid://bveeka2l0cbky" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/nintendo_switch/switch_button_r.svg" id="64_85j14"]
+[ext_resource type="Texture2D" uid="uid://iyghw6r0v264" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/nintendo_switch/switch_button_minus.svg" id="65_gxyaj"]
+[ext_resource type="Texture2D" uid="uid://ciadaq25u5qw2" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/nintendo_switch/switch_button_plus.svg" id="66_r3po6"]
+[ext_resource type="Texture2D" uid="uid://1naqn3kuxvqq" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/nintendo_switch/switch_button_home.svg" id="67_ltlok"]
+[ext_resource type="Texture2D" uid="uid://cxwkfjv5xnvs4" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/nintendo_switch/switch_button_zl.svg" id="68_pmkx8"]
+[ext_resource type="Texture2D" uid="uid://c3nbhkka50ry0" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/nintendo_switch/switch_button_zr.svg" id="69_pfa7w"]
+[ext_resource type="Texture2D" uid="uid://besogilnikgj1" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/nintendo_switch/switch_stick_l.svg" id="70_safyv"]
+[ext_resource type="Texture2D" uid="uid://bc3jo1wf32sps" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/nintendo_switch/switch_stick_r.svg" id="71_j1v8a"]
+[ext_resource type="Texture2D" uid="uid://cxlf2vwcf6k4x" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/nintendo_switch/switch_dpad_up.svg" id="72_yckyp"]
+[ext_resource type="Texture2D" uid="uid://djjmlc2ycr2n6" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/nintendo_switch/switch_dpad_down.svg" id="73_i8vih"]
+[ext_resource type="Texture2D" uid="uid://d12a4j62bs3g1" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/nintendo_switch/switch_dpad_left.svg" id="74_x1u8m"]
+[ext_resource type="Texture2D" uid="uid://ck2g5xlydbeci" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/nintendo_switch/switch_dpad_right.svg" id="75_svlnp"]
+[ext_resource type="Texture2D" uid="uid://yrgg8t812tw4" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/xbox_series/xbox_button_start.svg" id="76_05pgv"]
+[ext_resource type="Texture2D" uid="uid://d2wqd02t06lya" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/playstation_series/playstation_button_analog.svg" id="76_q6op5"]
+[ext_resource type="Texture2D" uid="uid://dgv7b1qbw7pav" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/playstation_series/playstation4_touchpad.svg" id="77_flj01"]
+[ext_resource type="Texture2D" uid="uid://cyqywvyr8ldie" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/xbox_series/xbox_button_back.svg" id="77_h41ks"]
+[ext_resource type="Texture2D" uid="uid://cn6okrhkq656f" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/playstation_series/playstation5_touchpad.svg" id="78_s4ph2"]
+[ext_resource type="Texture2D" uid="uid://c65nbq31wpkup" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/xbox_series/xbox_guide.svg" id="79_ytxhf"]
+[ext_resource type="Texture2D" uid="uid://bexq8anoq7u5l" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_a.svg" id="80_keya"]
+[ext_resource type="Texture2D" uid="uid://bvixst3iuuyw1" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_b.svg" id="81_keyb"]
+[ext_resource type="Texture2D" uid="uid://8p3xgchnkagj" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_d.svg" id="82_keyd"]
+[ext_resource type="Texture2D" uid="uid://c6h4pniuo7mw5" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_h.svg" id="83_keyh"]
+[ext_resource type="Texture2D" uid="uid://bso05huaeifbe" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_i.svg" id="84_keyi"]
+[ext_resource type="Texture2D" uid="uid://d12qdh7rbg3md" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_j.svg" id="85_keyj"]
+[ext_resource type="Texture2D" uid="uid://cpkj6rodfx7wj" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_k.svg" id="86_keyk"]
+[ext_resource type="Texture2D" uid="uid://pbn1l7psv5kp" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_l.svg" id="87_keyl"]
+[ext_resource type="Texture2D" uid="uid://dqay4x155nbn4" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_m.svg" id="88_keym"]
+[ext_resource type="Texture2D" uid="uid://bk7ca7dnfq0ip" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_n.svg" id="89_keyn"]
+[ext_resource type="Texture2D" uid="uid://calvlxq8r61tq" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_o.svg" id="90_keyo"]
+[ext_resource type="Texture2D" uid="uid://j3wqnovcy5nv" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_p.svg" id="91_keyp"]
+[ext_resource type="Texture2D" uid="uid://dp3u0y5qoo3gu" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_s.svg" id="92_keys"]
+[ext_resource type="Texture2D" uid="uid://d3rdgnnpaahqk" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_u.svg" id="93_keyu"]
+[ext_resource type="Texture2D" uid="uid://dxnlpfolpe6wj" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_w.svg" id="94_keyw"]
+[ext_resource type="Texture2D" uid="uid://sf72qeu7cx1s" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_x.svg" id="95_keyx"]
+[ext_resource type="Texture2D" uid="uid://euout1fcgpdm" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_y.svg" id="96_keyy"]
+[ext_resource type="Texture2D" uid="uid://3hqt0ynig3qc" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/keyboard_mouse/keyboard_z.svg" id="97_keyz"]
+
+[resource]
+script = ExtResource("51_ok3g6")
+icons = Dictionary[String, Dictionary]({
+"dualsense": {
+"button_20": ExtResource("78_s4ph2"),
+"button_4": ExtResource("34_h53x3"),
+"button_6": ExtResource("35_dewgp")
+},
+"dualshock": {
+"button_20": ExtResource("77_flj01"),
+"button_4": ExtResource("57_lyw0d"),
+"button_6": ExtResource("58_ghlqd")
+},
+"keyboard": {
+"a": ExtResource("80_keya"),
+"alt": ExtResource("1_u0n4e"),
+"b": ExtResource("81_keyb"),
+"backspace": ExtResource("2_jmk2f"),
+"c": ExtResource("3_kfdpm"),
+"ctrl": ExtResource("4_hvb6m"),
+"d": ExtResource("82_keyd"),
+"delete": ExtResource("5_mcc5t"),
+"down": ExtResource("19_hvb6m"),
+"e": ExtResource("6_if1as"),
+"enter": ExtResource("7_il20s"),
+"escape": ExtResource("8_6ga2m"),
+"f": ExtResource("9_f38m5"),
+"g": ExtResource("20_nupyb"),
+"h": ExtResource("83_keyh"),
+"i": ExtResource("84_keyi"),
+"j": ExtResource("85_keyj"),
+"k": ExtResource("86_keyk"),
+"l": ExtResource("87_keyl"),
+"left": ExtResource("10_wfkl5"),
+"m": ExtResource("88_keym"),
+"n": ExtResource("89_keyn"),
+"o": ExtResource("90_keyo"),
+"p": ExtResource("91_keyp"),
+"q": ExtResource("11_hylmg"),
+"r": ExtResource("12_hq76i"),
+"right": ExtResource("13_r2q8u"),
+"s": ExtResource("92_keys"),
+"space": ExtResource("14_vknex"),
+"t": ExtResource("15_k8unl"),
+"tab": ExtResource("16_4ue8t"),
+"u": ExtResource("93_keyu"),
+"up": ExtResource("18_kfdpm"),
+"v": ExtResource("17_qtmcg"),
+"w": ExtResource("94_keyw"),
+"x": ExtResource("95_keyx"),
+"y": ExtResource("96_keyy"),
+"z": ExtResource("97_keyz")
+},
+"mouse": {
+"button_1": ExtResource("18_va7t6"),
+"button_2": ExtResource("19_0jkni"),
+"button_3": ExtResource("20_57ykp"),
+"button_4": ExtResource("21_7myaf"),
+"button_5": ExtResource("22_w1boj")
+},
+"nintendo": {
+"axis_0": ExtResource("70_safyv"),
+"axis_1": ExtResource("70_safyv"),
+"axis_2": ExtResource("71_j1v8a"),
+"axis_3": ExtResource("71_j1v8a"),
+"axis_4": ExtResource("68_pmkx8"),
+"axis_5": ExtResource("69_pfa7w"),
+"button_0": ExtResource("60_rv2qx"),
+"button_1": ExtResource("59_015rw"),
+"button_10": ExtResource("64_85j14"),
+"button_11": ExtResource("72_yckyp"),
+"button_12": ExtResource("73_i8vih"),
+"button_13": ExtResource("74_x1u8m"),
+"button_14": ExtResource("75_svlnp"),
+"button_2": ExtResource("62_xlm8o"),
+"button_3": ExtResource("61_se2n0"),
+"button_4": ExtResource("65_gxyaj"),
+"button_5": ExtResource("67_ltlok"),
+"button_6": ExtResource("66_r3po6"),
+"button_7": ExtResource("70_safyv"),
+"button_8": ExtResource("71_j1v8a"),
+"button_9": ExtResource("63_3tr1k")
+},
+"playstation": {
+"axis_0": ExtResource("39_hvb6m"),
+"axis_1": ExtResource("39_hvb6m"),
+"axis_2": ExtResource("41_3m4mg"),
+"axis_3": ExtResource("41_3m4mg"),
+"axis_4": ExtResource("23_8trii"),
+"axis_5": ExtResource("24_qwvox"),
+"button_0": ExtResource("25_1yfl6"),
+"button_1": ExtResource("26_mjvhv"),
+"button_10": ExtResource("27_y7fn7"),
+"button_11": ExtResource("28_rdt8g"),
+"button_12": ExtResource("29_3fhgy"),
+"button_13": ExtResource("30_vugqd"),
+"button_14": ExtResource("31_w0nos"),
+"button_2": ExtResource("32_s8kfc"),
+"button_3": ExtResource("33_fjilr"),
+"button_4": ExtResource("61_a7b4p"),
+"button_5": ExtResource("76_q6op5"),
+"button_6": ExtResource("62_bvqyt"),
+"button_7": ExtResource("39_hvb6m"),
+"button_8": ExtResource("41_3m4mg"),
+"button_9": ExtResource("36_chyl7")
+},
+"xbox": {
+"axis_0": ExtResource("56_5md4v"),
+"axis_1": ExtResource("56_5md4v"),
+"axis_2": ExtResource("57_3bnvb"),
+"axis_3": ExtResource("57_3bnvb"),
+"axis_4": ExtResource("37_c27mt"),
+"axis_5": ExtResource("38_5uvtj"),
+"button_0": ExtResource("39_prjq1"),
+"button_1": ExtResource("40_hgnkw"),
+"button_10": ExtResource("41_1s1kh"),
+"button_11": ExtResource("42_txu7m"),
+"button_12": ExtResource("43_e0pw0"),
+"button_13": ExtResource("44_b8tfl"),
+"button_14": ExtResource("45_n4cyx"),
+"button_2": ExtResource("46_awk0y"),
+"button_3": ExtResource("47_13hu4"),
+"button_4": ExtResource("76_05pgv"),
+"button_5": ExtResource("79_ytxhf"),
+"button_6": ExtResource("77_h41ks"),
+"button_7": ExtResource("56_5md4v"),
+"button_8": ExtResource("57_3bnvb"),
+"button_9": ExtResource("50_shkw3")
+},
+"xbox360": {
+"button_4": ExtResource("48_h4twl"),
+"button_6": ExtResource("49_6wfk2")
+},
+"xboxone": {
+"button_4": ExtResource("55_8gfec"),
+"button_6": ExtResource("56_4eje1")
+}
+})
+metadata/_custom_type_script = "uid://b6ls6d1rke4wy"

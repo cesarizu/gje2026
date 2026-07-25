@@ -2,71 +2,39 @@
 
 extends Node
 
-const GAMEPAD_PREFIX := {
-	InputManager.GamepadType.UNKNOWN: "xbox",
-	InputManager.GamepadType.XBOX: "xbox",
-	InputManager.GamepadType.PLAYSTATION: "playstation"
-}
-
-const FALLBACK_CONTROLLER_ICONS_DATA = preload("res://addons/holoprime_ui_framework/examples/controller_icons_data.tres")
+const BUILTIN_CONTROLLER_ICONS_DATA = preload("res://addons/holoprime_ui_framework/input/controller_icons_data.tres")
 
 var controller_icons_data_override: ControllerIconsData
 
 
-func get_input_method(event: InputEvent) -> InputManager.InputMethod:
-	if event is InputEventKey and InputManager.use_keyboard_or_mouse:
-		return InputManager.InputMethod.KEYBOARD_AND_MOUSE
-
-	elif event is InputEventMouseButton and InputManager.use_keyboard_or_mouse:
-		return InputManager.InputMethod.KEYBOARD_AND_MOUSE
-
-	elif event is InputEventScreenTouch and InputManager.use_touch:
-		return InputManager.InputMethod.TOUCH
-	elif event is InputEventMagnifyGesture and InputManager.use_touch:
-		return InputManager.InputMethod.TOUCH
-	elif event is InputEventPanGesture and InputManager.use_touch:
-		return InputManager.InputMethod.TOUCH
-	elif event is InputEventAction and InputManager.use_touch:
-		return InputManager.InputMethod.TOUCH
-
-	elif event is InputEventJoypadButton and InputManager.use_gamepad:
-		return InputManager.InputMethod.GAMEPAD
-	elif event is InputEventJoypadMotion and InputManager.use_gamepad:
-		return InputManager.InputMethod.GAMEPAD
-
-	elif event is InputEventAction:
-		for sub_event: InputEvent in InputMap.action_get_events(event.action):
-			var input_method := get_input_method(sub_event)
-			if input_method != InputManager.InputMethod.UNKNOWN:
-				return input_method
-
-	return InputManager.InputMethod.UNKNOWN
+func get_input_method(event: InputEvent, player_index: int = 0) -> InputManager.InputMethod:
+	return InputManager.get_input_method_for_event(event, player_index)
 
 
-func get_icon(event: InputEvent, debug_name := "") -> Texture2D:
-	if event is InputEventKey and InputManager.use_keyboard_or_mouse:
+func get_icon(event: InputEvent, player_index: int = 0, debug_name := "") -> Texture2D:
+	if event is InputEventKey and InputManager.use_keyboard_or_mouse_for(player_index):
 		return _get_icon("keyboard", _get_key_name(event), debug_name)
 
-	elif event is InputEventMouseButton and InputManager.use_keyboard_or_mouse:
+	elif event is InputEventMouseButton and InputManager.use_keyboard_or_mouse_for(player_index):
 		return _get_icon("mouse", "button_%s" % str(event.button_index), debug_name)
 
-	elif event is InputEventScreenTouch and InputManager.use_touch:
+	elif event is InputEventScreenTouch and InputManager.use_touch_for(player_index):
 		return _get_icon("touch", "touch" % event.action)
-	elif event is InputEventMagnifyGesture and InputManager.use_touch:
+	elif event is InputEventMagnifyGesture and InputManager.use_touch_for(player_index):
 		return _get_icon("touch", "gesture_magnify")
-	elif event is InputEventPanGesture and InputManager.use_touch:
+	elif event is InputEventPanGesture and InputManager.use_touch_for(player_index):
 		return _get_icon("touch", "gesture_pan")
-	elif event is InputEventAction and InputManager.use_touch:
+	elif event is InputEventAction and InputManager.use_touch_for(player_index):
 		return _get_icon("touch", "action_%s" % event.action)
 
-	elif event is InputEventJoypadButton and InputManager.use_gamepad:
-		return _get_icon(GAMEPAD_PREFIX[InputManager.current_gamepad_type], _get_joy_button_name(event.button_index), debug_name)
-	elif event is InputEventJoypadMotion and InputManager.use_gamepad:
-		return _get_icon(GAMEPAD_PREFIX[InputManager.current_gamepad_type], _get_axis_name(event.axis), debug_name)
+	elif event is InputEventJoypadButton and InputManager.use_gamepad_for(player_index):
+		return _get_icon(InputManager.get_icon_prefix_for(player_index), _get_joy_button_name(event.button_index), debug_name)
+	elif event is InputEventJoypadMotion and InputManager.use_gamepad_for(player_index):
+		return _get_icon(InputManager.get_icon_prefix_for(player_index), _get_axis_name(event.axis), debug_name)
 
 	elif event is InputEventAction:
 		for sub_event: InputEvent in InputMap.action_get_events(event.action):
-			var sprite := get_icon(sub_event, debug_name)
+			var sprite := get_icon(sub_event, player_index, debug_name)
 			if sprite:
 				return sprite
 
@@ -88,6 +56,18 @@ func _get_key_name(event: InputEventKey) -> String:
 		return event.as_text_keycode().to_lower()
 
 
+func _get_icon_from_data(icon_data: ControllerIconsData, prefix_fallback_chain: Array[String], action: String) -> Texture2D:
+	if not icon_data:
+		return null
+
+	for fallback_prefix: String in prefix_fallback_chain:
+		var icon: Texture2D = icon_data.icons.get(fallback_prefix, {}).get(action, null)
+		if icon:
+			return icon
+
+	return null
+
+
 func _get_icon(prefix: String, action: String, debug_name := "") -> Texture2D:
 	if InputManager.has_dualsense_firefox_bug:
 		match action:
@@ -98,15 +78,13 @@ func _get_icon(prefix: String, action: String, debug_name := "") -> Texture2D:
 			"0":
 				action = "2"
 
-	var icon: Texture2D
-
-	if controller_icons_data_override:
-		icon = controller_icons_data_override.icons.get(prefix, {}).get(action, null)
+	var prefix_fallback_chain := InputManager.get_prefix_fallback_chain(prefix)
+	var icon := _get_icon_from_data(controller_icons_data_override, prefix_fallback_chain, action)
 
 	if not icon:
-		icon = FALLBACK_CONTROLLER_ICONS_DATA.icons.get(prefix, {}).get(action, null)
+		icon = _get_icon_from_data(BUILTIN_CONTROLLER_ICONS_DATA, prefix_fallback_chain, action)
 
 	if not icon:
-		Log.warn(&"ControllerIcons", "No icon found for %s:%s | %s" % [prefix, action, debug_name])
+		Log.warn(&"ControllerIcons", "No icon found for %s:%s | %s" % [",".join(prefix_fallback_chain), action, debug_name])
 
 	return icon

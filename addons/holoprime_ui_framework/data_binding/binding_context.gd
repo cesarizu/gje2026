@@ -11,7 +11,9 @@ const BINDING_CONTEXT_META_NAME := &"BindingContext"
 signal data_source_changed(data_source: Variant)
 signal data_source_property_changed(data_source: Variant, property: StringName, value: Variant)
 
-signal action_executed(action_name: String, binding_context: BindingContext, params: Array)
+signal command_executed(command_name: StringName, binding_context: BindingContext, params: Array)
+
+var _is_command_handled := false
 
 ## The data source currently bound to this context.
 var data_source: Variant:
@@ -20,16 +22,17 @@ var data_source: Variant:
 		if data_source is ViewModel and data_source.property_changed.is_connected(_on_data_source_property_changed):
 			data_source.property_changed.disconnect(_on_data_source_property_changed)
 
-		if data_source is Resource and data_source.changed.is_connected(_on_data_source_property_changed):
-			data_source.changed.disconnect(_on_data_source_property_changed)
+		if data_source is Resource and data_source.changed.is_connected(_on_data_source_changed):
+			data_source.changed.disconnect(_on_data_source_changed)
 
 		data_source = value
 
 		# Listen to data source changes
 		if data_source is ViewModel:
 			data_source.property_changed.connect(_on_data_source_property_changed)
-		elif data_source is Resource:
-			data_source.changed.connect(_on_data_source_property_changed)
+
+		if data_source is Resource:
+			data_source.changed.connect(_on_data_source_changed)
 
 		Log.debug(&"BindingContext", "%s: Changed datasource to %s" % [self, value])
 		data_source_changed.emit(data_source)
@@ -96,14 +99,25 @@ func _to_string() -> String:
 	return "BindingContext[%s]" % parent_name
 
 
-## Pushes an action into this context. This will be broadcasted with a signal.
-func push_action(action_name: String, binding_context: BindingContext, ...params) -> void:
-	action_executed.emit(action_name, binding_context, params)
+## Pushes a command into this context. This will be broadcasted with a signal.
+func push_command(command_name: StringName, binding_context: BindingContext, propagate := false, ...params) -> void:
+	_is_command_handled = false
+	command_executed.emit(command_name, binding_context, params)
+
+	if propagate and not _is_command_handled:
+		var parent_context := get_parent_context(get_parent())
+		if parent_context:
+			parent_context.push_command.bindv(params).call(command_name, binding_context, propagate)
+
+
+## Marks the command as handled, so that it won't be propagated further.
+func set_command_as_handled() -> void:
+	_is_command_handled = true
 
 
 ## Called when a property in the data source changes.
 func _on_data_source_changed() -> void:
-	data_source_changed.emit()
+	data_source_changed.emit(data_source)
 
 
 ## Called when a property in the data source changes.
