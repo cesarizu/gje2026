@@ -6,19 +6,23 @@ var last_direction: Vector2 = Vector2.RIGHT
 
 func _physics_process(_delta: float) -> void:
 	process_movement()
+	process_animation() 
 	move_and_slide()
 	
 func process_movement() -> void:
 	var direction = Input.get_vector("player_move_left", "player_move_right", "player_move_up", "player_move_down")
 	
-	velocity = direction * SPEED
-	process_animation(direction)
-	
-func process_animation(direction)-> void:
-	if velocity != Vector2.ZERO:
-		play_animation("run", direction)
+	if direction != Vector2.ZERO:
+		velocity = direction * SPEED
+		last_direction = direction
 	else:
-		play_animation("idle", direction)
+		velocity = Vector2.ZERO
+	
+func process_animation()-> void:
+	if velocity != Vector2.ZERO:
+		play_animation("run", last_direction)
+	else:
+		play_animation("idle", last_direction)
 		
 func play_animation(prefix: String, dir: Vector2) -> void:
 	if dir.x != 0:
