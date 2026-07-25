@@ -14,3 +14,12 @@ config/name="GJE2026"
 run/main_scene="uid://dfdu3b7r5h42g"
 config/features=PackedStringArray("4.7")
 config/icon="res://icon.svg"
+
+[autoload]
+
+ControllerIcons="*uid://c5j02an0bbup"
+InputManager="*uid://c3xwehh7harte"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/holoprime_log/plugin.cfg", "res://addons/holoprime_ui_framework/plugin.cfg")
