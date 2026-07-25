@@ -8,3 +8,10 @@ script = ExtResource("1_fy24a")
 
 [node name="Player" parent="." unique_id=168436519 instance=ExtResource("1_suqfb")]
 position = Vector2(552, 354)
+
+[node name="Label" type="Label" parent="." unique_id=443660521]
+offset_left = 75.0
+offset_top = 30.0
+offset_right = 130.0
+offset_bottom = 53.0
+text = "Mundo"

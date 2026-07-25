@@ -6,11 +6,13 @@ signal state_changed(new_state: GameState)
 enum GameState {
 	NONE,
 	NOT_STARTED,
-	PLAYING,
+	IN_SHIP,
+	IN_WORLD,
 	GAME_OVER,
 }
 
 const BOOT_SCENE := "res://game/scenes/boot.tscn"
+const SHIP_SCENE := "res://game/scenes/ship.tscn"
 const WORLD_SCENE := "res://game/scenes/world.tscn"
 
 var state: GameState = GameState.NONE:
@@ -27,20 +29,28 @@ func go_to_start_menu() -> void:
 
 
 func start_game() -> void:
-	state = GameState.PLAYING
+	enter_ship()
+
+
+func enter_ship() -> void:
+	state = GameState.IN_SHIP
+	get_tree().change_scene_to_file(SHIP_SCENE)
+
+
+func enter_world() -> void:
+	state = GameState.IN_WORLD
 	get_tree().change_scene_to_file(WORLD_SCENE)
 
 
 func end_game() -> void:
-	if state != GameState.PLAYING:
+	if not is_playing():
 		return
 	state = GameState.GAME_OVER
 	UI.push_game_over()
 
 
 func restart_game() -> void:
-	state = GameState.PLAYING
-	get_tree().change_scene_to_file(WORLD_SCENE)
+	enter_ship()
 
 
 func return_to_start_menu() -> void:
@@ -54,4 +64,4 @@ func quit_game() -> void:
 
 
 func is_playing() -> bool:
-	return state == GameState.PLAYING
+	return state == GameState.IN_SHIP or state == GameState.IN_WORLD
