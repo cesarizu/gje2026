@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b628a7eoow508"]
+
+[ext_resource type="Script" uid="uid://dbdop8jjvibj" path="res://game/ui/menus/start_menu/start_menu.gd" id="1_8d2wq"]
+
+[node name="StartMenu" type="CanvasLayer" unique_id=1647760038]
+script = ExtResource("1_8d2wq")
+metadata/_custom_type_script = "uid://t4ioglwpiwid"
+
+[node name="StartButton" type="Button" parent="." unique_id=333610520]
+offset_left = 531.0
+offset_top = 325.0
+offset_right = 577.0
+offset_bottom = 356.0
+text = "Start"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

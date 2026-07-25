@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://10tvyup7onp8"]
+
+[ext_resource type="Script" uid="uid://t4ioglwpiwid" path="res://addons/holoprime_ui_framework/menus/menu.gd" id="1_2ywhy"]
+
+[node name="GameOver" type="CanvasLayer" unique_id=301013375]
+script = ExtResource("1_2ywhy")
+metadata/_custom_type_script = "uid://t4ioglwpiwid"
