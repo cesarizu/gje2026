@@ -1,25 +1,15 @@
 [gd_scene format=3 uid="uid://dykujv6nr0gco"]
 
 [ext_resource type="Script" uid="uid://dhe1qtevauib4" path="res://game/scenes/ship/ship.gd" id="1_v6oj8"]
-[ext_resource type="Texture2D" uid="uid://kr43lva2q0ah" path="res://game/scenes/ship/assets/bg-normal.jpeg" id="2_gqhfs"]
-[ext_resource type="Texture2D" uid="uid://dc74bwtgb4vrv" path="res://game/scenes/ship/assets/bg-red.jpeg" id="3_b83qn"]
+[ext_resource type="Texture2D" uid="uid://b8qck82km5kni" path="res://game/scenes/ship/assets/bg.png" id="2_l35cx"]
 [ext_resource type="PackedScene" uid="uid://oq21pisorm22" path="res://game/actors/player/player.tscn" id="4_b83qn"]
+[ext_resource type="Texture2D" uid="uid://c3uvjewmwgsdd" path="res://game/scenes/ship/assets/left.png" id="4_qtiow"]
 [ext_resource type="Script" uid="uid://cohk8vm07ox71" path="res://game/utils/interactive_area.gd" id="5_5r2ea"]
 [ext_resource type="PackedScene" uid="uid://x8lft640ihod" path="res://addons/holoprime_ui_framework/shortcuts/shortcut_button.tscn" id="5_fbtr2"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_edrbc"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_gqhfs")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_b83qn")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 2.0
-}]
+[ext_resource type="Texture2D" uid="uid://chl16vufkp0je" path="res://game/scenes/ship/assets/right.png" id="5_qul2h"]
+[ext_resource type="Texture2D" uid="uid://50xp24uk82l2" path="res://game/scenes/ship/assets/bottom.png" id="6_suw2m"]
+[ext_resource type="Texture2D" uid="uid://cqtjp15cpcxov" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/generic/generic_button_circle.svg" id="8_qtiow"]
+[ext_resource type="Shortcut" uid="uid://cke0a0ogk778b" path="res://game/ui/shortcuts/interact_shortcut.tres" id="9_qul2h"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rh4oo"]
 normal = Vector2(1, 0)
@@ -36,20 +26,36 @@ size = Vector2(252, 246.7105)
 [node name="Ship" type="Node2D" unique_id=1798625998]
 script = ExtResource("1_v6oj8")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=549603050]
-position = Vector2(960, 125)
-scale = Vector2(1.5, 1.5)
-sprite_frames = SubResource("SpriteFrames_edrbc")
-frame_progress = 0.018426461
+[node name="Content" type="Node2D" parent="." unique_id=1370303549]
+y_sort_enabled = true
 
-[node name="Player" parent="." unique_id=168436519 instance=ExtResource("4_b83qn")]
+[node name="Bg" type="Sprite2D" parent="Content" unique_id=1185972347]
+z_index = -1
+position = Vector2(960, 125)
+texture = ExtResource("2_l35cx")
+
+[node name="Player" parent="Content" unique_id=168436519 instance=ExtResource("4_b83qn")]
 position = Vector2(964, 546)
 
-[node name="Camera2D" parent="Player" index="2" unique_id=1935542993]
+[node name="Camera2D" parent="Content/Player" index="2" unique_id=1935542993]
 limit_left = 0
 limit_top = -835
 limit_right = 1920
 limit_bottom = 1080
+
+[node name="Left" type="Sprite2D" parent="Content" unique_id=1864700051]
+position = Vector2(114, -108)
+texture = ExtResource("4_qtiow")
+offset = Vector2(0, 200)
+
+[node name="Right" type="Sprite2D" parent="Content" unique_id=157852412]
+position = Vector2(1772, -111)
+texture = ExtResource("5_qul2h")
+offset = Vector2(0, 200)
+
+[node name="Bottom" type="Sprite2D" parent="." unique_id=1246928470]
+position = Vector2(960, 125)
+texture = ExtResource("6_suw2m")
 
 [node name="Limits" type="StaticBody2D" parent="." unique_id=564615941]
 
@@ -57,10 +63,11 @@ limit_bottom = 1080
 polygon = PackedVector2Array(102, 1067, 427, 848, 636, 910, 885, 758, 1205, 668, 1334, 551, 1587, 576, 1778, 613, 1957, 777, 1962, 1117, -24, 1161, -31, 1057)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Limits" unique_id=1931679854]
-polygon = PackedVector2Array(-10, -213, 146, -167, 236, -34, 171, 424, -1, 427)
+polygon = PackedVector2Array(-10, -213, 110, -187, 229, -111, 171, 424, -1, 427)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Limits" unique_id=1305401000]
-polygon = PackedVector2Array(1928, -119, 1849, -172, 1764, -169, 1635, -110, 1690, 424, 1944, 436)
+position = Vector2(-12, -2)
+polygon = PackedVector2Array(1931, -129, 1849, -172, 1763, -173, 1620, -127, 1690, 424, 1944, 436)
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Limits" unique_id=1089622815]
 polygon = PackedVector2Array(-29, -441, 98, -436, 171, -420, 112, -344, 264, -383, 468, -367, 692, -358, 738, -259, 807, -370, 949, -411, 1147, -439, 1216, -439, 1214, -609, 1649, -616, 1663, -446, 1983, -432, 1971, -862, -26, -851)
@@ -93,7 +100,9 @@ offset_left = -53.0
 offset_top = -156.0
 offset_right = 49.0
 offset_bottom = -94.0
+shortcut = ExtResource("9_qul2h")
 text = "Exit ship"
+icon = ExtResource("8_qtiow")
 flat = true
 
 [node name="InventoryArea2D" type="Area2D" parent="." unique_id=20110477 node_paths=PackedStringArray("show_hide")]
@@ -112,10 +121,11 @@ offset_left = -113.0
 offset_top = -154.0
 offset_right = 162.0
 offset_bottom = -92.0
+shortcut = ExtResource("9_qul2h")
 text = "Open Inventory"
 flat = true
 
 [connection signal="interacted" from="ExitArea" to="." method="_on_exit_area_interacted"]
 [connection signal="interacted" from="InventoryArea2D" to="." method="_on_inventory_area_2d_interacted"]
 
-[editable path="Player"]
+[editable path="Content/Player"]
