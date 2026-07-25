@@ -8,6 +8,7 @@ script = ExtResource("1_cgs67")
 
 [node name="ContentMargin" type="MarginContainer" parent="." unique_id=1722320183]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 10
@@ -15,6 +16,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Content" type="HBoxContainer" parent="ContentMargin" unique_id=229592101]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 12
 
 [node name="ItemIcon" type="TextureRect" parent="ContentMargin/Content" unique_id=1928446795]
@@ -27,6 +29,7 @@ stretch_mode = 5
 [node name="ItemInfo" type="VBoxContainer" parent="ContentMargin/Content" unique_id=2010658684]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_constants/separation = 50
 
 [node name="NameLabel" type="Label" parent="ContentMargin/Content/ItemInfo" unique_id=1372650132]

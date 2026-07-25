@@ -15,12 +15,13 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [node name="InventorySlot" type="PanelContainer" unique_id=660055398]
-custom_minimum_size = Vector2(96, 96)
+custom_minimum_size = Vector2(200, 200)
 theme_override_styles/panel = SubResource("StyleBoxFlat_676cj")
 script = ExtResource("1_7leu3")
 
 [node name="ContentMargin" type="MarginContainer" parent="." unique_id=1373187888]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
@@ -28,9 +29,11 @@ theme_override_constants/margin_bottom = 8
 
 [node name="ContentCenter" type="CenterContainer" parent="ContentMargin" unique_id=2075810698]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="ItemIcon" type="TextureRect" parent="ContentMargin/ContentCenter" unique_id=1162699049]
-custom_minimum_size = Vector2(64, 64)
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 mouse_filter = 2
 expand_mode = 1

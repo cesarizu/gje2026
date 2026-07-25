@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://gahb1c6ayboj"]
 
 [ext_resource type="Script" uid="uid://caxfluwpro32s" path="res://game/data/items/ItemData.gd" id="1_jqmp5"]
-[ext_resource type="Texture2D" uid="uid://b12gtkv0lx04j" path="res://game/icons/water.png" id="1_l5mqu"]
+[ext_resource type="Texture2D" uid="uid://ce5dh3pakvi5f" path="res://game/icons/Agua_Inventario.png" id="1_l5mqu"]
 
 [resource]
 script = ExtResource("1_jqmp5")

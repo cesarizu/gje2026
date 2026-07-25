@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kxys6l6adp27"
-path="res://.godot/imported/bandage.png-b7b772a1be37d0be2d7754e66c15c642.ctex"
+uid="uid://cc8rif2k767ak"
+path="res://.godot/imported/Linterna_inventario.png-187e00b0a96c317d1bf5efa78489b95b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/icons/bandage.png"
-dest_files=["res://.godot/imported/bandage.png-b7b772a1be37d0be2d7754e66c15c642.ctex"]
+source_file="res://game/icons/Linterna_inventario.png"
+dest_files=["res://.godot/imported/Linterna_inventario.png-187e00b0a96c317d1bf5efa78489b95b.ctex"]
 
 [params]
 

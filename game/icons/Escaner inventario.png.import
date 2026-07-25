@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwujgjd6jhdcw"
-path="res://.godot/imported/oxygen_tank.png-0661cdc16a8fc8cdb08f86cb47d2c0d1.ctex"
+uid="uid://7v0csdt6ex64"
+path="res://.godot/imported/Escaner inventario.png-b59a353a095399dafc7f80eb5af9ca4f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/icons/oxygen_tank.png"
-dest_files=["res://.godot/imported/oxygen_tank.png-0661cdc16a8fc8cdb08f86cb47d2c0d1.ctex"]
+source_file="res://game/icons/Escaner inventario.png"
+dest_files=["res://.godot/imported/Escaner inventario.png-b59a353a095399dafc7f80eb5af9ca4f.ctex"]
 
 [params]
 

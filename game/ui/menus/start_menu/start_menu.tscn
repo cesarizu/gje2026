@@ -6,6 +6,7 @@
 [node name="StartMenu" type="CanvasLayer" unique_id=1647760038 node_paths=PackedStringArray("default_focus")]
 script = ExtResource("1_8d2wq")
 default_focus = [NodePath("Control/CenterContainer/VBoxContainer/StartButton")]
+release_focus_on_keyboard = false
 metadata/_custom_type_script = "uid://t4ioglwpiwid"
 
 [node name="Control" type="Control" parent="." unique_id=2122739965]

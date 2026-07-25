@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b12gtkv0lx04j"
-path="res://.godot/imported/water.png-2c3200553dd77013eeb3680c0adf3d8b.ctex"
+uid="uid://bftqq1xuimf6n"
+path="res://.godot/imported/Vendas_Inventario.png-a214948361d0e12c64aea740961e9d86.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/icons/water.png"
-dest_files=["res://.godot/imported/water.png-2c3200553dd77013eeb3680c0adf3d8b.ctex"]
+source_file="res://game/icons/Vendas_Inventario.png"
+dest_files=["res://.godot/imported/Vendas_Inventario.png-a214948361d0e12c64aea740961e9d86.ctex"]
 
 [params]
 
