@@ -43,6 +43,18 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4mtm5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jid15"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w26eg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ff7d3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tc06c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yq2bb"]
+
 [resource]
 Button/colors/font_color = Color(0.90588236, 0.9490196, 0.9490196, 1)
 Button/colors/font_disabled_color = Color(0.44313726, 0.5137255, 0.5294118, 1)
@@ -77,4 +89,19 @@ MarginContainer/constants/margin_bottom = 32
 MarginContainer/constants/margin_left = 32
 MarginContainer/constants/margin_right = 32
 MarginContainer/constants/margin_top = 32
+ShortcutButton/base_type = &"Button"
+ShortcutButton/colors/icon_disabled_color = Color(1, 1, 1, 1)
+ShortcutButton/colors/icon_focus_color = Color(1, 1, 1, 1)
+ShortcutButton/colors/icon_hover_color = Color(1, 1, 1, 1)
+ShortcutButton/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+ShortcutButton/colors/icon_normal_color = Color(1, 1, 1, 1)
+ShortcutButton/colors/icon_pressed_color = Color(1, 1, 1, 1)
+ShortcutButton/constants/icon_max_width = 48
+ShortcutButton/constants/outline_size = 4
+ShortcutButton/styles/disabled = SubResource("StyleBoxEmpty_4mtm5")
+ShortcutButton/styles/focus = SubResource("StyleBoxEmpty_jid15")
+ShortcutButton/styles/hover = SubResource("StyleBoxEmpty_w26eg")
+ShortcutButton/styles/hover_pressed = SubResource("StyleBoxEmpty_ff7d3")
+ShortcutButton/styles/normal = SubResource("StyleBoxEmpty_tc06c")
+ShortcutButton/styles/pressed = SubResource("StyleBoxEmpty_yq2bb")
 VBoxContainer/constants/separation = 80
