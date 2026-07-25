@@ -23,3 +23,11 @@ InputManager="*uid://c3xwehh7harte"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/holoprime_log/plugin.cfg", "res://addons/holoprime_ui_framework/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://game/": "purple",
+"res://game/actors/": "orange",
+"res://game/ui/": "blue"
+}

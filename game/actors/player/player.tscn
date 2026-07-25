@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://oq21pisorm22"]
 
-[ext_resource type="Script" uid="uid://cq28l2yx4vr4b" path="res://game/actores/player/player.gd" id="1_3p4xn"]
+[ext_resource type="Script" uid="uid://cq28l2yx4vr4b" path="res://game/actors/player/player.gd" id="1_3p4xn"]
 [ext_resource type="Texture2D" uid="uid://pmnpqnuchvv" path="res://icon.svg" id="1_kojlm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_edrbc"]
