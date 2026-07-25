@@ -12,7 +12,7 @@ enum GameState {
 }
 
 const BOOT_SCENE := "res://game/scenes/boot.tscn"
-const SHIP_SCENE := "res://game/scenes/ship.tscn"
+const SHIP_SCENE := "res://game/scenes/ship/ship.tscn"
 const WORLD_SCENE := "res://game/scenes/world.tscn"
 
 var state: GameState = GameState.NONE:
