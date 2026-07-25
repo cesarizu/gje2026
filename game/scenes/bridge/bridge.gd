@@ -1,11 +1,20 @@
-extends Node
+class_name Bridge
+extends Node2D
+
+static var instance: Bridge
 
 
-# Called when the node enters the scene tree for the first time.
+func _enter_tree() -> void:
+	instance = self
+
+
 func _ready() -> void:
-	pass # Replace with function body.
+	UI.reset_to_hud()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_exit_area_interacted() -> void:
+	Core.game.enter_bridge()
+
+
+func _on_inventory_area_2d_interacted() -> void:
+	UI.push_inventory()

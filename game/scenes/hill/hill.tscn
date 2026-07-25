@@ -34,7 +34,7 @@ metadata/_custom_type_script = "uid://cohk8vm07ox71"
 position = Vector2(85, 49)
 shape = SubResource("RectangleShape2D_06nr6")
 
-[node name="ExitButton" type="Button" parent="ExitArea" unique_id=1898564392]
+[node name="ShortcutButton" type="Button" parent="ExitArea" unique_id=1898564392]
 offset_right = 170.0
 offset_bottom = 98.0
 
