@@ -45,6 +45,10 @@ folder_colors={
 "res://game/ui/": "blue"
 }
 
+[gui]
+
+theme/custom="uid://bkmwp1g2d5tx4"
+
 [input]
 
 menu_back={

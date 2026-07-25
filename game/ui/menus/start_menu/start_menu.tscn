@@ -1,17 +1,38 @@
 [gd_scene format=3 uid="uid://b628a7eoow508"]
 
 [ext_resource type="Script" uid="uid://dbdop8jjvibj" path="res://game/ui/menus/start_menu/start_menu.gd" id="1_8d2wq"]
+[ext_resource type="Theme" uid="uid://bkmwp1g2d5tx4" path="res://game/ui/temas/ultimo_tramo_theme.tres" id="2_7odqb"]
 
 [node name="StartMenu" type="CanvasLayer" unique_id=1647760038 node_paths=PackedStringArray("default_focus")]
 script = ExtResource("1_8d2wq")
-default_focus = [NodePath("StartButton")]
+default_focus = [NodePath("Control/CenterContainer/VBoxContainer/StartButton")]
 metadata/_custom_type_script = "uid://t4ioglwpiwid"
 
-[node name="StartButton" type="Button" parent="." unique_id=333610520]
-offset_left = 531.0
-offset_top = 325.0
-offset_right = 577.0
-offset_bottom = 356.0
-text = "Start"
+[node name="Control" type="Control" parent="." unique_id=2122739965]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[node name="CenterContainer" type="CenterContainer" parent="Control" unique_id=1775047681]
+layout_mode = 1
+offset_right = 1922.0
+offset_bottom = 1081.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer" unique_id=260813353]
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="Control/CenterContainer/VBoxContainer" unique_id=333610520]
+layout_mode = 2
+theme = ExtResource("2_7odqb")
+text = "Iniciar Expedición"
+
+[node name="ExitButton" type="Button" parent="Control/CenterContainer/VBoxContainer" unique_id=234235840]
+layout_mode = 2
+theme = ExtResource("2_7odqb")
+text = "Salir"
+
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Control/CenterContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
