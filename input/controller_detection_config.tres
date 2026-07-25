@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ControllerDetectionConfig" format=3 uid="uid://c460my2sj1b30"]
+
+[ext_resource type="Script" uid="uid://8kd5aoxis0gr" path="res://addons/holoprime_ui_framework/input/controller_detection_config.gd" id="1_tamev"]
+
+[resource]
+script = ExtResource("1_tamev")
+controller_match_order = Array[String](["dualsense", "dualshock", "xboxone", "xbox360", "pro2", "pro", "joycon2", "joycon", "nintendo"])
+controller_match_substrings = Dictionary[String, PackedStringArray]({
+"dualsense": PackedStringArray("dualsense", "ps5 controller", "playstation 5", "054c-0ce6"),
+"dualshock": PackedStringArray("dualshock", "ps4 controller", "playstation 4", "054c-09cc", "054c-05c4"),
+"joycon": PackedStringArray("joy-con", "joy con", "joycon"),
+"joycon2": PackedStringArray("joy-con 2", "joy con 2", "joycon2", "switch 2 joy-con"),
+"nintendo": PackedStringArray("nintendo", "switch"),
+"pro": PackedStringArray("switch pro controller", "pro controller"),
+"pro2": PackedStringArray("pro controller 2", "pro 2 controller", "pro2", "switch 2 pro"),
+"xbox360": PackedStringArray("xbox 360", "xbox360", "5e0400008e020000"),
+"xboxone": PackedStringArray("xbox one", "xboxone", "xbox wireless controller", "5e040000ea020000", "5e040000130b0000")
+})
+controller_fallbacks = Dictionary[String, String]({
+"dualsense": "playstation",
+"dualshock": "playstation",
+"joycon": "nintendo",
+"joycon2": "nintendo",
+"pro": "nintendo",
+"pro2": "nintendo",
+"xbox360": "xbox",
+"xboxone": "xbox"
+})
+metadata/_custom_type_script = "uid://8kd5aoxis0gr"

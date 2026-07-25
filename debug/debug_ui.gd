@@ -3,9 +3,15 @@ extends CanvasLayer
 
 const GRID_SIZE := Vector2(250, 250)
 const GRID_SPACING := 64
+const MAX_PLAYERS := 4
 
 var container: Container
 var sub_container: Container
+var _selected_player_label := "Player 0"
+
+var _selected_player_index: int:
+	get:
+		return _selected_player_label.trim_prefix("Player ").to_int()
 
 
 func _enter_tree() -> void:
@@ -24,7 +30,7 @@ func _enter_tree() -> void:
 #region Lifecycle
 
 
-func _on_input_method_changed(_new_input_method: InputManager.InputMethod) -> void:
+func _on_input_method_changed(_new_input_method: InputManager.InputMethod, _player_index: int) -> void:
 	_try_grab_focus.call_deferred()
 
 
@@ -141,7 +147,7 @@ func _add_dropdown(text: String, values: Array[Variant], variable: StringName) -
 
 #endregion
 
-#region UI
+#region Rendering
 
 @export_group("Rendering")
 @export var texel_density_material: ShaderMaterial
@@ -173,6 +179,20 @@ func _cycle_input_method() -> void:
 	@warning_ignore("int_as_enum_without_cast")
 	InputManager.forced_input_method = (InputManager.forced_input_method + 1) % InputManager.InputMethod.size()
 
+
+func _add_multiplayer_input_devices() -> void:
+	var player_labels: Array[Variant] = []
+	for i in MAX_PLAYERS:
+		player_labels.append("Player %d" % i)
+	_add_dropdown("Selected", player_labels, &"_selected_player_label")
+
+	_add_button("Set Keyboard", Color.SEA_GREEN, func() -> void: MultiplayerInput.set_player_keyboard(_selected_player_index))
+
+	for device_id in Input.get_connected_joypads():
+		var label := "Set %d: %s" % [device_id, Input.get_joy_name(device_id)]
+		_add_button(label, Color.SEA_GREEN, func() -> void: MultiplayerInput.set_player_gamepad(_selected_player_index, device_id))
+
+	_add_button("Unset (Auto/None)", Color.INDIAN_RED, func() -> void: MultiplayerInput.unset_player_input(_selected_player_index))
 
 #endregion
 

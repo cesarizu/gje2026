@@ -54,7 +54,7 @@ func _ready() -> void:
 		Log.warn(&"Menu", "Menu is not in any stack!")
 
 	InputManager.input_method_changed.connect(_on_input_method_changed)
-	_on_input_method_changed(InputManager.current_input_method)
+	_on_input_method_changed(InputManager.current_input_method, 0)
 
 	update_focus()
 
@@ -62,6 +62,9 @@ func _ready() -> void:
 func _shortcut_input(event: InputEvent) -> void:
 	if not has_focus:
 		return
+
+	if not get_viewport().gui_get_focus_owner() and InputManager.use_gamepad:
+		update_focus()
 
 	if event.is_action_pressed("menu_back"):
 		if not _menu_stack or (_menu_stack.size() == 1 and _menu_stack.top == self):
@@ -78,8 +81,10 @@ func _to_string() -> String:
 func _notification(what: int) -> void:
 	match what:
 		NOTIFICATION_WM_GO_BACK_REQUEST:
-			# Handle Android back button
-			_on_back_pressed()
+			var action_event := InputEventAction.new()
+			action_event.action = &"menu_back"
+			action_event.pressed = true
+			Input.parse_input_event(action_event)
 
 
 #endregion
@@ -129,7 +134,7 @@ func pop_self() -> void:
 #region Private methods
 
 
-func _on_input_method_changed(new_input_method: InputManager.InputMethod) -> void:
+func _on_input_method_changed(new_input_method: InputManager.InputMethod, _player_index: int) -> void:
 	if not has_focus:
 		return
 
@@ -150,7 +155,7 @@ func save_last_focus() -> void:
 #region Overridable methods
 
 
-## Defines the functionality when the menu_back action is pressed.
+## Called when the menu_back action is triggered (keyboard/gamepad) or the mobile back gesture is used.
 func _on_back_pressed() -> void:
 	if not has_focus or _menu_stack.size() <= 1:
 		return

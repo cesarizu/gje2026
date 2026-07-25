@@ -2,22 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2g1uqjapm6c7"
-path.s3tc="res://.godot/imported/grid-2k.jpg-21d1e6aaa36f3023bc4c4d7df7bfc142.s3tc.ctex"
-path.etc2="res://.godot/imported/grid-2k.jpg-21d1e6aaa36f3023bc4c4d7df7bfc142.etc2.ctex"
+uid="uid://d11tofy72307g"
+path="res://.godot/imported/touch_tap.svg-bd15dfa949d14b5497ec7d76964e0c66.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/holoprime_ui_framework/debug/assets/grid-2k.jpg"
-dest_files=["res://.godot/imported/grid-2k.jpg-21d1e6aaa36f3023bc4c4d7df7bfc142.s3tc.ctex", "res://.godot/imported/grid-2k.jpg-21d1e6aaa36f3023bc4c4d7df7bfc142.etc2.ctex"]
+source_file="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/touch/touch_tap.svg"
+dest_files=["res://.godot/imported/touch_tap.svg-bd15dfa949d14b5497ec7d76964e0c66.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -25,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -39,4 +37,7 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3pejrc4fgfgi"
-path="res://.godot/imported/binding_action.svg-b80d8e471d9ed3ce62b8520d239a0a41.ctex"
+path="res://.godot/imported/binding_command.svg-d1b7ec265e9fb08275efdf2169fd628b.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/holoprime_ui_framework/data_binding/binding_action.svg"
-dest_files=["res://.godot/imported/binding_action.svg-b80d8e471d9ed3ce62b8520d239a0a41.ctex"]
+source_file="res://addons/holoprime_ui_framework/data_binding/binding_command.svg"
+dest_files=["res://.godot/imported/binding_command.svg-d1b7ec265e9fb08275efdf2169fd628b.ctex"]
 
 [params]
 

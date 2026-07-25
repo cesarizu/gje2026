@@ -98,7 +98,7 @@ func _refresh_binding() -> void:
 	if template_item_node_path:
 		var item_template := get_node(template_item_node_path)
 		_instantiated_children = await BindingUtils.setup_children_nodes(parent, list, item_target_property_path, func(item):
-			var new_item := item_template.duplicate(DUPLICATE_SCRIPTS | DUPLICATE_SIGNALS)
+			var new_item := item_template.duplicate(DUPLICATE_SCRIPTS | DUPLICATE_SIGNALS | DUPLICATE_USE_INSTANTIATION)
 			new_item.visible = true
 			_fix_signals(new_item)
 			return new_item
@@ -158,21 +158,22 @@ func _handle_selected_item() -> void:
 
 	# Grab focus on the selected item
 	if selected_child.has_method(&"grab_focus"):
+		await selected_child.get_tree().process_frame
 		selected_child.grab_focus()
 
 
 func _on_item_pressed(item: Node) -> void:
-	var parent_context := BindingContext.get_parent_context(item.get_parent())
+	var parent_context := BindingContext.get_parent_context(item)
 	if parent_context:
 		var source_context := BindingContext.get_self_context(item)
-		parent_context.push_action(&"pressed", source_context)
+		parent_context.push_command(&"pressed", source_context)
 
 
 func _on_item_focused(item: Node, focused: bool) -> void:
-	var parent_context := BindingContext.get_parent_context(item.get_parent())
+	var parent_context := BindingContext.get_parent_context(item)
 	if parent_context:
 		var source_context := BindingContext.get_self_context(item)
-		parent_context.push_action(&"focused", source_context, focused)
+		parent_context.push_command(&"focused", source_context, false, focused)
 
 
 func _fix_signals(new_item: Node) -> void:

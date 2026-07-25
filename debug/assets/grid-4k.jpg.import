@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://e5llr15t0kwv"
 path.s3tc="res://.godot/imported/grid-4k.jpg-0054e1ae50dc6c73b68863239688bb60.s3tc.ctex"
+path.etc2="res://.godot/imported/grid-4k.jpg-0054e1ae50dc6c73b68863239688bb60.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://addons/holoprime_ui_framework/debug/assets/grid-4k.jpg"
-dest_files=["res://.godot/imported/grid-4k.jpg-0054e1ae50dc6c73b68863239688bb60.s3tc.ctex"]
+dest_files=["res://.godot/imported/grid-4k.jpg-0054e1ae50dc6c73b68863239688bb60.s3tc.ctex", "res://.godot/imported/grid-4k.jpg-0054e1ae50dc6c73b68863239688bb60.etc2.ctex"]
 
 [params]
 
