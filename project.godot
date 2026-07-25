@@ -26,9 +26,11 @@ Dialogic="*uid://ds2q0uclmolvu"
 
 [dialogic]
 
-directories/dch_directory={}
+directories/dch_directory={
+"player": "res://game/characters/player.dch"
+}
 directories/dtl_directory={
-"player_dialog": "res://player_dialog.dtl"
+"player_dialog": "res://game/timelines/player_dialog.dtl"
 }
 layout/style_directory={}
 text/letter_speed=0.01
