@@ -11,9 +11,9 @@ enum GameState {
 	GAME_OVER,
 }
 
-const BOOT_SCENE := "res://game/scenes/boot.tscn"
-const SHIP_SCENE := "res://game/scenes/ship.tscn"
-const WORLD_SCENE := "res://game/scenes/world.tscn"
+@export var boot_scene: PackedScene
+@export var ship_scene: PackedScene
+@export var world_scene: PackedScene
 
 var state: GameState = GameState.NONE:
 	set(value):
@@ -34,12 +34,12 @@ func start_game() -> void:
 
 func enter_ship() -> void:
 	state = GameState.IN_SHIP
-	get_tree().change_scene_to_file(SHIP_SCENE)
+	get_tree().change_scene_to_packed(ship_scene)
 
 
 func enter_world() -> void:
 	state = GameState.IN_WORLD
-	get_tree().change_scene_to_file(WORLD_SCENE)
+	get_tree().change_scene_to_packed(world_scene)
 
 
 func end_game() -> void:
@@ -55,7 +55,7 @@ func restart_game() -> void:
 
 func return_to_start_menu() -> void:
 	state = GameState.NOT_STARTED
-	get_tree().change_scene_to_file(BOOT_SCENE)
+	get_tree().change_scene_to_packed(boot_scene)
 
 
 func quit_game() -> void:
