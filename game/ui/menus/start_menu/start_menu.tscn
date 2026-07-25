@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dbdop8jjvibj" path="res://game/ui/menus/start_menu/start_menu.gd" id="1_8d2wq"]
 
-[node name="StartMenu" type="CanvasLayer" unique_id=1647760038]
+[node name="StartMenu" type="CanvasLayer" unique_id=1647760038 node_paths=PackedStringArray("default_focus")]
 script = ExtResource("1_8d2wq")
+default_focus = [NodePath("StartButton")]
 metadata/_custom_type_script = "uid://t4ioglwpiwid"
 
 [node name="StartButton" type="Button" parent="." unique_id=333610520]

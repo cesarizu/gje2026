@@ -3,4 +3,4 @@ extends Node
 
 
 func _ready() -> void:
-	UI.reset_to_start_menu()
+	Core.game.go_to_start_menu()

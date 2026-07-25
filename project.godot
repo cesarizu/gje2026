@@ -19,8 +19,9 @@ config/icon="res://icon.svg"
 
 ControllerIcons="*uid://c5j02an0bbup"
 InputManager="*uid://c3xwehh7harte"
-UI="*uid://b0f0e8lryylqi"
 MultiplayerInput="*uid://djggp7qpipuct"
+Core="*uid://dbouwohb0tgtt"
+UI="*uid://b0f0e8lryylqi"
 
 [display]
 
@@ -38,6 +39,7 @@ enabled=PackedStringArray("res://addons/holoprime_log/plugin.cfg", "res://addons
 folder_colors={
 "res://game/": "purple",
 "res://game/actors/": "orange",
+"res://game/core/": "red",
 "res://game/scenes/": "green",
 "res://game/ui/": "blue"
 }
