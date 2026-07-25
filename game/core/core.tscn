@@ -2,9 +2,13 @@
 
 [ext_resource type="Script" uid="uid://cohq4mqqke113" path="res://game/core/core.gd" id="1_k2e3x"]
 [ext_resource type="Script" uid="uid://5mm68jm5o76" path="res://game/core/game_manager.gd" id="2_njjph"]
+[ext_resource type="Script" path="res://game/core/map_manager.gd" id="3_map"]
 
 [node name="Core" type="Node" unique_id=144772968]
 script = ExtResource("1_k2e3x")
 
 [node name="GameManager" type="Node" parent="." unique_id=1715732565]
 script = ExtResource("2_njjph")
+
+[node name="MapManager" type="Node" parent="."]
+script = ExtResource("3_map")

@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://coskmifub1axn"]
+
+[ext_resource type="Script" uid="uid://dmpkktl4e67rf" path="res://game/scenes/world_node.gd" id="1_wnode"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_boundary_top"]
+size = Vector2(1920, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_boundary_bottom"]
+size = Vector2(1920, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_boundary_left"]
+size = Vector2(32, 1080)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_boundary_right"]
+size = Vector2(32, 1080)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit_zone"]
+size = Vector2(96, 300)
+
+[node name="WorldNode" type="Node2D" unique_id=1979990340]
+script = ExtResource("1_wnode")
+
+[node name="Boundaries" type="Node2D" parent="." unique_id=633684390]
+
+[node name="Top" type="StaticBody2D" parent="Boundaries" unique_id=1841173782]
+position = Vector2(960, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Top" unique_id=748002196]
+shape = SubResource("RectangleShape2D_boundary_top")
+
+[node name="ColorRect" type="ColorRect" parent="Boundaries/Top" unique_id=482062966]
+offset_left = -960.0
+offset_top = -16.0
+offset_right = 960.0
+offset_bottom = 16.0
+color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="Bottom" type="StaticBody2D" parent="Boundaries" unique_id=844568036]
+position = Vector2(960, 1064)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Bottom" unique_id=833483272]
+shape = SubResource("RectangleShape2D_boundary_bottom")
+
+[node name="ColorRect" type="ColorRect" parent="Boundaries/Bottom" unique_id=2054199231]
+offset_left = -960.0
+offset_top = -16.0
+offset_right = 960.0
+offset_bottom = 16.0
+color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="Left" type="StaticBody2D" parent="Boundaries" unique_id=425385429]
+position = Vector2(16, 540)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Left" unique_id=1922114803]
+shape = SubResource("RectangleShape2D_boundary_left")
+
+[node name="ColorRect" type="ColorRect" parent="Boundaries/Left" unique_id=2045770574]
+offset_left = -16.0
+offset_top = -540.0
+offset_right = 16.0
+offset_bottom = 540.0
+color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="Right" type="StaticBody2D" parent="Boundaries" unique_id=1312018430]
+position = Vector2(1904, 540)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Right" unique_id=1301841157]
+shape = SubResource("RectangleShape2D_boundary_right")
+
+[node name="ColorRect" type="ColorRect" parent="Boundaries/Right" unique_id=1956060485]
+offset_left = -16.0
+offset_top = -540.0
+offset_right = 16.0
+offset_bottom = 540.0
+color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="ExitZone" type="Area2D" parent="." unique_id=403574534]
+position = Vector2(1856, 540)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitZone" unique_id=1432040314]
+shape = SubResource("RectangleShape2D_exit_zone")
+
+[node name="ColorRect" type="ColorRect" parent="ExitZone" unique_id=789038035]
+offset_left = -48.0
+offset_top = -150.0
+offset_right = 48.0
+offset_bottom = 150.0
+color = Color(0.2, 0.9, 0.3, 0.6)
+
+[connection signal="body_entered" from="ExitZone" to="." method="_on_exit_zone_body_entered"]

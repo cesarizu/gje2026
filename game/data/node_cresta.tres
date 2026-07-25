@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="WorldNodeData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://game/data/world_node_data.gd" id="1_data"]
+[ext_resource type="Resource" path="res://game/data/node_puente_roto.tres" id="2_next"]
+
+[resource]
+script = ExtResource("1_data")
+node_id = "cresta"
+depth = 1
+biome = "cresta"
+display_name = "Cresta de Vidrio"
+description = ""
+base_o2_cost = 12
+base_threats = PackedStringArray("frio", "cortes")
+next_node = ExtResource("2_next")
+scene_path = "res://game/scenes/world_node.tscn"
+parallax_speed = 0.3
+color_tint = Color(1, 1, 1, 1)
+audio_ambience = ""
