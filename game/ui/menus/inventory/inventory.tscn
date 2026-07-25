@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c2n5g34fiihsx"]
+
+[ext_resource type="Script" uid="uid://cno3n8lywcsqa" path="res://game/ui/menus/inventory/inventory.gd" id="1_c08o0"]
+
+[node name="Inventory" type="CanvasLayer" unique_id=996149556]
+script = ExtResource("1_c08o0")
+metadata/_custom_type_script = "uid://t4ioglwpiwid"
+
+[node name="Label" type="Label" parent="." unique_id=1422459920]
+offset_left = 913.0
+offset_top = 150.0
+offset_right = 953.0
+offset_bottom = 173.0
+text = "Inventory"

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b628a7eoow508" path="res://game/ui/menus/start_menu/start_menu.tscn" id="2_tlxmm"]
 [ext_resource type="PackedScene" uid="uid://dx4cpkn5whiuj" path="res://game/ui/menus/hud/hud.tscn" id="3_x2i5x"]
 [ext_resource type="PackedScene" uid="uid://10tvyup7onp8" path="res://game/ui/menus/game_over/game_over.tscn" id="4_i2twh"]
+[ext_resource type="PackedScene" uid="uid://c2n5g34fiihsx" path="res://game/ui/menus/inventory/inventory.tscn" id="6_tlxmm"]
 [ext_resource type="Script" uid="uid://brhjayntt48o4" path="res://addons/holoprime_ui_framework/menus/menu_stack.gd" id="5_x2i5x"]
 
 [node name="UI" type="Node" unique_id=2100637443]
@@ -11,6 +12,7 @@ script = ExtResource("1_4xhdt")
 start_scene = ExtResource("2_tlxmm")
 hud_scene = ExtResource("3_x2i5x")
 game_over_scene = ExtResource("4_i2twh")
+inventory_scene = ExtResource("6_tlxmm")
 
 [node name="MenuStack" type="CanvasLayer" parent="." unique_id=1360853042]
 unique_name_in_owner = true

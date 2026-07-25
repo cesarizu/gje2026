@@ -3,6 +3,7 @@ extends Node
 @export var start_scene: PackedScene
 @export var hud_scene: PackedScene
 @export var game_over_scene: PackedScene
+@export var inventory_scene: PackedScene
 
 @onready var menu_stack: MenuStack = %MenuStack
 
@@ -21,3 +22,7 @@ func reset_to_hud() -> void:
 
 func push_game_over() -> void:
 	menu_stack.push(game_over_scene)
+
+
+func push_inventory() -> void:
+	menu_stack.push(inventory_scene)

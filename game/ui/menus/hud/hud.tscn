@@ -4,6 +4,7 @@
 
 [node name="Hud" type="CanvasLayer" unique_id=710360588]
 script = ExtResource("1_2rq3b")
+hide_on_focus_out = false
 metadata/_custom_type_script = "uid://t4ioglwpiwid"
 
 [node name="Label" type="Label" parent="." unique_id=891784688]
