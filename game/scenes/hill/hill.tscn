@@ -11,8 +11,8 @@ size = Vector2(166, 92)
 
 [node name="Content" type="Node2D" parent="." unique_id=264787953]
 
-[node name="Sprite2D" type="Sprite2D" parent="Content" unique_id=760465783]
-position = Vector2(2082.0002, 58)
+[node name="Bg" type="Sprite2D" parent="Content" unique_id=760465783]
+position = Vector2(2030, 3.0000038)
 scale = Vector2(0.50012404, 0.49441963)
 texture = ExtResource("1_06nr6")
 
@@ -37,5 +37,7 @@ shape = SubResource("RectangleShape2D_06nr6")
 [node name="ExitButton" type="Button" parent="ExitArea" unique_id=1898564392]
 offset_right = 170.0
 offset_bottom = 98.0
+
+[connection signal="interacted" from="ExitArea" to="Content/Player" method="_on_exit_area_interacted"]
 
 [editable path="Content/Player"]

@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://cxuaswgmxkucj" path="res://game/scenes/boot.tscn" id="3_b7k4n"]
 [ext_resource type="PackedScene" uid="uid://dykujv6nr0gco" path="res://game/scenes/ship/ship.tscn" id="4_s2p9d"]
 [ext_resource type="PackedScene" uid="uid://b3730kor8k203" path="res://game/scenes/hill/hill.tscn" id="5_h1l1x"]
-[ext_resource type="PackedScene" uid="uid://dfdu3b7r5h42g" path="res://game/scenes/world.tscn" id="5_w3m6q"]
 
 [node name="Core" type="Node" unique_id=144772968]
 script = ExtResource("1_k2e3x")
@@ -15,4 +14,3 @@ script = ExtResource("2_njjph")
 boot_scene = ExtResource("3_b7k4n")
 ship_scene = ExtResource("4_s2p9d")
 hill_scene = ExtResource("5_h1l1x")
-world_scene = ExtResource("5_w3m6q")
