@@ -32,7 +32,10 @@ directories/dch_directory={
 directories/dtl_directory={
 "player_dialog": "res://game/timelines/player_dialog.dtl"
 }
-layout/style_directory={}
+layout/style_directory={
+"": "res://game/styles/default_style.tres",
+"default_style": "res://game/styles/default_style.tres"
+}
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
 text/text_reveal_skip_delay=0.1
@@ -66,8 +69,8 @@ audio/channel_defaults={
 }
 }
 variables={}
-layout/style_list=[]
-layout/default_style="Default"
+layout/style_list=["res://game/styles/default_style.tres"]
+layout/default_style="res://game/styles/default_style.tres"
 glossary/default_case_sensitive=true
 
 [display]
