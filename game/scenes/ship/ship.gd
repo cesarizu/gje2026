@@ -10,8 +10,11 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	UI.reset_to_hud()
-	UI.push_inventory()
 
 
-func _on_exit_ship_button_pressed() -> void:
+func _on_exit_area_interacted() -> void:
 	Core.game.enter_world()
+
+
+func _on_inventory_area_2d_interacted() -> void:
+	UI.push_inventory()

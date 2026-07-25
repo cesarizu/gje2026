@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://dykujv6nr0gco"]
+
+[ext_resource type="Script" uid="uid://dhe1qtevauib4" path="res://game/scenes/ship/ship.gd" id="1_v6oj8"]
+[ext_resource type="Texture2D" uid="uid://kr43lva2q0ah" path="res://game/scenes/ship/assets/bg-normal.jpeg" id="2_gqhfs"]
+[ext_resource type="Texture2D" uid="uid://dc74bwtgb4vrv" path="res://game/scenes/ship/assets/bg-red.jpeg" id="3_b83qn"]
+[ext_resource type="PackedScene" uid="uid://oq21pisorm22" path="res://game/actors/player/player.tscn" id="4_b83qn"]
+[ext_resource type="Script" uid="uid://cohk8vm07ox71" path="res://game/utils/interactive_area.gd" id="5_5r2ea"]
+[ext_resource type="PackedScene" uid="uid://x8lft640ihod" path="res://addons/holoprime_ui_framework/shortcuts/shortcut_button.tscn" id="5_fbtr2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_edrbc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gqhfs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_b83qn")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rh4oo"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_edrbc"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tc06c"]
+size = Vector2(464, 279)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rh4oo"]
+size = Vector2(252, 246.7105)
+
+[node name="Ship" type="Node2D" unique_id=1798625998]
+script = ExtResource("1_v6oj8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=549603050]
+position = Vector2(960, 125)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_edrbc")
+frame_progress = 0.018426461
+
+[node name="Player" parent="." unique_id=168436519 instance=ExtResource("4_b83qn")]
+position = Vector2(964, 546)
+
+[node name="Camera2D" parent="Player" index="2" unique_id=1935542993]
+limit_left = 0
+limit_top = -835
+limit_right = 1920
+limit_bottom = 1080
+
+[node name="Limits" type="StaticBody2D" parent="." unique_id=564615941]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Limits" unique_id=476435461]
+polygon = PackedVector2Array(102, 1067, 427, 848, 636, 910, 885, 758, 1205, 668, 1334, 551, 1587, 576, 1778, 613, 1957, 777, 1962, 1117, -24, 1161, -31, 1057)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Limits" unique_id=1931679854]
+polygon = PackedVector2Array(-10, -213, 146, -167, 236, -34, 171, 424, -1, 427)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Limits" unique_id=1305401000]
+polygon = PackedVector2Array(1928, -119, 1849, -172, 1764, -169, 1635, -110, 1690, 424, 1944, 436)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Limits" unique_id=1089622815]
+polygon = PackedVector2Array(-29, -441, 98, -436, 171, -420, 112, -344, 264, -383, 468, -367, 692, -358, 738, -259, 807, -370, 949, -411, 1147, -439, 1216, -439, 1214, -609, 1649, -616, 1663, -446, 1983, -432, 1971, -862, -26, -851)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Limits" unique_id=782870300]
+polygon = PackedVector2Array(811, -126, 758, -59, 664, 22, 641, 132, 724, 247, 705, 454, 726, 549, 754, 540, 779, 254, 740, 183, 687, 93, 731, 1, 802, -34)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Limits" unique_id=1956492890]
+polygon = PackedVector2Array(1014, -133, 1037, -43, 1108, -1, 1145, 95, 1115, 185, 1058, 247, 1074, 376, 1097, 521, 1117, 560, 1140, 452, 1106, 259, 1203, 121, 1157, 3, 1076, -57)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limits" unique_id=1484443385]
+shape = SubResource("WorldBoundaryShape2D_rh4oo")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Limits" unique_id=1841268926]
+position = Vector2(1920, -3)
+shape = SubResource("WorldBoundaryShape2D_edrbc")
+
+[node name="ExitArea" type="Area2D" parent="." unique_id=444769809 node_paths=PackedStringArray("show_hide")]
+position = Vector2(1430, -533)
+script = ExtResource("5_5r2ea")
+show_hide = [NodePath("ShortcutButton")]
+metadata/_custom_type_script = "uid://cohk8vm07ox71"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea" unique_id=1337202275]
+position = Vector2(0, -46.5)
+shape = SubResource("RectangleShape2D_tc06c")
+
+[node name="ShortcutButton" parent="ExitArea" unique_id=1320667790 instance=ExtResource("5_fbtr2")]
+offset_left = -53.0
+offset_top = -156.0
+offset_right = 49.0
+offset_bottom = -94.0
+text = "Exit ship"
+flat = true
+
+[node name="InventoryArea2D" type="Area2D" parent="." unique_id=20110477 node_paths=PackedStringArray("show_hide")]
+position = Vector2(1651, 96)
+script = ExtResource("5_5r2ea")
+show_hide = [NodePath("ShortcutButton")]
+metadata/_custom_type_script = "uid://cohk8vm07ox71"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InventoryArea2D" unique_id=160322387]
+position = Vector2(62.70508, 17.473278)
+rotation = -0.10975453
+shape = SubResource("RectangleShape2D_rh4oo")
+
+[node name="ShortcutButton" parent="InventoryArea2D" unique_id=977058116 instance=ExtResource("5_fbtr2")]
+offset_left = -113.0
+offset_top = -154.0
+offset_right = 162.0
+offset_bottom = -92.0
+text = "Open Inventory"
+flat = true
+
+[connection signal="interacted" from="ExitArea" to="." method="_on_exit_area_interacted"]
+[connection signal="interacted" from="InventoryArea2D" to="." method="_on_inventory_area_2d_interacted"]
+
+[editable path="Player"]
