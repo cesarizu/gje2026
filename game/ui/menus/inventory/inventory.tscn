@@ -56,7 +56,8 @@ layout_mode = 2
 
 [node name="ManifestTitle" type="Label" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer" unique_id=1847381588]
 layout_mode = 2
-text = "Recursos disponibles"
+text = "MANIFIESTO"
+horizontal_alignment = 1
 
 [node name="ItemsContainer" type="GridContainer" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer" unique_id=1639502317]
 unique_name_in_owner = true
@@ -86,3 +87,23 @@ item_data = ExtResource("6_xmtj7")
 [node name="ItemCard6" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" unique_id=1012341957 instance=ExtResource("2_0jv1k")]
 layout_mode = 2
 item_data = ExtResource("6_xmtj7")
+
+[node name="BackpackPanel" type="PanelContainer" parent="Control/MainMargin/MainContainer/InventoryContent" unique_id=154127399]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MainMargin/MainContainer/InventoryContent/BackpackPanel" unique_id=1763707768]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MainMargin/MainContainer/InventoryContent/BackpackPanel/MarginContainer" unique_id=1991467736]
+layout_mode = 2
+
+[node name="BackpackTitle" type="Label" parent="Control/MainMargin/MainContainer/InventoryContent/BackpackPanel/MarginContainer/VBoxContainer" unique_id=710255378]
+layout_mode = 2
+text = "MOCHILA"
+horizontal_alignment = 1
+
+[node name="BackpackGrid" type="GridContainer" parent="Control/MainMargin/MainContainer/InventoryContent/BackpackPanel/MarginContainer/VBoxContainer" unique_id=1664795406]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 3

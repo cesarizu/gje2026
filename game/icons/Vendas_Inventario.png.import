@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x7w3rfmt62kq"
-path="res://.godot/imported/flashligth.png-ff39c3fd331fee7a49b0f18651cb82aa.ctex"
+uid="uid://bftqq1xuimf6n"
+path="res://.godot/imported/Vendas_Inventario.png-a214948361d0e12c64aea740961e9d86.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/icons/flashligth.png"
-dest_files=["res://.godot/imported/flashligth.png-ff39c3fd331fee7a49b0f18651cb82aa.ctex"]
+source_file="res://game/icons/Vendas_Inventario.png"
+dest_files=["res://.godot/imported/Vendas_Inventario.png-a214948361d0e12c64aea740961e9d86.ctex"]
 
 [params]
 

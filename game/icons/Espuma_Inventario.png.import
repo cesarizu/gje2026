@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwujgjd6jhdcw"
-path="res://.godot/imported/oxygen_tank.png-0661cdc16a8fc8cdb08f86cb47d2c0d1.ctex"
+uid="uid://0yi05flnxf34"
+path="res://.godot/imported/Espuma_Inventario.png-83aca6fe7d6b6887b353420bef767804.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/icons/oxygen_tank.png"
-dest_files=["res://.godot/imported/oxygen_tank.png-0661cdc16a8fc8cdb08f86cb47d2c0d1.ctex"]
+source_file="res://game/icons/Espuma_Inventario.png"
+dest_files=["res://.godot/imported/Espuma_Inventario.png-83aca6fe7d6b6887b353420bef767804.ctex"]
 
 [params]
 
