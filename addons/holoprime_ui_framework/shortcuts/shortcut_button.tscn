@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://x8lft640ihod"]
+
+[ext_resource type="Script" uid="uid://dd0s0qqjx1csp" path="res://addons/holoprime_ui_framework/shortcuts/shortcut_button.gd" id="1_ht3lw"]
+
+[node name="ShortcutButton" type="Button" unique_id=1320667790]
+shortcut_in_tooltip = false
+script = ExtResource("1_ht3lw")

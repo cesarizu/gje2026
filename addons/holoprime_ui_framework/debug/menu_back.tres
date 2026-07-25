@@ -1,0 +1,8 @@
+[gd_resource type="Shortcut" format=3 uid="uid://bcpsdncfecsvx"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_ubpq0"]
+action = &"menu_back"
+pressed = true
+
+[resource]
+events = [SubResource("InputEventAction_ubpq0")]

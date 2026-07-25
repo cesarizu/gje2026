@@ -1,0 +1,88 @@
+[gd_resource type="Theme" format=3 uid="uid://dnitaja528w7m"]
+
+[ext_resource type="FontFile" uid="uid://b7udu2gpmxkxm" path="res://addons/holoprime_ui_framework/debug/assets/Roboto-VariableFont_wdth,wght.ttf" id="1_b150h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vmga"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v28ql"]
+draw_center = false
+border_color = Color(0.866667, 0.866667, 0.866667, 1)
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qm00e"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kmbxg"]
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_56k8a"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ad0vo"]
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.6, 0.6, 0.6, 1)
+
+[resource]
+default_base_scale = 2.0
+default_font = ExtResource("1_b150h")
+default_font_size = 32
+DebugButton/base_type = &"Button"
+DebugButton/colors/font_color = Color(1, 1, 1, 1)
+DebugButton/colors/font_disabled_color = Color(0.866667, 0.866667, 0.866667, 1)
+DebugButton/colors/font_focus_color = Color(1, 1, 1, 1)
+DebugButton/colors/font_hover_color = Color(1, 1, 1, 1)
+DebugButton/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+DebugButton/colors/font_pressed_color = Color(1, 1, 1, 1)
+DebugButton/font_sizes/font_size = 24
+DebugButton/styles/disabled = SubResource("StyleBoxFlat_3vmga")
+DebugButton/styles/focus = SubResource("StyleBoxFlat_v28ql")
+DebugButton/styles/hover = SubResource("StyleBoxFlat_qm00e")
+DebugButton/styles/hover_pressed = SubResource("StyleBoxFlat_kmbxg")
+DebugButton/styles/normal = SubResource("StyleBoxFlat_56k8a")
+DebugButton/styles/pressed = SubResource("StyleBoxFlat_ad0vo")
+DebugMenuButton/base_type = &"MenuButton"
+HBoxContainer/constants/separation = 64
+HFlowContainer/constants/h_separation = 32
+HFlowContainer/constants/v_separation = 32
+MarginContainer/constants/margin_bottom = 64
+MarginContainer/constants/margin_left = 64
+MarginContainer/constants/margin_right = 64
+MarginContainer/constants/margin_top = 64
+RichTextLabel/constants/shadow_offset_x = 4
+RichTextLabel/constants/shadow_offset_y = 4
+RichTextLabel/constants/shadow_outline_size = 4
+RichTextLabel/fonts/bold_font = ExtResource("1_b150h")
+RichTextLabel/fonts/bold_italics_font = ExtResource("1_b150h")
+RichTextLabel/fonts/italics_font = ExtResource("1_b150h")
+RichTextLabel/fonts/normal_font = ExtResource("1_b150h")
+SectionLabel/base_type = &"Label"
+SectionLabel/font_sizes/font_size = 32
+SectionLabel/fonts/font = ExtResource("1_b150h")
+ShortcutButton/base_type = &"Button"
+ShortcutButton/constants/h_separation = 16
+ShortcutButton/constants/outline_size = 4
+VBoxContainer/constants/separation = 32
