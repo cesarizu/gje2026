@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://ov4fkb74ntdv"]
+
+[ext_resource type="Shader" uid="uid://dp1el1ek6egct" path="res://addons/holoprime_ui_framework/debug/assets/texel_density.gdshader" id="1_nolua"]
+[ext_resource type="Texture2D" uid="uid://b2g1uqjapm6c7" path="res://addons/holoprime_ui_framework/debug/assets/grid-2k.jpg" id="2_fo3is"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_nolua")
+shader_parameter/original_texture = ExtResource("2_fo3is")

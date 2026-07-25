@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://cqadjmt140hm"]
+
+[ext_resource type="Script" uid="uid://demeiui1ma35" path="res://addons/holoprime_ui_framework/debug/debug_ui.gd" id="1_nvutm"]
+[ext_resource type="Material" uid="uid://ov4fkb74ntdv" path="res://addons/holoprime_ui_framework/debug/assets/texel_density.tres" id="2_v1f2d"]
+[ext_resource type="Theme" uid="uid://dnitaja528w7m" path="res://addons/holoprime_ui_framework/debug/debug_ui_theme.tres" id="3_tikj0"]
+[ext_resource type="Shortcut" uid="uid://bcpsdncfecsvx" path="res://addons/holoprime_ui_framework/debug/menu_back.tres" id="3_wnfjw"]
+[ext_resource type="Script" uid="uid://dd0s0qqjx1csp" path="res://addons/holoprime_ui_framework/shortcuts/shortcut_button.gd" id="4_v1f2d"]
+[ext_resource type="Texture2D" uid="uid://cqtjp15cpcxov" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/generic/generic_button_circle.svg" id="5_77ppa"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tikj0"]
+
+[node name="DebugUI" type="CanvasLayer" unique_id=1860323477]
+layer = 99
+script = ExtResource("1_nvutm")
+texel_density_material = ExtResource("2_v1f2d")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=685961438]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.752941)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1098553058]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("3_tikj0")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer" unique_id=2033520105]
+layout_mode = 2
+follow_focus = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ScrollContainer" unique_id=1629391922]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/MarginContainer" unique_id=1752819643]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="CloseButton" type="Button" parent="." unique_id=1939517180]
+custom_minimum_size = Vector2(192, 192)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -192.0
+offset_bottom = 192.0
+grow_horizontal = 0
+theme_type_variation = &"ShortcutButton"
+text = "X"
+
+[node name="ShortcutButton" type="Button" parent="CloseButton" unique_id=704554890]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_top = -36.0
+offset_right = 29.0
+offset_bottom = 37.0
+grow_vertical = 0
+mouse_filter = 2
+shortcut = ExtResource("3_wnfjw")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+icon = ExtResource("5_77ppa")
+script = ExtResource("4_v1f2d")
+hide_icon_on = Array[int]([2])
+keep_visible_if_no_shortcut = true
+metadata/_custom_type_script = "uid://dd0s0qqjx1csp"
+
+[node name="Label" type="Label" parent="." unique_id=642244852]
+offset_right = 40.0
+offset_bottom = 70.0
+label_settings = SubResource("LabelSettings_tikj0")
+
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
