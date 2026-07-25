@@ -1,7 +1,7 @@
-class_name Ship
+class_name Hill
 extends Node2D
 
-static var instance: Ship
+static var instance: Hill
 
 
 func _enter_tree() -> void:
@@ -13,7 +13,7 @@ func _ready() -> void:
 
 
 func _on_exit_area_interacted() -> void:
-	Core.game.enter_hill()
+	Core.game.enter_ship()
 
 
 func _on_inventory_area_2d_interacted() -> void:

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://b3730kor8k203"]
+
+[ext_resource type="Texture2D" uid="uid://dtc1g2u64gnsv" path="res://game/scenes/hill/assets/abstract-landscape-concept-with-copy-space.jpg" id="1_06nr6"]
+[ext_resource type="Script" uid="uid://cohk8vm07ox71" path="res://game/utils/interactive_area.gd" id="1_tlyer"]
+[ext_resource type="PackedScene" uid="uid://oq21pisorm22" path="res://game/actors/player/player.tscn" id="2_t003o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06nr6"]
+size = Vector2(166, 92)
+
+[node name="Hill" type="Node2D" unique_id=1861721494]
+
+[node name="Content" type="Node2D" parent="." unique_id=264787953]
+
+[node name="Sprite2D" type="Sprite2D" parent="Content" unique_id=760465783]
+position = Vector2(2082.0002, 58)
+scale = Vector2(0.50012404, 0.49441963)
+texture = ExtResource("1_06nr6")
+
+[node name="Player" parent="Content" unique_id=168436519 instance=ExtResource("2_t003o")]
+position = Vector2(964, 546)
+
+[node name="Camera2D" parent="Content/Player" index="2" unique_id=1935542993]
+limit_left = 0
+limit_top = -835
+limit_right = 1920
+limit_bottom = 1080
+
+[node name="ExitArea" type="Area2D" parent="." unique_id=1984025085]
+position = Vector2(1565, 604)
+script = ExtResource("1_tlyer")
+metadata/_custom_type_script = "uid://cohk8vm07ox71"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea" unique_id=505954664]
+position = Vector2(85, 49)
+shape = SubResource("RectangleShape2D_06nr6")
+
+[node name="ExitButton" type="Button" parent="ExitArea" unique_id=1898564392]
+offset_right = 170.0
+offset_bottom = 98.0
+
+[editable path="Content/Player"]
