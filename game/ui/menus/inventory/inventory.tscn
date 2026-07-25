@@ -1,14 +1,88 @@
 [gd_scene format=3 uid="uid://c2n5g34fiihsx"]
 
 [ext_resource type="Script" uid="uid://cno3n8lywcsqa" path="res://game/ui/menus/inventory/inventory.gd" id="1_c08o0"]
+[ext_resource type="PackedScene" uid="uid://br21n8ht7p3rx" path="res://game/ui/menus/inventory/ItemCard.tscn" id="2_0jv1k"]
+[ext_resource type="Resource" uid="uid://it0m5c6ne21m" path="res://game/data/items/bandage.tres" id="3_6hnd1"]
+[ext_resource type="Resource" uid="uid://c785sn71qxsqw" path="res://game/data/items/flashlight.tres" id="4_t0odh"]
+[ext_resource type="Resource" uid="uid://dgibarl4fjh4r" path="res://game/data/items/oxygen_tank.tres" id="5_lug5u"]
+[ext_resource type="Resource" uid="uid://gahb1c6ayboj" path="res://game/data/items/water.tres" id="6_xmtj7"]
 
 [node name="Inventory" type="CanvasLayer" unique_id=996149556]
 script = ExtResource("1_c08o0")
 metadata/_custom_type_script = "uid://t4ioglwpiwid"
 
-[node name="Label" type="Label" parent="." unique_id=1422459920]
-offset_left = 913.0
-offset_top = 150.0
-offset_right = 953.0
-offset_bottom = 173.0
-text = "Inventory"
+[node name="Control" type="Control" parent="." unique_id=1497521233]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MainMargin" type="MarginContainer" parent="Control" unique_id=1380076117]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="MainContainer" type="VBoxContainer" parent="Control/MainMargin" unique_id=794168315]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TitleLabel" type="Label" parent="Control/MainMargin/MainContainer" unique_id=1422459920]
+layout_mode = 2
+offset_transform_enabled = true
+text = "Inventario"
+horizontal_alignment = 1
+
+[node name="InventoryContent" type="HBoxContainer" parent="Control/MainMargin/MainContainer" unique_id=296945339]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="ManifestPanel" type="PanelContainer" parent="Control/MainMargin/MainContainer/InventoryContent" unique_id=1923924087]
+layout_mode = 2
+
+[node name="ManifestContainer" type="VBoxContainer" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel" unique_id=1661649782]
+layout_mode = 2
+
+[node name="ManifestTitle" type="Label" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer" unique_id=1847381588]
+layout_mode = 2
+text = "Recursos disponibles"
+
+[node name="ItemsContainer" type="GridContainer" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer" unique_id=1639502317]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 3
+
+[node name="ItemCard3" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" unique_id=1959880788 instance=ExtResource("2_0jv1k")]
+layout_mode = 2
+item_data = ExtResource("5_lug5u")
+
+[node name="ItemCard2" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" unique_id=1557466647 instance=ExtResource("2_0jv1k")]
+layout_mode = 2
+item_data = ExtResource("4_t0odh")
+
+[node name="ItemCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" unique_id=814442404 instance=ExtResource("2_0jv1k")]
+layout_mode = 2
+item_data = ExtResource("3_6hnd1")
+
+[node name="ItemCard4" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" unique_id=1965061351 instance=ExtResource("2_0jv1k")]
+layout_mode = 2
+item_data = ExtResource("6_xmtj7")
+
+[node name="ItemCard5" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" unique_id=873283671 instance=ExtResource("2_0jv1k")]
+layout_mode = 2
+item_data = ExtResource("6_xmtj7")
+
+[node name="ItemCard6" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" unique_id=1012341957 instance=ExtResource("2_0jv1k")]
+layout_mode = 2
+item_data = ExtResource("6_xmtj7")
