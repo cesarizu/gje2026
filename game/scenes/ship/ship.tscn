@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://50xp24uk82l2" path="res://game/scenes/ship/assets/bottom.png" id="6_suw2m"]
 [ext_resource type="Texture2D" uid="uid://cqtjp15cpcxov" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/generic/generic_button_circle.svg" id="8_qtiow"]
 [ext_resource type="Shortcut" uid="uid://cke0a0ogk778b" path="res://game/ui/shortcuts/interact_shortcut.tres" id="9_qul2h"]
+[ext_resource type="AudioStream" uid="uid://djg4pxqo0wkeb" path="res://game/audio/SFX_Alarm_Single.ogg" id="12_5hp40"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rh4oo"]
 normal = Vector2(1, 0)
@@ -38,10 +39,23 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bottom:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_suw2m"]
 resource_name = "alarm"
 loop_mode = 1
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -52,8 +66,35 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [Color(1, 1, 1, 1), Color(1, 0.47000003, 0.47000003, 1)]
+"values": [Color(1, 0.5, 0.5, 1), Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bottom:modulate")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 0.75, 0.75, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AlarmAnimationPlayer/AlarmAudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("12_5hp40")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5hp40"]
 _data = {
@@ -171,9 +212,13 @@ text = "Open Inventory"
 icon = ExtResource("8_qtiow")
 flat = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2036347400]
+[node name="AlarmAnimationPlayer" type="AnimationPlayer" parent="." unique_id=2036347400]
 libraries/ = SubResource("AnimationLibrary_5hp40")
 autoplay = &"alarm"
+
+[node name="AlarmAudioStreamPlayer" type="AudioStreamPlayer" parent="AlarmAnimationPlayer" unique_id=1548504620]
+autoplay = true
+bus = &"Ship Ambient"
 
 [connection signal="interacted" from="ExitArea" to="." method="_on_exit_area_interacted"]
 [connection signal="interacted" from="InventoryArea2D" to="." method="_on_inventory_area_2d_interacted"]
