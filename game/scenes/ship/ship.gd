@@ -12,6 +12,7 @@ func _on_exit_area_interacted() -> void:
 		Dialogic.start("ship_exit")
 		alert_showed = true
 	else:
+		Dialogic.end_timeline()
 		Core.game.enter_hill()
 
 
