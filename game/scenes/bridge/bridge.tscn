@@ -11,8 +11,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_71aef"]
 size = Vector2(464, 279)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7x4xa"]
-
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gul5x"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i7rim"]
@@ -63,12 +61,6 @@ shortcut = ExtResource("4_r7bdi")
 text = "Exit ship"
 icon = ExtResource("5_vv8ly")
 
-[node name="Hole2D" type="Area2D" parent="." unique_id=897262648]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hole2D" unique_id=110908996]
-visible = false
-shape = SubResource("WorldBoundaryShape2D_7x4xa")
-
 [node name="Limits" type="StaticBody2D" parent="." unique_id=1711213332]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Limits" unique_id=1377007199]
@@ -77,12 +69,17 @@ rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_gul5x")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Limits" unique_id=918664215]
+position = Vector2(0, 780)
 shape = SubResource("WorldBoundaryShape2D_i7rim")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Limits" unique_id=886946107]
+position = Vector2(3000, 0)
+rotation = 4.712389
 shape = SubResource("WorldBoundaryShape2D_h0der")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Limits" unique_id=1296099860]
+position = Vector2(0, -600)
+rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_f7m8p")
 
 [connection signal="interacted" from="ExitArea" to="." method="_on_exit_area_interacted"]
