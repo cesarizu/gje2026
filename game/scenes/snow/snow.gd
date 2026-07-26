@@ -1,15 +1,10 @@
 class_name Snow
 extends Node2D
 
-static var instance: Snow
-
-
-func _enter_tree() -> void:
-	instance = self
-
 
 func _ready() -> void:
 	UI.reset_to_hud()
+	await UI.fade_in()
 
 
 func _on_exit_area_interacted() -> void:

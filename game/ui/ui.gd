@@ -8,11 +8,12 @@ extends Node
 @onready var menu_stack: MenuStack = %MenuStack
 @onready var inventory_open_audio: AudioStreamPlayer = %InventoryOpenAudio
 @onready var inventory_close_audio: AudioStreamPlayer = %InventoryCloseAudio
+@onready var fader_color_rect: ColorRect = %FaderColorRect
 
 
 func _ready() -> void:
 	MenuStack.main_stack = menu_stack
-
+	fader_color_rect.modulate = Color.WHITE
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not event.is_action_pressed("inventory"):
@@ -60,3 +61,15 @@ func play_inventory_open_sound() -> void:
 
 func play_inventory_close_sound() -> void:
 	inventory_close_audio.play()
+
+
+func fade_in() -> void:
+	var tween := create_tween()
+	tween.tween_property(fader_color_rect, ^"modulate", Color.TRANSPARENT, 0.5)
+	await tween.finished
+
+
+func fade_out() -> void:
+	var tween := create_tween()
+	tween.tween_property(fader_color_rect, ^"modulate", Color.WHITE, 0.5)
+	await tween.finished
