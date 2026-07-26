@@ -1,12 +1,6 @@
 class_name Hill
 extends Node2D
 
-static var instance: Hill
-
-
-func _enter_tree() -> void:
-	instance = self
-
 
 func _ready() -> void:
 	UI.reset_to_hud()

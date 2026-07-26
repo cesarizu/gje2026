@@ -13,9 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cqtjp15cpcxov" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/generic/generic_button_circle.svg" id="10_focv6"]
 [ext_resource type="AudioStream" uid="uid://djg4pxqo0wkeb" path="res://game/audio/SFX_Alarm_Single.ogg" id="12_focv6"]
 [ext_resource type="AudioStream" uid="uid://dxxexu2x1o0tb" path="res://game/audio/Mus_Track1.ogg" id="13_qxk3y"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxk3y"]
-size = Vector2(950, 196)
+[ext_resource type="Texture2D" uid="uid://b6l33delw56" path="res://game/scenes/hill/assets/mosquito.png" id="14_ktdo1"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i7rim"]
 normal = Vector2(1, 0)
@@ -26,6 +24,9 @@ distance = -31.0
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h0der"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f7m8p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxk3y"]
+size = Vector2(950, 196)
 
 [sub_resource type="Animation" id="Animation_olsfu"]
 resource_name = "alarm"
@@ -50,6 +51,28 @@ tracks/0/use_blend = true
 _data = {
 &"alarm": SubResource("Animation_olsfu")
 }
+
+[sub_resource type="Curve" id="Curve_diq7m"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1862955, 1), 0.0, 0.0, 0, 0, Vector2(0.875803, 0.99593496), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_ktdo1"]
+curve = SubResource("Curve_diq7m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_edrbc"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(300, 300, 300)
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_ktdo1")
+turbulence_enabled = true
+turbulence_influence_min = 1.0
+turbulence_influence_max = 1.0
+turbulence_initial_displacement_min = 1.0000015
+turbulence_initial_displacement_max = 1.0000015
 
 [node name="Hill" type="Node2D" unique_id=1861721494]
 script = ExtResource("1_olsfu")
@@ -88,6 +111,46 @@ position = Vector2(3144, 182)
 texture = ExtResource("6_ewsh7")
 offset = Vector2(0, -190)
 
+[node name="Limits" type="StaticBody2D" parent="." unique_id=1107171620]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limits" unique_id=828880120]
+shape = SubResource("WorldBoundaryShape2D_i7rim")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Limits" unique_id=343760459]
+position = Vector2(3380, 0)
+rotation = 4.712389
+shape = SubResource("WorldBoundaryShape2D_gul5x")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Limits" unique_id=210107127]
+position = Vector2(0, 1080)
+shape = SubResource("WorldBoundaryShape2D_h0der")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Limits" unique_id=657345761]
+position = Vector2(0, -839)
+rotation = -3.1415925
+shape = SubResource("WorldBoundaryShape2D_f7m8p")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Limits" unique_id=472744751]
+polygon = PackedVector2Array(-4, -851, 237, -851, 573, -409, 646, -144, 1165, 76, 1241, 359, 1179, 450, 992, 554, 805, 583, 892, 641, 841, 686, 789, 752, 652, 779, 641, 735, 562, 776, 481.29285, 733.9051, 524, 807, 355, 799, 270, 941, 419, 999, 450, 958, 705, 1047, 698, 1078, 698, 1078, -2, 1079)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Limits" unique_id=1496184489]
+polygon = PackedVector2Array(959, -841, 2678, -859, 2613, -570, 2422, -241, 2406, -98, 2274, 90, 2304, 132, 2058, 225, 2064, 274, 2003, 315, 1893, 285, 1798, 282, 1733, 213, 1746, 22, 1669, -158, 1451, -299, 1100, -637)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Limits" unique_id=15908031]
+polygon = PackedVector2Array(1666, 1001, 1749, 878, 1813, 909, 1885, 903, 1919, 813, 1989, 837, 2050, 844, 2138, 803, 2243, 851, 2319, 854, 2302, 893, 2352, 972, 2400, 884, 2533, 785, 2629, 937, 2748, 853, 2799, 956, 2437, 1050, 2437, 1088, 1693, 1092)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Limits" unique_id=633147333]
+polygon = PackedVector2Array(2950, 334, 3027, 329, 2979, 291, 2995, 215, 3044, 233, 3091, 227, 3150, 297, 3161, 291, 3205, 318, 3238, 300, 3319, 366, 3349, 256, 3379, 427, 3373, 503, 3389, 553, 3289, 537, 3169, 570, 3134, 563, 3051, 454, 2988, 465, 2942, 420)
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Limits" unique_id=272123411]
+polygon = PackedVector2Array(2647, -195, 2642, -152, 2714, -145, 2712, -200)
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="Limits" unique_id=1270644957]
+polygon = PackedVector2Array(3136, 132, 3121, 170, 3161, 205, 3206, 193, 3208, 144)
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="Limits" unique_id=62592329]
+polygon = PackedVector2Array(3246, -343, 3235, -308, 3317, -303, 3308, -346)
+
 [node name="ExitArea" type="Area2D" parent="." unique_id=1501105532 node_paths=PackedStringArray("show_hide")]
 position = Vector2(2800, -700)
 script = ExtResource("1_tlyer")
@@ -109,42 +172,26 @@ text = "Exit"
 icon = ExtResource("10_focv6")
 alignment = 0
 
-[node name="Limits" type="StaticBody2D" parent="." unique_id=1107171620]
+[node name="ExitArea2" type="Area2D" parent="." unique_id=316520031 node_paths=PackedStringArray("show_hide")]
+position = Vector2(453, -676)
+script = ExtResource("1_tlyer")
+show_hide = [NodePath("ShortcutButton")]
+metadata/_custom_type_script = "uid://cohk8vm07ox71"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Limits" unique_id=828880120]
-shape = SubResource("WorldBoundaryShape2D_i7rim")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea2" unique_id=1535173113]
+position = Vector2(165, -88)
+shape = SubResource("RectangleShape2D_qxk3y")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Limits" unique_id=343760459]
-position = Vector2(3380, 0)
-rotation = 4.712389
-shape = SubResource("WorldBoundaryShape2D_gul5x")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Limits" unique_id=210107127]
-position = Vector2(0, 1080)
-shape = SubResource("WorldBoundaryShape2D_h0der")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Limits" unique_id=657345761]
-position = Vector2(0, -839)
-rotation = -3.1415925
-shape = SubResource("WorldBoundaryShape2D_f7m8p")
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Limits" unique_id=472744751]
-polygon = PackedVector2Array(-3, 355, 2478, -863, 2678, -859, 2613, -570, 2422, -241, 2406, -98, 2274, 90, 2304, 132, 2058, 225, 2064, 274, 2003, 315, 1893, 285, 1740, 287, 1747, 345, 1104, 466, 961, 569, 805, 583, 892, 641, 841, 686, 789, 752, 652, 779, 641, 735, 562, 776, 481.29285, 733.9051, 524, 807, 355, 799, 270, 941, 419, 999, 450, 958, 705, 1047, 698, 1078, 698, 1078, -2, 1079)
-
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Limits" unique_id=15908031]
-polygon = PackedVector2Array(1666, 1001, 1749, 878, 1813, 909, 1885, 903, 1919, 813, 1989, 837, 2050, 844, 2138, 803, 2243, 851, 2319, 854, 2302, 893, 2352, 972, 2400, 884, 2533, 785, 2629, 937, 2748, 853, 2799, 956, 2437, 1050, 2437, 1088, 1693, 1092)
-
-[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Limits" unique_id=633147333]
-polygon = PackedVector2Array(2950, 334, 3027, 329, 2979, 291, 2995, 215, 3044, 233, 3091, 227, 3150, 297, 3161, 291, 3205, 318, 3238, 300, 3319, 366, 3349, 256, 3379, 427, 3373, 503, 3389, 553, 3289, 537, 3169, 570, 3134, 563, 3051, 454, 2988, 465, 2942, 420)
-
-[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Limits" unique_id=272123411]
-polygon = PackedVector2Array(2647, -195, 2642, -152, 2714, -145, 2712, -200)
-
-[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="Limits" unique_id=1270644957]
-polygon = PackedVector2Array(3136, 132, 3121, 170, 3161, 205, 3206, 193, 3208, 144)
-
-[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="Limits" unique_id=62592329]
-polygon = PackedVector2Array(3246, -343, 3235, -308, 3317, -303, 3308, -346)
+[node name="ShortcutButton" parent="ExitArea2" unique_id=292980377 instance=ExtResource("8_ewsh7")]
+offset_left = -106.0
+offset_top = -140.0
+offset_right = 247.0
+offset_bottom = -78.0
+theme_type_variation = &"ShortcutButton"
+shortcut = ExtResource("9_olsfu")
+text = "Exit"
+icon = ExtResource("10_focv6")
+alignment = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=309743710]
 libraries/ = SubResource("AnimationLibrary_focv6")
@@ -158,6 +205,15 @@ bus = &"Ambient"
 stream = ExtResource("13_qxk3y")
 autoplay = true
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1252019186]
+position = Vector2(2935, -246)
+amount = 20
+texture = ExtResource("14_ktdo1")
+lifetime = 10.0
+preprocess = 10.0
+process_material = SubResource("ParticleProcessMaterial_edrbc")
+
 [connection signal="interacted" from="ExitArea" to="." method="_on_exit_area_interacted"]
+[connection signal="interacted" from="ExitArea2" to="." method="_on_exit_area_interacted"]
 
 [editable path="Content/Player"]
