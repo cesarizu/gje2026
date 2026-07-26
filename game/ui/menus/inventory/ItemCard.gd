@@ -22,8 +22,12 @@ var rotated: bool = false
 func _ready() -> void:
 	if not RunInventory.inventory_changed.is_connected(_on_inventory_changed):
 		RunInventory.inventory_changed.connect(_on_inventory_changed)
+	var icon_root := item_icon.get_parent()
+	if not icon_root.resized.is_connected(_update_item_icon_transform):
+		icon_root.resized.connect(_update_item_icon_transform)
 
 	_sync_inventory_state()
+	_update_item_icon_transform()
 	update_ui()
 
 
@@ -53,12 +57,24 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	preview.add_theme_stylebox_override("panel", preview_style)
 	preview.modulate = Color(1, 1, 1, 0.85)
 
+	var preview_icon_root := Control.new()
+	preview_icon_root.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	preview_icon_root.custom_minimum_size = preview.custom_minimum_size
+	preview.add_child(preview_icon_root)
+
 	var preview_icon := TextureRect.new()
 	preview_icon.texture = item_data.icon
 	preview_icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	preview_icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	preview_icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	preview.add_child(preview_icon)
+	preview_icon.rotation = PI / 2.0 if rotated else 0.0
+	preview_icon_root.add_child(preview_icon)
+	_fit_rotated_icon(
+		preview_icon,
+		preview_icon_root,
+		rotated,
+		preview.custom_minimum_size
+	)
 	set_drag_preview(preview)
 
 	return {
@@ -67,7 +83,9 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 		"item": item_data,
 		"rotated": rotated,
 		"current_charges": item_data.max_charges,
-		"preview": preview
+		"preview": preview,
+		"preview_icon": preview_icon,
+		"preview_icon_root": preview_icon_root
 	}
 
 
@@ -125,9 +143,35 @@ func set_current_charges(value: int) -> void:
 
 func set_rotated(value: bool) -> void:
 	rotated = value
+	_update_item_icon_transform()
 
 	if is_node_ready():
 		tooltip_text = _build_tooltip()
+
+
+func _update_item_icon_transform() -> void:
+	if item_icon == null:
+		return
+
+	var icon_root := item_icon.get_parent() as Control
+	_fit_rotated_icon(item_icon, icon_root, rotated, icon_root.size)
+
+
+func _fit_rotated_icon(
+	icon: TextureRect,
+	icon_root: Control,
+	is_rotated: bool,
+	available_size: Vector2
+) -> void:
+	var icon_size := (
+		Vector2(available_size.y, available_size.x)
+		if is_rotated
+		else available_size
+	)
+	icon.size = icon_size
+	icon.position = (available_size - icon_size) / 2.0
+	icon.pivot_offset = icon_size / 2.0
+	icon.rotation = PI / 2.0 if is_rotated else 0.0
 
 
 func _on_inventory_changed() -> void:

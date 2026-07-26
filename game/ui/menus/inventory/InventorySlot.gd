@@ -54,13 +54,26 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	preview.add_theme_stylebox_override("panel", preview_style)
 	preview.modulate = Color(1, 1, 1, 0.85)
 
+	var preview_icon_root := Control.new()
+	preview_icon_root.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	preview_icon_root.custom_minimum_size = preview.custom_minimum_size
+	preview.add_child(preview_icon_root)
+
 	var preview_icon := TextureRect.new()
 	preview_icon.texture = dragged_item.icon
 	preview_icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	preview_icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	preview_icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	preview.add_child(preview_icon)
+	preview_icon_root.add_child(preview_icon)
+	_fit_rotated_icon(
+		preview_icon,
+		preview_icon_root,
+		rotated,
+		preview.custom_minimum_size
+	)
 	data["preview"] = preview
+	data["preview_icon"] = preview_icon
+	data["preview_icon_root"] = preview_icon_root
 	set_drag_preview(preview)
 
 	return data
@@ -125,3 +138,20 @@ func set_drop_highlight(state: int) -> void:
 	style.set_border_width_all(3)
 	style.set_corner_radius_all(3)
 	add_theme_stylebox_override("panel", style)
+
+
+func _fit_rotated_icon(
+	icon: TextureRect,
+	icon_root: Control,
+	is_rotated: bool,
+	available_size: Vector2
+) -> void:
+	var icon_size := (
+		Vector2(available_size.y, available_size.x)
+		if is_rotated
+		else available_size
+	)
+	icon.size = icon_size
+	icon.position = (available_size - icon_size) / 2.0
+	icon.pivot_offset = icon_size / 2.0
+	icon.rotation = PI / 2.0 if is_rotated else 0.0
