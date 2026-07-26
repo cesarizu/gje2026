@@ -13,7 +13,7 @@ func _ready() -> void:
 
 
 func _on_exit_area_interacted() -> void:
-	Core.game.enter_world()
+	Core.game.enter_hill()
 
 
 func _on_inventory_area_2d_interacted() -> void:

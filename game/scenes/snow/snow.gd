@@ -1,0 +1,20 @@
+class_name Snow
+extends Node2D
+
+static var instance: Snow
+
+
+func _enter_tree() -> void:
+	instance = self
+
+
+func _ready() -> void:
+	UI.reset_to_hud()
+
+
+func _on_exit_area_interacted() -> void:
+	Core.game.enter_hill()
+
+
+func _on_inventory_area_2d_interacted() -> void:
+	UI.push_inventory()

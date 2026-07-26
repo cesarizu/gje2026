@@ -4,7 +4,8 @@
 [ext_resource type="Script" uid="uid://5mm68jm5o76" path="res://game/core/game_manager.gd" id="2_njjph"]
 [ext_resource type="PackedScene" uid="uid://cxuaswgmxkucj" path="res://game/scenes/boot.tscn" id="3_b7k4n"]
 [ext_resource type="PackedScene" uid="uid://dykujv6nr0gco" path="res://game/scenes/ship/ship.tscn" id="4_s2p9d"]
-[ext_resource type="PackedScene" uid="uid://dfdu3b7r5h42g" path="res://game/scenes/world.tscn" id="5_w3m6q"]
+[ext_resource type="PackedScene" uid="uid://b3730kor8k203" path="res://game/scenes/hill/hill.tscn" id="5_h1l1x"]
+[ext_resource type="PackedScene" uid="uid://b7w4cillxc0ed" path="res://game/scenes/snow/snow.tscn" id="6_dv1gc"]
 
 [node name="Core" type="Node" unique_id=144772968]
 script = ExtResource("1_k2e3x")
@@ -13,4 +14,5 @@ script = ExtResource("1_k2e3x")
 script = ExtResource("2_njjph")
 boot_scene = ExtResource("3_b7k4n")
 ship_scene = ExtResource("4_s2p9d")
-world_scene = ExtResource("5_w3m6q")
+hill_scene = ExtResource("5_h1l1x")
+snow_scene = ExtResource("6_dv1gc")

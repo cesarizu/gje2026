@@ -10,6 +10,11 @@ var flashlight_on: bool = false
 
 signal flashlight_changed(enabled: bool)
 
+func _ready() -> void:
+
+	if get_tree().current_scene.name == "Ship":
+		Dialogic.start("player_dialog")
+
 func _physics_process(_delta: float) -> void:
 	process_movement()
 	process_animation()
@@ -73,3 +78,6 @@ func update_flashlight_direction(direction: Vector2) -> void:
 			flashlight_light.rotation_degrees = 0
 		else:
 			flashlight_light.rotation_degrees = 180
+
+func _on_exit_area_interacted() -> void:
+	pass # Replace with function body.

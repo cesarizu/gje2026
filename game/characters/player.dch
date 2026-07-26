@@ -1,0 +1,85 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "",
+&"color": Color(1, 1, 1, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "alert",
+&"description": "",
+&"display_name": "Pit",
+&"mirror": false,
+&"nicknames": ["Astronauta"],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"alert": {
+"export_overrides": {
+"image": "\"res://assets/images/Player/splash/alert.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1.0,
+"scene": ""
+},
+"alert2": {
+"export_overrides": {
+"image": "\"res://assets/images/Player/splash/alert2.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"angry": {
+"export_overrides": {
+"image": "\"res://assets/images/Player/splash/engry.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"happy": {
+"export_overrides": {
+"image": "\"res://assets/images/Player/splash/happy.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"idle": {
+"export_overrides": {
+"image": "\"res://assets/images/Player/splash/idle.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"question": {
+"export_overrides": {
+"image": "\"res://assets/images/Player/splash/question.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"sad": {
+"export_overrides": {
+"image": "\"res://assets/images/Player/splash/sad.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+&"scale": 1.0
+}
