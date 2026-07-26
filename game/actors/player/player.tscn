@@ -597,8 +597,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_edrbc"]
-radius = 5.333333
-height = 10.666666
+radius = 2.166667
+height = 4.333334
 
 [node name="Player" type="CharacterBody2D" unique_id=168436519]
 scale = Vector2(6, 6)
@@ -611,7 +611,7 @@ sprite_frames = SubResource("SpriteFrames_6q2t7")
 animation = &"idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=192181036]
-position = Vector2(0, 10)
+position = Vector2(1.5, 12.833334)
 shape = SubResource("CapsuleShape2D_edrbc")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1935542993]
