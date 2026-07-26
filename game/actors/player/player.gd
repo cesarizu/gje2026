@@ -25,8 +25,8 @@ func _physics_process(_delta: float) -> void:
 		"player_move_up",
 		"player_move_down"
 	)
-	if direction != Vector2.ZERO:
-		update_flashlight_direction(direction)
+	#if direction != Vector2.ZERO:
+		#update_flashlight_direction(direction)
 
 func process_movement() -> void:
 	var direction = Input.get_vector("player_move_left", "player_move_right", "player_move_up", "player_move_down")
@@ -64,20 +64,20 @@ func _unhandled_input(event: InputEvent) -> void:
 		if RunInventory.has_item("flashlight"):
 			toggle_flashlight()
 
-func update_flashlight_direction(direction: Vector2) -> void:
-	if direction == Vector2.ZERO:
-		return
-
-	if abs(direction.x) > abs(direction.y):
-		if direction.x > 0:
-			flashlight_light.rotation_degrees = -90
-		else:
-			flashlight_light.rotation_degrees = 90
-	else:
-		if direction.y > 0:
-			flashlight_light.rotation_degrees = 0
-		else:
-			flashlight_light.rotation_degrees = 180
+#func update_flashlight_direction(direction: Vector2) -> void:
+	#if direction == Vector2.ZERO:
+		#return
+#
+	#if abs(direction.x) > abs(direction.y):
+		#if direction.x > 0:
+			#flashlight_light.rotation_degrees = -90
+		#else:
+			#flashlight_light.rotation_degrees = 90
+	#else:
+		#if direction.y > 0:
+			#flashlight_light.rotation_degrees = 0
+		#else:
+			#flashlight_light.rotation_degrees = 180
 
 func _on_exit_area_interacted() -> void:
 	pass # Replace with function body.

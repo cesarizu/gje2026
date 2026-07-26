@@ -13,7 +13,7 @@ func _ready() -> void:
 
 
 func _on_exit_area_interacted() -> void:
-	Core.game.enter_bridge()
+	Core.game.enter_pod()
 
 
 func _on_inventory_area_2d_interacted() -> void:

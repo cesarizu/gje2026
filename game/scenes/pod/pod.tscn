@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://v8e2b80i4hfd"]
+
+[ext_resource type="Texture2D" uid="uid://b64i6j8ug2l6q" path="res://game/scenes/pod/assets/Intricate-Detail-76385759-1-1096393021.png" id="1_8mu5t"]
+[ext_resource type="PackedScene" uid="uid://oq21pisorm22" path="res://game/actors/player/player.tscn" id="1_w04ng"]
+[ext_resource type="Script" uid="uid://cohk8vm07ox71" path="res://game/utils/interactive_area.gd" id="2_7bvfr"]
+[ext_resource type="PackedScene" uid="uid://x8lft640ihod" path="res://addons/holoprime_ui_framework/shortcuts/shortcut_button.tscn" id="3_8mu5t"]
+[ext_resource type="Shortcut" uid="uid://cke0a0ogk778b" path="res://game/ui/shortcuts/interact_shortcut.tres" id="4_4gkge"]
+[ext_resource type="Texture2D" uid="uid://cqtjp15cpcxov" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/generic/generic_button_circle.svg" id="5_bp2fo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dy8ix"]
+size = Vector2(464, 279)
+
+[node name="Pod" type="Node2D" unique_id=383973256]
+
+[node name="Content" type="Node2D" parent="." unique_id=78743322]
+
+[node name="Bg" type="Sprite2D" parent="Content" unique_id=908159158]
+position = Vector2(1175, 331)
+scale = Vector2(2.2832031, 2.1524928)
+texture = ExtResource("1_8mu5t")
+
+[node name="Player" parent="Content" unique_id=168436519 instance=ExtResource("1_w04ng")]
+position = Vector2(964, 546)
+
+[node name="AnimatedSprite2D" parent="Content/Player" index="0" unique_id=1329092579]
+position = Vector2(-98.5, -26.666668)
+
+[node name="Camera2D" parent="Content/Player" index="2" unique_id=1935542993]
+limit_left = -4
+limit_top = -847
+limit_right = 2350
+limit_bottom = 1068
+
+[node name="ExitArea" type="Area2D" parent="." unique_id=1267075267 node_paths=PackedStringArray("show_hide")]
+position = Vector2(2800, -700)
+script = ExtResource("2_7bvfr")
+show_hide = [NodePath("ShortcutButton")]
+metadata/_custom_type_script = "uid://cohk8vm07ox71"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea" unique_id=347235825]
+position = Vector2(0, -46.5)
+shape = SubResource("RectangleShape2D_dy8ix")
+
+[node name="ShortcutButton" parent="ExitArea" unique_id=1320667790 instance=ExtResource("3_8mu5t")]
+offset_left = -53.0
+offset_top = -156.0
+offset_right = 49.0
+offset_bottom = -94.0
+theme_type_variation = &"ShortcutButton"
+shortcut = ExtResource("4_4gkge")
+text = "Exit ship"
+icon = ExtResource("5_bp2fo")
+
+[editable path="Content/Player"]
