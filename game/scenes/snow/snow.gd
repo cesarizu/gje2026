@@ -23,6 +23,6 @@ func _on_ice_area_2d_body_entered(body: Node2D) -> void:
 	if RunInventory.has_item(&"flashlight") or RunInventory.has_item(&"multitool"):
 		pass
 	elif not _ice_hit:
-		Core.game.hit()
+		Player.instance.hit()
 		_ice_hit = true
 	
