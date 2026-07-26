@@ -651,6 +651,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D" unique_id=168436519]
 scale = Vector2(6, 6)
+collision_layer = 3
 script = ExtResource("1_3p4xn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1329092579]
