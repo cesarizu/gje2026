@@ -2,6 +2,7 @@ extends Menu
 
 @onready var flashlight_control: TextureButton = %FlashligthButton
 @onready var flashlight_button: TextureButton = %FlashligthButton
+@onready var lifes_texture_progress_bar: TextureProgressBar = %LifesTextureProgressBar
 
 var player: Node = null
 
@@ -9,8 +10,9 @@ var player: Node = null
 func _ready() -> void:
 	super()
 
-	if not RunInventory.inventory_changed.is_connected(update_inventory_hud):
-		RunInventory.inventory_changed.connect(update_inventory_hud)
+	RunInventory.inventory_changed.connect(update_inventory_hud)
+	Core.game.lifes_changed.connect(_on_lifes_changed)
+	_on_lifes_changed()
 
 	if flashlight_button != null:
 		flashlight_button.pressed.connect(_on_flashlight_pressed)
@@ -55,3 +57,7 @@ func _on_flashlight_pressed() -> void:
 
 	if "flashlight_on" in player:
 		flashlight_button.button_pressed = player.flashlight_on
+
+
+func _on_lifes_changed() -> void:
+	lifes_texture_progress_bar.value = Core.game.lifes
