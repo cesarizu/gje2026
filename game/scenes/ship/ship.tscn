@@ -176,12 +176,13 @@ shape = SubResource("RectangleShape2D_tc06c")
 [node name="ShortcutButton" parent="ExitArea" unique_id=1320667790 instance=ExtResource("5_fbtr2")]
 offset_left = -53.0
 offset_top = -156.0
-offset_right = 49.0
+offset_right = 293.0
 offset_bottom = -94.0
 theme_type_variation = &"ShortcutButton"
 shortcut = ExtResource("9_qul2h")
 text = "Exit ship"
 icon = ExtResource("8_qtiow")
+alignment = 0
 
 [node name="InventoryArea2D" type="Area2D" parent="." unique_id=20110477 node_paths=PackedStringArray("show_hide")]
 position = Vector2(1651, 96)
@@ -197,13 +198,14 @@ shape = SubResource("RectangleShape2D_rh4oo")
 [node name="ShortcutButton" parent="InventoryArea2D" unique_id=977058116 instance=ExtResource("5_fbtr2")]
 offset_left = -113.0
 offset_top = -154.0
-offset_right = 162.0
+offset_right = 261.0
 offset_bottom = -92.0
 theme_type_variation = &"ShortcutButton"
 shortcut = ExtResource("9_qul2h")
 text = "Open Inventory"
 icon = ExtResource("8_qtiow")
 flat = true
+alignment = 0
 
 [node name="AlarmAnimationPlayer" type="AnimationPlayer" parent="." unique_id=2036347400]
 libraries/ = SubResource("AnimationLibrary_5hp40")

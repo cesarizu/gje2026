@@ -2,8 +2,11 @@
 
 [ext_resource type="Script" uid="uid://ddef21s0sqcuk" path="res://game/ui/menus/inventory/ItemCard.gd" id="1_cgs67"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_card"]
+
 [node name="ItemCard" type="PanelContainer" unique_id=814442404]
 custom_minimum_size = Vector2(190, 180)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_card")
 script = ExtResource("1_cgs67")
 
 [node name="ContentMargin" type="MarginContainer" parent="." unique_id=1722320183]
