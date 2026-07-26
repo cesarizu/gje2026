@@ -10,10 +10,6 @@ var flashlight_on: bool = false
 
 signal flashlight_changed(enabled: bool)
 
-func _ready() -> void:
-	if get_tree().current_scene.name == "Ship":
-		Dialogic.start("player_dialog")
-
 
 func _physics_process(_delta: float) -> void:
 	process_movement()
