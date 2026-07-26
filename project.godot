@@ -32,7 +32,8 @@ Dialogic="*uid://ds2q0uclmolvu"
 [dialogic]
 
 directories/dch_directory={
-"player": "res://game/characters/player.dch"
+"player": "res://game/characters/player.dch",
+"ship": "res://game/characters/ship.dch"
 }
 directories/dtl_directory={
 "player_dialog": "res://game/timelines/player_dialog.dtl"
@@ -79,6 +80,7 @@ variables={
 layout/style_list=["res://game/styles/default_style.tres"]
 layout/default_style="res://game/styles/default_style.tres"
 glossary/default_case_sensitive=true
+animations/join_default="Fade In Up"
 
 [display]
 

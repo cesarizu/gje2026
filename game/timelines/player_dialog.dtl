@@ -1,5 +1,5 @@
 set {player_can_move} = false
-player (question): Chuta que pasó??
-player (sad): Creo que me estrellé
-player (alert2): Necesito buscar otra nave para regresar a casa
+player (alert2): Que desastre, nada podría ser peor que estrellarse en un planeta desconocido.
+ship: ALERTA\: MODULO DE NAVE EXTRAVIADO. INSERTAR NUEVAMENTE PARA INICIAR SECUENCIA DE DESPEGUE
+player (angry): Lo que faltaba....
 set {player_can_move} = true
