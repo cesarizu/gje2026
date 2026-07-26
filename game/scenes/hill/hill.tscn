@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://djg4pxqo0wkeb" path="res://game/audio/SFX_Alarm_Single.ogg" id="12_focv6"]
 [ext_resource type="AudioStream" uid="uid://dxxexu2x1o0tb" path="res://game/audio/Mus_Track1.ogg" id="13_qxk3y"]
 [ext_resource type="Texture2D" uid="uid://b6l33delw56" path="res://game/scenes/hill/assets/mosquito.png" id="14_ktdo1"]
+[ext_resource type="AudioStream" uid="uid://b87w3hvbe8lfp" path="res://game/audio/mosquitos_sound.mp3" id="17_3e002"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i7rim"]
 normal = Vector2(1, 0)
@@ -38,6 +39,28 @@ radius = 170.423
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rh4oo"]
 radius = 599.33295
+
+[sub_resource type="Curve" id="Curve_diq7m"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1862955, 1), 0.0, 0.0, 0, 0, Vector2(0.875803, 0.99593496), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_ktdo1"]
+curve = SubResource("Curve_diq7m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_edrbc"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(500, 500, 0)
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_ktdo1")
+turbulence_enabled = true
+turbulence_influence_min = 1.0
+turbulence_influence_max = 1.0
+turbulence_initial_displacement_min = 1.0000015
+turbulence_initial_displacement_max = 1.0000015
 
 [sub_resource type="Animation" id="Animation_olsfu"]
 resource_name = "alarm"
@@ -62,28 +85,6 @@ tracks/0/use_blend = true
 _data = {
 &"alarm": SubResource("Animation_olsfu")
 }
-
-[sub_resource type="Curve" id="Curve_diq7m"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1862955, 1), 0.0, 0.0, 0, 0, Vector2(0.875803, 0.99593496), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="CurveTexture" id="CurveTexture_ktdo1"]
-curve = SubResource("Curve_diq7m")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_edrbc"]
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(500, 500, 0)
-spread = 180.0
-initial_velocity_min = 100.0
-initial_velocity_max = 100.0
-gravity = Vector3(0, 0, 0)
-alpha_curve = SubResource("CurveTexture_ktdo1")
-turbulence_enabled = true
-turbulence_influence_min = 1.0
-turbulence_influence_max = 1.0
-turbulence_initial_displacement_min = 1.0000015
-turbulence_initial_displacement_max = 1.0000015
 
 [node name="Hill" type="Node2D" unique_id=1861721494]
 script = ExtResource("1_olsfu")
@@ -142,10 +143,10 @@ rotation = -3.1415925
 shape = SubResource("WorldBoundaryShape2D_f7m8p")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Limits" unique_id=472744751]
-polygon = PackedVector2Array(-4, -851, 126, -845, 546, -420, 601, -477, 739, -452, 942, -192, 915, -96, 826.74994, -67.38153, 636, 21, 340, 61, 493, 137, 500, 233, 717, 215, 723, 144, 1221, 212, 1211, 448, 992, 554, 805, 583, 892, 641, 841, 686, 789, 752, 652, 779, 641, 735, 562, 776, 481.29285, 733.9051, 524, 807, 355, 799, 270, 941, 419, 999, 450, 958, 705, 1047, 698, 1078, 698, 1078, -2, 1079)
+polygon = PackedVector2Array(-4, -851, 126, -845, 546, -420, 601, -477, 739, -452, 942, -192, 915, -96, 826.74994, -67.38153, 636, 21, 340, 61, 493, 137, 167, 160, 173, 249, 294, 325, 480, 229, 538, 236, 717, 215, 799, 261, 884, 278, 884, 473, 992, 554, 805, 583, 892, 641, 841, 686, 789, 752, 652, 779, 641, 735, 562, 776, 481.29285, 733.9051, 524, 807, 355, 799, 270, 941, 419, 999, 450, 958, 705, 1047, 698, 1078, 698, 1078, -2, 1079)
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Limits" unique_id=1496184489]
-polygon = PackedVector2Array(1018, -845, 2678, -859, 2613, -570, 2422, -241, 2406, -98, 2274, 90, 2304, 132, 2058, 225, 2064, 274, 2003, 315, 1893, 285, 1798, 282, 1733, 213, 1746, 22, 1656, -156, 1798, -252, 1636, -376, 1556, -314, 1466, -316, 1453, -199, 1396, -269, 1164, -253, 940, -539, 827, -594, 1100, -637)
+polygon = PackedVector2Array(1018, -845, 2678, -859, 2613, -570, 2422, -241, 2406, -98, 2274, 90, 2304, 132, 2058, 225, 2064, 274, 2003, 315, 1893, 285, 1798, 282, 1733, 213, 1746, 22, 1656, -156, 1798, -252, 1767.7001, -290.56335, 1880, -361, 1944, -428, 1807, -518, 1644, -448, 1636, -376, 1556, -314, 1466, -316, 1453, -199, 1396, -269, 1164, -253, 940, -539, 827, -594, 1100, -637)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Limits" unique_id=15908031]
 polygon = PackedVector2Array(1666, 1001, 1749, 878, 1813, 909, 1885, 903, 1919, 813, 1989, 837, 2050, 844, 2138, 803, 2243, 851, 2319, 854, 2302, 893, 2352, 972, 2400, 884, 2533, 785, 2629, 937, 2748, 853, 2799, 956, 2437, 1050, 2437, 1088, 1693, 1092)
@@ -240,6 +241,20 @@ collision_mask = 2
 position = Vector2(-34, -75)
 shape = SubResource("CircleShape2D_rh4oo")
 
+[node name="MosquitosAmbient" type="AudioStreamPlayer2D" parent="." unique_id=1605392618]
+position = Vector2(2906, -210)
+stream = ExtResource("17_3e002")
+autoplay = true
+
+[node name="Mosquitoes" type="GPUParticles2D" parent="." unique_id=1252019186]
+position = Vector2(2935, -246)
+amount = 40
+texture = ExtResource("14_ktdo1")
+lifetime = 10.0
+preprocess = 10.0
+visibility_rect = Rect2(-541.875, -548.1459, 1083.6667, 1056.4066)
+process_material = SubResource("ParticleProcessMaterial_edrbc")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=309743710]
 libraries/ = SubResource("AnimationLibrary_focv6")
 autoplay = &"alarm"
@@ -248,17 +263,9 @@ autoplay = &"alarm"
 volume_db = -9.0
 bus = &"Ambient"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1763624451]
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1763624451]
 stream = ExtResource("13_qxk3y")
 autoplay = true
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1252019186]
-position = Vector2(2935, -246)
-amount = 40
-texture = ExtResource("14_ktdo1")
-lifetime = 10.0
-preprocess = 10.0
-process_material = SubResource("ParticleProcessMaterial_edrbc")
 
 [connection signal="interacted" from="ExitArea" to="." method="_on_exit_area_interacted"]
 [connection signal="interacted" from="ExitArea2" to="." method="_on_exit_area_interacted"]

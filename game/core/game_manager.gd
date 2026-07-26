@@ -4,6 +4,8 @@ extends Node
 signal state_changed(new_state: GameState)
 signal lifes_changed()
 
+const MAX_LIFES := 3
+
 enum GameState {
 	NONE,
 	NOT_STARTED,
@@ -25,7 +27,7 @@ var state: GameState = GameState.NONE:
 		state = value
 		state_changed.emit(state)
 
-var lifes := 3:
+var lifes := MAX_LIFES:
 	set(value):
 		if lifes != value:
 			var do_emit := lifes > value
@@ -44,7 +46,7 @@ func go_to_start_menu() -> void:
 
 
 func start_game() -> void:
-	lifes = 3
+	lifes = MAX_LIFES
 	enter_ship()
 
 
@@ -82,6 +84,7 @@ func end_game() -> void:
 	if not is_playing():
 		return
 
+	await get_tree().create_timer(2).timeout
 	state = GameState.GAME_OVER
 	UI.push_game_over()
 	await get_tree().create_timer(5).timeout
