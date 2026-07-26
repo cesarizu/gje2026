@@ -11,6 +11,7 @@ const INVENTORY_SLOT = preload(
 
 var selected_item: ItemData = null
 var selected_item_rotated: bool = false
+var selected_item_card: ItemCard = null
 
 var slots: Array[Array] = []
 var placed_items: Array[Dictionary] = []
@@ -65,12 +66,20 @@ func connect_item_cards() -> void:
 	for child in items_container.get_children():
 		if child is ItemCard:
 			if not child.item_selected.is_connected(_on_item_selected):
-				child.item_selected.connect(_on_item_selected)
+				child.item_selected.connect(_on_item_selected.bind(child))
 
 
-func _on_item_selected(item_data: ItemData) -> void:
+func _on_item_selected(
+	item_data: ItemData,
+	item_card: ItemCard
+) -> void:
+	if selected_item_card != null:
+		selected_item_card.set_rotated(false)
+
 	selected_item = item_data
 	selected_item_rotated = false
+	selected_item_card = item_card
+	selected_item_card.set_rotated(false)
 
 	print(
 		"Objeto seleccionado: ",
@@ -123,6 +132,7 @@ func _on_slot_clicked(slot: InventorySlot) -> void:
 
 	selected_item = null
 	selected_item_rotated = false
+	selected_item_card = null
 
 
 func _on_slot_right_clicked(slot: InventorySlot) -> void:
@@ -152,6 +162,9 @@ func rotate_selected_item() -> void:
 		return
 
 	selected_item_rotated = not selected_item_rotated
+
+	if selected_item_card != null:
+		selected_item_card.set_rotated(selected_item_rotated)
 
 	print(
 		"Rotación: ",

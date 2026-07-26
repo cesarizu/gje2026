@@ -13,5 +13,6 @@ class_name ItemData
 @export var can_rotate: bool = true
 
 @export_group("Uso")
+@export var uses_charges: bool = true
 @export var max_charges: int = 1
 @export var use_text: String = ""

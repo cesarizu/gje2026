@@ -7,6 +7,12 @@
 [ext_resource type="Resource" uid="uid://dgibarl4fjh4r" path="res://game/data/items/oxygen_tank.tres" id="5_lug5u"]
 [ext_resource type="Resource" uid="uid://gahb1c6ayboj" path="res://game/data/items/water.tres" id="6_xmtj7"]
 [ext_resource type="Theme" uid="uid://bkmwp1g2d5tx4" path="res://game/ui/temas/ultimo_tramo_theme.tres" id="7_6hnd1"]
+[ext_resource type="Resource" uid="uid://181trawrarqf" path="res://game/data/items/sealant_foam.tres" id="8_foam"]
+[ext_resource type="Resource" uid="uid://cq1c56aq3ppdl" path="res://game/data/items/antidote.tres" id="9_antidote"]
+[ext_resource type="Resource" uid="uid://gn1bin32wx7d" path="res://game/data/items/repellent.tres" id="10_repellent"]
+[ext_resource type="Resource" uid="uid://ctwberska53xx" path="res://game/data/items/thermal_blanket.tres" id="11_blanket"]
+[ext_resource type="Resource" uid="uid://cw8pvy0bwm8b6" path="res://game/data/items/rope.tres" id="12_rope"]
+[ext_resource type="Resource" uid="uid://bwss7rivu14ve" path="res://game/data/items/multitool.tres" id="13_multitool"]
 
 [node name="Inventory" type="CanvasLayer" unique_id=996149556]
 script = ExtResource("1_c08o0")
@@ -65,29 +71,45 @@ unique_name_in_owner = true
 layout_mode = 2
 columns = 3
 
-[node name="ItemCard3" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" unique_id=1959880788 instance=ExtResource("2_0jv1k")]
+[node name="WaterCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" instance=ExtResource("2_0jv1k")]
 layout_mode = 2
-item_data = ExtResource("5_lug5u")
+item_data = ExtResource("6_xmtj7")
 
-[node name="ItemCard2" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" unique_id=1557466647 instance=ExtResource("2_0jv1k")]
-layout_mode = 2
-item_data = ExtResource("4_t0odh")
-
-[node name="ItemCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" unique_id=814442404 instance=ExtResource("2_0jv1k")]
+[node name="BandageCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" instance=ExtResource("2_0jv1k")]
 layout_mode = 2
 item_data = ExtResource("3_6hnd1")
 
-[node name="ItemCard4" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" unique_id=1965061351 instance=ExtResource("2_0jv1k")]
+[node name="SealantFoamCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" instance=ExtResource("2_0jv1k")]
 layout_mode = 2
-item_data = ExtResource("6_xmtj7")
+item_data = ExtResource("8_foam")
 
-[node name="ItemCard5" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" unique_id=873283671 instance=ExtResource("2_0jv1k")]
+[node name="AntidoteCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" instance=ExtResource("2_0jv1k")]
 layout_mode = 2
-item_data = ExtResource("6_xmtj7")
+item_data = ExtResource("9_antidote")
 
-[node name="ItemCard6" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" unique_id=1012341957 instance=ExtResource("2_0jv1k")]
+[node name="RepellentCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" instance=ExtResource("2_0jv1k")]
 layout_mode = 2
-item_data = ExtResource("6_xmtj7")
+item_data = ExtResource("10_repellent")
+
+[node name="FlashlightCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" instance=ExtResource("2_0jv1k")]
+layout_mode = 2
+item_data = ExtResource("4_t0odh")
+
+[node name="AuxiliaryTankCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" instance=ExtResource("2_0jv1k")]
+layout_mode = 2
+item_data = ExtResource("5_lug5u")
+
+[node name="ThermalBlanketCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" instance=ExtResource("2_0jv1k")]
+layout_mode = 2
+item_data = ExtResource("11_blanket")
+
+[node name="RopeCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" instance=ExtResource("2_0jv1k")]
+layout_mode = 2
+item_data = ExtResource("12_rope")
+
+[node name="MultitoolCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" instance=ExtResource("2_0jv1k")]
+layout_mode = 2
+item_data = ExtResource("13_multitool")
 
 [node name="BackpackPanel" type="PanelContainer" parent="Control/MainMargin/MainContainer/InventoryContent" unique_id=154127399]
 layout_mode = 2

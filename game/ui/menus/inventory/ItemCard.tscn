@@ -3,45 +3,49 @@
 [ext_resource type="Script" uid="uid://ddef21s0sqcuk" path="res://game/ui/menus/inventory/ItemCard.gd" id="1_cgs67"]
 
 [node name="ItemCard" type="PanelContainer" unique_id=814442404]
-custom_minimum_size = Vector2(200, 50)
+custom_minimum_size = Vector2(190, 180)
 script = ExtResource("1_cgs67")
 
 [node name="ContentMargin" type="MarginContainer" parent="." unique_id=1722320183]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 12
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_bottom = 8
 
-[node name="Content" type="HBoxContainer" parent="ContentMargin" unique_id=229592101]
+[node name="Content" type="VBoxContainer" parent="ContentMargin" unique_id=229592101]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/separation = 12
+theme_override_constants/separation = 4
 
-[node name="ItemIcon" type="TextureRect" parent="ContentMargin/Content" unique_id=1928446795]
-custom_minimum_size = Vector2(30, 30)
+[node name="NameLabel" type="Label" parent="ContentMargin/Content" unique_id=1372650132]
+unique_name_in_owner = true
 layout_mode = 2
+mouse_filter = 2
+text = "Objeto"
+horizontal_alignment = 1
+autowrap_mode = 0
+text_overrun_behavior = 3
+
+[node name="IconCenter" type="CenterContainer" parent="ContentMargin/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="ItemIcon" type="TextureRect" parent="ContentMargin/Content/IconCenter" unique_id=1928446795]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 mouse_filter = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ItemInfo" type="VBoxContainer" parent="ContentMargin/Content" unique_id=2010658684]
+[node name="ChargesLabel" type="Label" parent="ContentMargin/Content"]
+unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
 mouse_filter = 2
-theme_override_constants/separation = 50
-
-[node name="NameLabel" type="Label" parent="ContentMargin/Content/ItemInfo" unique_id=1372650132]
-layout_mode = 2
-text = "Bolsa de agua"
-
-[node name="StatsLabel" type="Label" parent="ContentMargin/Content/ItemInfo" unique_id=468854279]
-layout_mode = 2
-text = "1×2 · 3 cargas"
-
-[node name="DescriptionLabel" type="Label" parent="ContentMargin/Content/ItemInfo" unique_id=265032502]
-custom_minimum_size = Vector2(30, 30)
-layout_mode = 2
-text = "Recupera hidratación."
-autowrap_mode = 3
+text = "3/3"
+horizontal_alignment = 1

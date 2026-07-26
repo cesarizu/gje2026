@@ -8,17 +8,22 @@ signal item_selected(item_data: ItemData)
 		item_data = value
 
 		if is_node_ready():
+			_sync_inventory_state()
 			update_ui()
 
+var current_charges: int = 0
+var rotated: bool = false
 
-@onready var item_icon: TextureRect = $ContentMargin/Content/ItemIcon
-@onready var name_label: Label = $ContentMargin/Content/ItemInfo/NameLabel
-@onready var stats_label: Label = $ContentMargin/Content/ItemInfo/StatsLabel
-@onready var description_label: Label = $ContentMargin/Content/ItemInfo/DescriptionLabel
-
+@onready var item_icon: TextureRect = %ItemIcon
+@onready var name_label: Label = %NameLabel
+@onready var charges_label: Label = %ChargesLabel
 
 
 func _ready() -> void:
+	if not RunInventory.inventory_changed.is_connected(_on_inventory_changed):
+		RunInventory.inventory_changed.connect(_on_inventory_changed)
+
+	_sync_inventory_state()
 	update_ui()
 
 
@@ -35,22 +40,106 @@ func update_ui() -> void:
 		return
 
 	name_label.text = item_data.item_name
-
-	var charges_text := "carga" if item_data.max_charges == 1 else "cargas"
-
-	stats_label.text = "%dx%d · %d %s" % [
-		item_data.width,
-		item_data.height,
-		item_data.max_charges,
-		charges_text
-	]
-
-	description_label.text = item_data.description
 	item_icon.texture = item_data.icon
+	charges_label.visible = item_data.uses_charges
+
+	if item_data.uses_charges:
+		charges_label.text = "%d/%d" % [
+			current_charges,
+			item_data.max_charges
+		]
+	else:
+		charges_label.text = ""
+
+	tooltip_text = _build_tooltip()
 
 
 func clear_ui() -> void:
 	name_label.text = ""
-	stats_label.text = ""
-	description_label.text = ""
+	charges_label.text = ""
+	charges_label.visible = false
 	item_icon.texture = null
+	tooltip_text = ""
+
+
+func set_current_charges(value: int) -> void:
+	current_charges = value
+
+	if item_data != null and item_data.uses_charges:
+		current_charges = clampi(value, 0, item_data.max_charges)
+
+	if is_node_ready():
+		update_ui()
+
+
+func set_rotated(value: bool) -> void:
+	rotated = value
+
+	if is_node_ready():
+		tooltip_text = _build_tooltip()
+
+
+func _on_inventory_changed() -> void:
+	_sync_inventory_state()
+	update_ui()
+
+
+func _sync_inventory_state() -> void:
+	if item_data == null:
+		current_charges = 0
+		return
+
+	current_charges = item_data.max_charges
+
+	if item_data.id != &"" and RunInventory.has_item(item_data.id):
+		current_charges = RunInventory.get_current_charges(item_data.id)
+
+
+func _build_tooltip() -> String:
+	if item_data == null:
+		return ""
+
+	var lines: Array[String] = [item_data.item_name.to_upper()]
+
+	if not item_data.description.is_empty():
+		lines.append("")
+		lines.append(item_data.description)
+
+	if not item_data.use_text.is_empty():
+		lines.append("")
+		lines.append("Uso: %s" % item_data.use_text)
+
+	if item_data.uses_charges:
+		lines.append("Cargas: %d/%d" % [
+			current_charges,
+			item_data.max_charges
+		])
+
+	var display_width := item_data.height if rotated else item_data.width
+	var display_height := item_data.width if rotated else item_data.height
+	lines.append("Tamaño: %d x %d" % [display_width, display_height])
+
+	return "\n".join(lines)
+
+
+func _make_custom_tooltip(for_text: String) -> Object:
+	var panel := PanelContainer.new()
+	var background := StyleBoxFlat.new()
+	background.bg_color = Color(0.025, 0.035, 0.045, 0.98)
+	background.border_color = Color(0.18, 0.45, 0.5, 1.0)
+	background.set_border_width_all(1)
+	background.set_corner_radius_all(4)
+	background.content_margin_left = 12
+	background.content_margin_top = 10
+	background.content_margin_right = 12
+	background.content_margin_bottom = 10
+	panel.add_theme_stylebox_override("panel", background)
+
+	var label := Label.new()
+	label.custom_minimum_size.x = 240
+	label.text = for_text
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	label.add_theme_color_override("font_color", Color(0.94, 0.97, 0.98, 1.0))
+	panel.add_child(label)
+
+	return panel

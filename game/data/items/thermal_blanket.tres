@@ -12,5 +12,6 @@ icon = ExtResource("2_blanket")
 width = 2
 height = 2
 can_rotate = false
+uses_charges = false
 use_text = "Regular temperatura (reutilizable)"
 metadata/_custom_type_script = "uid://caxfluwpro32s"
