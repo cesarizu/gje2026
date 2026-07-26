@@ -258,6 +258,7 @@ amount = 40
 texture = ExtResource("14_ktdo1")
 lifetime = 10.0
 preprocess = 10.0
+visibility_rect = Rect2(-541.875, -548.1459, 1083.6667, 1056.4066)
 process_material = SubResource("ParticleProcessMaterial_edrbc")
 
 [connection signal="interacted" from="ExitArea" to="." method="_on_exit_area_interacted"]
