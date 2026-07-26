@@ -15,6 +15,14 @@ size = Vector2(464, 279)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vifyx"]
 size = Vector2(927.78125, 447.5)
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i7rim"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gul5x"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h0der"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f7m8p"]
+
 [node name="Snow" type="Node2D" unique_id=1518478349]
 script = ExtResource("1_iasno")
 
@@ -67,6 +75,27 @@ icon = ExtResource("6_7fpqp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="IceArea2D" unique_id=1589979556]
 position = Vector2(2098.1094, 165.75)
 shape = SubResource("RectangleShape2D_vifyx")
+
+[node name="Limits" type="StaticBody2D" parent="." unique_id=1921561267]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limits" unique_id=1193562897]
+position = Vector2(30, 0)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_i7rim")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Limits" unique_id=1843099]
+position = Vector2(3000, 0)
+rotation = 4.712389
+shape = SubResource("WorldBoundaryShape2D_gul5x")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Limits" unique_id=839309148]
+position = Vector2(0, -550)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_h0der")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Limits" unique_id=628525186]
+position = Vector2(0, 1075)
+shape = SubResource("WorldBoundaryShape2D_f7m8p")
 
 [connection signal="interacted" from="ExitArea" to="." method="_on_exit_area_interacted"]
 [connection signal="body_entered" from="IceArea2D" to="." method="_on_ice_area_2d_body_entered"]
