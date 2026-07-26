@@ -1,9 +1,16 @@
 [gd_resource type="AudioBusLayout" format=3 uid="uid://33yjhy142bnw"]
 
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_xcxao"]
+resource_name = "Reverb"
+room_size = 1.0
+damping = 0.1
+wet = 0.15
+
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_ti0eg"]
 resource_name = "Reverb"
 
 [resource]
+bus/0/send = &"New Bus"
 bus/1/name = &"SFX"
 bus/1/solo = false
 bus/1/mute = false
@@ -22,6 +29,8 @@ bus/3/mute = false
 bus/3/bypass_fx = false
 bus/3/volume_db = 0.0
 bus/3/send = &"Master"
+bus/3/effect/0/effect = SubResource("AudioEffectReverb_xcxao")
+bus/3/effect/0/enabled = true
 bus/4/name = &"Ship Ambient"
 bus/4/solo = false
 bus/4/mute = false

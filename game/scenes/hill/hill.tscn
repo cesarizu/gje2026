@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://x8lft640ihod" path="res://addons/holoprime_ui_framework/shortcuts/shortcut_button.tscn" id="8_ewsh7"]
 [ext_resource type="Shortcut" uid="uid://cke0a0ogk778b" path="res://game/ui/shortcuts/interact_shortcut.tres" id="9_olsfu"]
 [ext_resource type="Texture2D" uid="uid://cqtjp15cpcxov" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/generic/generic_button_circle.svg" id="10_focv6"]
+[ext_resource type="AudioStream" uid="uid://djg4pxqo0wkeb" path="res://game/audio/SFX_Alarm_Single.ogg" id="12_focv6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qxk3y"]
 size = Vector2(464, 279)
@@ -23,6 +24,30 @@ normal = Vector2(1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h0der"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f7m8p"]
+
+[sub_resource type="Animation" id="Animation_olsfu"]
+resource_name = "alarm"
+loop_mode = 1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("12_focv6")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_focv6"]
+_data = {
+&"alarm": SubResource("Animation_olsfu")
+}
 
 [node name="Hill" type="Node2D" unique_id=1861721494]
 script = ExtResource("1_olsfu")
@@ -126,6 +151,13 @@ polygon = PackedVector2Array(3104, 188, 3194, 209, 3215, 188, 3239, -112, 3322, 
 
 [node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=62592329]
 polygon = PackedVector2Array(3258, -301, 3347, -301, 3349, -575, 3349, -575, 3411, -551, 3468, -530, 3440, -596, 3533, -589, 3377, -683, 3314, -728, 3314, -684, 3093, -632, 3113, -596, 3212, -603, 3220, -581, 3150, -541, 3173, -516, 3291, -539, 3244, -324)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=309743710]
+libraries/ = SubResource("AnimationLibrary_focv6")
+autoplay = &"alarm"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AnimationPlayer" unique_id=1389054267]
+bus = &"Ambient"
 
 [connection signal="interacted" from="ExitArea" to="." method="_on_exit_area_interacted"]
 
