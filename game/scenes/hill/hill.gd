@@ -25,13 +25,14 @@ func _on_inventory_area_2d_interacted() -> void:
 func _on_hole_area_2d_body_entered(body: Node2D) -> void:
 	if body is not Player:
 		return
-
 	if RunInventory.has_item(&"thermal_blanket") or RunInventory.has_item(&"rope"):
 		hole_sprite_2d.show()
 		hole.queue_free()
+		Dialogic.start("rift_with_rope")
 	elif not _hole_hit:
 		Player.instance.hit()
 		_hole_hit = true
+		Dialogic.start("rift")
 
 
 func _on_mosquito_area_2d_body_entered(body: Node2D) -> void:

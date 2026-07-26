@@ -1,0 +1,3 @@
+set {player_can_move} = false
+game: Diablos, debí haberme preparado mejor antes de cruzar, debo tratar la herida antes de que se vuelva peor
+set {player_can_move} = true
