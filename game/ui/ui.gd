@@ -6,6 +6,8 @@ extends Node
 @export var inventory_scene: PackedScene
 
 @onready var menu_stack: MenuStack = %MenuStack
+@onready var inventory_open_audio: AudioStreamPlayer = %InventoryOpenAudio
+@onready var inventory_close_audio: AudioStreamPlayer = %InventoryCloseAudio
 
 
 func _ready() -> void:
@@ -44,7 +46,17 @@ func push_game_over() -> void:
 
 func push_inventory() -> void:
 	menu_stack.push(inventory_scene, false)
+	play_inventory_open_sound()
 
 
 func push_backpack() -> void:
 	menu_stack.push(inventory_scene, true)
+	play_inventory_open_sound()
+
+
+func play_inventory_open_sound() -> void:
+	inventory_open_audio.play()
+
+
+func play_inventory_close_sound() -> void:
+	inventory_close_audio.play()

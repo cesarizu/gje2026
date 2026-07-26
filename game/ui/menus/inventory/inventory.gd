@@ -768,8 +768,13 @@ func _on_exit_pressed() -> void:
 	close_inventory()
 
 
+func _on_back_pressed() -> void:
+	close_inventory()
+
+
 func close_inventory() -> void:
 	cancel_active_drag()
 	save_inventory_state()
+	UI.play_inventory_close_sound()
 
 	pop_self()
