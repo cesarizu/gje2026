@@ -1,2 +1,3 @@
-game: ADVERTENCIA\: Al abandonar la nave, todo objeto fuera de la mochila se perderá. No podrás regresar ni encontrar suministros durante la expedición.\
-Y la muerte, será permanente.
+set {player_can_move} = false
+game: ADVERTENCIA\: Al abandonar la nave, todo objeto fuera de la mochila se perderá. No podrás regresar ni encontrar suministros durante la expedición. Y la muerte, será permanente.
+set {player_can_move} = true
