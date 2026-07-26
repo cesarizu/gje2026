@@ -8,8 +8,6 @@
 
 [node name="Content" type="Node2D" parent="." unique_id=891641893]
 
-[node name="Bg" type="Sprite2D" parent="Content" unique_id=547574972]
-
 [node name="ExitArea" type="Area2D" parent="." unique_id=1688173847]
 script = ExtResource("1_071xe")
 metadata/_custom_type_script = "uid://cohk8vm07ox71"

@@ -308,3 +308,5 @@ shape = SubResource("CapsuleShape2D_edrbc")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1935542993]
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
