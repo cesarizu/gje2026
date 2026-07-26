@@ -69,7 +69,9 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
-variables={}
+variables={
+"player_can_move": ""
+}
 layout/style_list=["res://game/styles/default_style.tres"]
 layout/default_style="res://game/styles/default_style.tres"
 glossary/default_case_sensitive=true

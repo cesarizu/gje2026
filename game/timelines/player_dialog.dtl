@@ -1,3 +1,5 @@
+set {player_can_move} = false
 player (question): Chuta que pasó??
 player (sad): Creo que me estrellé
 player (alert2): Necesito buscar otra nave para regresar a casa
+set {player_can_move} = true

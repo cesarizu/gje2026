@@ -16,6 +16,7 @@ func _ready() -> void:
 		Dialogic.start("player_dialog")
 
 func _physics_process(_delta: float) -> void:
+		
 	process_movement()
 	process_animation()
 	move_and_slide()
@@ -29,6 +30,8 @@ func _physics_process(_delta: float) -> void:
 		update_flashlight_direction(direction)
 
 func process_movement() -> void:
+	if !Dialogic.VAR.get_variable("player_can_move"):
+		return
 	var direction = Input.get_vector("player_move_left", "player_move_right", "player_move_up", "player_move_down")
 
 	if direction != Vector2.ZERO:

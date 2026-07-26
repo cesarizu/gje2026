@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://bak74s0kcr0ao" path="res://addons/dialogic/Modules/Text/node_name_label.gd" id="3_hwo24"]
 [ext_resource type="Script" uid="uid://drhfq6rmdeuri" path="res://addons/dialogic/Modules/Text/node_dialog_text.gd" id="4_ik4qa"]
 [ext_resource type="Script" uid="uid://dpv2dfiv5dhmr" path="res://addons/dialogic/Modules/Text/node_type_sound.gd" id="5_mnqy3"]
+[ext_resource type="Script" uid="uid://dve1vwse2peji" path="res://addons/dialogic/Modules/Text/node_next_indicator.gd" id="6_hwo24"]
+[ext_resource type="Texture2D" uid="uid://b0rpqfg4fhebk" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/next.svg" id="7_ik4qa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmg1w"]
 bg_color = Color(0.254902, 0.254902, 0.254902, 1)
@@ -123,3 +125,17 @@ textbox_root = NodePath("../../..")
 
 [node name="DialogicNode_TypeSounds" type="AudioStreamPlayer" parent="Anchor/Panel/HBox/VBoxContainer/DialogicNode_DialogText" unique_id=1201317752]
 script = ExtResource("5_mnqy3")
+
+[node name="NextIndicator" type="Control" parent="Anchor" unique_id=1098796947]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 225.0
+offset_top = -73.0
+offset_right = 225.0
+offset_bottom = -73.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+script = ExtResource("6_hwo24")
+show_on_questions = true
+texture = ExtResource("7_ik4qa")
+metadata/_edit_layout_mode = 1
