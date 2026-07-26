@@ -67,20 +67,20 @@ func _unhandled_input(event: InputEvent) -> void:
 		if RunInventory.has_item("flashlight"):
 			toggle_flashlight()
 
-#func update_flashlight_direction(direction: Vector2) -> void:
-	#if direction == Vector2.ZERO:
-		#return
+func update_flashlight_direction(direction: Vector2) -> void:
+	if direction == Vector2.ZERO:
+		return
 #
-	#if abs(direction.x) > abs(direction.y):
-		#if direction.x > 0:
-			#flashlight_light.rotation_degrees = -90
-		#else:
-			#flashlight_light.rotation_degrees = 90
-	#else:
-		#if direction.y > 0:
-			#flashlight_light.rotation_degrees = 0
-		#else:
-			#flashlight_light.rotation_degrees = 180
+	if abs(direction.x) > abs(direction.y):
+		if direction.x > 0:
+			flashlight_light.rotation_degrees = -90
+		else:
+			flashlight_light.rotation_degrees = 90
+	else:
+		if direction.y > 0:
+			flashlight_light.rotation_degrees = 0
+		else:
+			flashlight_light.rotation_degrees = 180
 
 func _on_exit_area_interacted() -> void:
-	pass # Replace with function body.
+	pass

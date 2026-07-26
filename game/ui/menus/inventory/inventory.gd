@@ -1,6 +1,8 @@
 class_name Inventory
 extends Menu
 
+@export var read_only: bool = false
+
 const INVENTORY_SLOT = preload(
 	"res://game/ui/menus/inventory/InventorySlot.tscn"
 )
@@ -9,6 +11,11 @@ const INVENTORY_SLOT = preload(
 @onready var placed_items_layer: Control = %PlacedItemsLayer
 @onready var items_container: GridContainer = %ItemsContainer
 @onready var exit_button: Button = %ExitButton
+@onready var manifest_panel: PanelContainer = %ManifestPanel
+@onready var title_label: Label = %TitleLabel
+@onready var inventory_content: HBoxContainer = %InventoryContent
+@onready var backpack_panel: PanelContainer = %BackpackPanel
+@onready var screen_dim: ColorRect = %ScreenDim
 
 var selected_item: ItemData = null
 var selected_item_rotated: bool = false
@@ -20,9 +27,14 @@ var active_moved_item: Dictionary = {}
 var hovered_drop_slot: InventorySlot = null
 
 
+func _setup_menu(backpack_only: bool) -> void:
+	read_only = backpack_only
+
+
 func _ready() -> void:
 	super()
 
+	_apply_view_mode()
 	create_backpack_grid()
 	connect_item_cards()
 	load_inventory_state()
@@ -35,6 +47,23 @@ func _ready() -> void:
 	call_deferred("_rebuild_placed_item_visuals")
 
 	exit_button.pressed.connect(_on_exit_pressed)
+
+
+func _apply_view_mode() -> void:
+	manifest_panel.visible = not read_only
+	title_label.visible = not read_only
+	screen_dim.visible = true
+	title_label.text = "MOCHILA" if read_only else "Inventario"
+	inventory_content.alignment = (
+		BoxContainer.ALIGNMENT_CENTER
+		if read_only
+		else BoxContainer.ALIGNMENT_BEGIN
+	)
+	backpack_panel.size_flags_horizontal = (
+		Control.SIZE_SHRINK_CENTER
+		if read_only
+		else Control.SIZE_EXPAND_FILL
+	)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -84,6 +113,9 @@ func _on_item_selected(
 	item_data: ItemData,
 	item_card: ItemCard
 ) -> void:
+	if read_only:
+		return
+
 	if selected_item_card != null:
 		selected_item_card.set_rotated(false)
 
@@ -103,6 +135,9 @@ func _on_item_selected(
 
 
 func _on_slot_clicked(slot: InventorySlot) -> void:
+	if read_only:
+		return
+
 	if selected_item == null:
 		return
 
@@ -145,6 +180,9 @@ func _on_slot_clicked(slot: InventorySlot) -> void:
 
 
 func _on_slot_right_clicked(slot: InventorySlot) -> void:
+	if read_only:
+		return
+
 	if not slot.occupied:
 		return
 
@@ -160,6 +198,9 @@ func _on_slot_right_clicked(slot: InventorySlot) -> void:
 
 
 func rotate_selected_item() -> void:
+	if read_only:
+		return
+
 	if get_viewport().gui_is_dragging():
 		var drag_value: Variant = get_viewport().gui_get_drag_data()
 
@@ -265,6 +306,9 @@ func place_item(
 
 
 func begin_backpack_drag(slot: InventorySlot) -> Dictionary:
+	if read_only:
+		return {}
+
 	if not active_moved_item.is_empty():
 		return {}
 
@@ -287,6 +331,9 @@ func begin_backpack_drag(slot: InventorySlot) -> Dictionary:
 
 
 func can_drop_data_at(slot: InventorySlot, data: Variant) -> bool:
+	if read_only:
+		return false
+
 	clear_drop_highlights()
 	hovered_drop_slot = slot
 
@@ -506,6 +553,7 @@ func _create_placed_item_visual(
 ) -> Control:
 	var panel := PanelContainer.new()
 	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	panel.add_theme_stylebox_override("panel", StyleBoxEmpty.new())
 
 	var margin := MarginContainer.new()
 	margin.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -724,4 +772,4 @@ func close_inventory() -> void:
 	cancel_active_drag()
 	save_inventory_state()
 
-	queue_free()
+	pop_self()
