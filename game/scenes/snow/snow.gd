@@ -1,8 +1,6 @@
 class_name Snow
 extends Node2D
 
-@onready var ice_sprite_2d: Sprite2D = %IceSprite2D
-@onready var ice: StaticBody2D = %Ice
 
 var _ice_hit := false
 
@@ -17,3 +15,14 @@ func _on_exit_area_interacted() -> void:
 
 func _on_inventory_area_2d_interacted() -> void:
 	UI.push_inventory()
+
+func _on_ice_area_2d_body_entered(body: Node2D) -> void:
+	if body is not Player:
+		return
+		
+	if RunInventory.has_item(&"flashlight") or RunInventory.has_item(&"multitool"):
+		pass
+	elif not _ice_hit:
+		Player.instance.hit()
+		_ice_hit = true
+	

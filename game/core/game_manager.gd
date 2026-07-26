@@ -4,6 +4,8 @@ extends Node
 signal state_changed(new_state: GameState)
 signal lifes_changed()
 
+const MAX_LIFES := 3
+
 enum GameState {
 	NONE,
 	NOT_STARTED,
@@ -25,7 +27,7 @@ var state: GameState = GameState.NONE:
 		state = value
 		state_changed.emit(state)
 
-var lifes := 3:
+var lifes := MAX_LIFES:
 	set(value):
 		if lifes != value:
 			var do_emit := lifes > value
@@ -36,6 +38,20 @@ var lifes := 3:
 				end_game()
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed(&"go_full_screen"):
+		toggle_full_screen()
+		get_viewport().set_input_as_handled()
+
+
+func toggle_full_screen() -> void:
+	var window := get_window()
+	if window.mode == Window.MODE_FULLSCREEN or window.mode == Window.MODE_EXCLUSIVE_FULLSCREEN:
+		window.mode = Window.MODE_WINDOWED
+	else:
+		window.mode = Window.MODE_FULLSCREEN
+
+
 func go_to_start_menu() -> void:
 	state = GameState.NOT_STARTED
 	await UI.fade_out()
@@ -44,7 +60,7 @@ func go_to_start_menu() -> void:
 
 
 func start_game() -> void:
-	lifes = 3
+	lifes = MAX_LIFES
 	enter_ship()
 
 
@@ -82,10 +98,9 @@ func end_game() -> void:
 	if not is_playing():
 		return
 
+	await get_tree().create_timer(2).timeout
 	state = GameState.GAME_OVER
 	UI.push_game_over()
-	await get_tree().create_timer(5).timeout
-	return_to_start_menu()
 
 
 func restart_game() -> void:

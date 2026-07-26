@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bubb055q6n3v6" path="res://game/icons/mochila.png" id="2_sae3p"]
 [ext_resource type="Texture2D" uid="uid://bewtpm5bxdfh5" path="res://game/ui/menus/hud/assets/lifes.png" id="2_sjdgw"]
 [ext_resource type="Script" uid="uid://b8hbe41h4y32v" path="res://addons/holoprime_ui_framework/shortcuts/shortcut_texture_2d.gd" id="3_qmp6s"]
-[ext_resource type="Texture2D" uid="uid://4vllwjur4wre" path="res://game/icons/linterna.png" id="3_uhqbv"]
+[ext_resource type="Texture2D" uid="uid://dnfpblpxjnem7" path="res://game/icons/Linterna_Parada.png" id="3_sjdgw"]
 [ext_resource type="Shortcut" uid="uid://8upnevd721gw" path="res://game/ui/shortcuts/use_object_shortcut.tres" id="4_2hyrx"]
 [ext_resource type="Shortcut" uid="uid://ho1akmypi1jn" path="res://game/ui/shortcuts/inventory_shortcut.tres" id="6_sjdgw"]
 
@@ -70,10 +70,9 @@ alignment = 2
 
 [node name="FlashligthButton" type="TextureButton" parent="BackpackMargin2/ItemsOrder" unique_id=2107871225]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
-texture_normal = ExtResource("3_uhqbv")
+texture_normal = ExtResource("3_sjdgw")
 
 [node name="Sprite2D" type="Sprite2D" parent="BackpackMargin2/ItemsOrder/FlashligthButton" unique_id=970203298]
 texture = SubResource("Texture2D_yeiif")

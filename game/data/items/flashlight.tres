@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c785sn71qxsqw"]
 
-[ext_resource type="Texture2D" uid="uid://cc8rif2k767ak" path="res://game/icons/Linterna_inventario.png" id="1_7x4xa"]
+[ext_resource type="Texture2D" uid="uid://dnfpblpxjnem7" path="res://game/icons/Linterna_Parada.png" id="1_7x4xa"]
 [ext_resource type="Script" uid="uid://caxfluwpro32s" path="res://game/data/items/ItemData.gd" id="1_ndyqu"]
 
 [resource]
