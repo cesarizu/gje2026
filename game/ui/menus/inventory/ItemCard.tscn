@@ -22,13 +22,11 @@ theme_override_constants/separation = 4
 [node name="NameLabel" type="Label" parent="ContentMargin/Content" unique_id=1372650132]
 unique_name_in_owner = true
 layout_mode = 2
-mouse_filter = 2
 text = "Objeto"
 horizontal_alignment = 1
-autowrap_mode = 0
 text_overrun_behavior = 3
 
-[node name="IconCenter" type="CenterContainer" parent="ContentMargin/Content"]
+[node name="IconCenter" type="CenterContainer" parent="ContentMargin/Content" unique_id=1882957570]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
@@ -43,9 +41,8 @@ mouse_filter = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ChargesLabel" type="Label" parent="ContentMargin/Content"]
+[node name="ChargesLabel" type="Label" parent="ContentMargin/Content" unique_id=1348716449]
 unique_name_in_owner = true
 layout_mode = 2
-mouse_filter = 2
 text = "3/3"
 horizontal_alignment = 1

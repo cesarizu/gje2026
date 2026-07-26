@@ -15,6 +15,8 @@ var selected_item_card: ItemCard = null
 
 var slots: Array[Array] = []
 var placed_items: Array[Dictionary] = []
+var active_moved_item: Dictionary = {}
+var hovered_drop_slot: InventorySlot = null
 
 
 func _ready() -> void:
@@ -52,6 +54,7 @@ func create_backpack_grid() -> void:
 
 			slot.row = row
 			slot.column = column
+			slot.inventory = self
 
 			slot.slot_left_clicked.connect(_on_slot_clicked)
 			slot.slot_right_clicked.connect(_on_slot_right_clicked)
@@ -130,9 +133,7 @@ func _on_slot_clicked(slot: InventorySlot) -> void:
 		selected_item_rotated
 	)
 
-	selected_item = null
-	selected_item_rotated = false
-	selected_item_card = null
+	_clear_selection()
 
 
 func _on_slot_right_clicked(slot: InventorySlot) -> void:
@@ -151,6 +152,14 @@ func _on_slot_right_clicked(slot: InventorySlot) -> void:
 
 
 func rotate_selected_item() -> void:
+	if get_viewport().gui_is_dragging():
+		var drag_value: Variant = get_viewport().gui_get_drag_data()
+
+		if drag_value is Dictionary:
+			_rotate_drag_data(drag_value)
+
+		return
+
 	if selected_item == null:
 		return
 
@@ -216,8 +225,11 @@ func can_place_item(
 func place_item(
 	item: ItemData,
 	start_row: int,
-	start_column: int
+	start_column: int,
+	current_charges: int = -1
 ) -> void:
+	if current_charges < 0:
+		current_charges = item.max_charges
 
 	var item_width := get_item_width(item)
 	var item_height := get_item_height(item)
@@ -237,8 +249,210 @@ func place_item(
 		"row": start_row,
 		"column": start_column,
 		"rotated": selected_item_rotated,
-		"current_charges": item.max_charges
+		"current_charges": current_charges
 	})
+
+	_refresh_manifest_cards()
+
+
+func begin_backpack_drag(slot: InventorySlot) -> Dictionary:
+	if not active_moved_item.is_empty():
+		return {}
+
+	var placed_index := find_placed_item_at_slot(slot.row, slot.column)
+
+	if placed_index == -1:
+		return {}
+
+	active_moved_item = placed_items[placed_index].duplicate()
+	placed_items.remove_at(placed_index)
+	_clear_item_cells(active_moved_item)
+
+	return {
+		"source": "backpack",
+		"item": active_moved_item["item"],
+		"rotated": active_moved_item["rotated"],
+		"current_charges": active_moved_item["current_charges"]
+	}
+
+
+func can_drop_data_at(slot: InventorySlot, data: Variant) -> bool:
+	clear_drop_highlights()
+	hovered_drop_slot = slot
+
+	if not (data is Dictionary):
+		return false
+
+	if (
+		not data.has("item")
+		or not data.has("rotated")
+		or not data.has("source")
+	):
+		return false
+
+	var drag_data: Dictionary = data
+	var item: ItemData = drag_data["item"]
+	var rotated: bool = drag_data["rotated"]
+	selected_item_rotated = rotated
+
+	var duplicate_manifest_item: bool = (
+		drag_data["source"] == "manifest"
+		and _has_placed_item(item.id)
+	)
+	var valid: bool = (
+		not duplicate_manifest_item
+		and can_place_item(item, slot.row, slot.column)
+	)
+
+	_highlight_item_area(
+		item,
+		slot.row,
+		slot.column,
+		rotated,
+		valid
+	)
+
+	return valid
+
+
+func drop_data_at(slot: InventorySlot, data: Variant) -> void:
+	if not can_drop_data_at(slot, data):
+		return
+
+	var drag_data: Dictionary = data
+	var item: ItemData = drag_data["item"]
+	selected_item_rotated = drag_data["rotated"]
+	place_item(
+		item,
+		slot.row,
+		slot.column,
+		drag_data.get("current_charges", item.max_charges)
+	)
+
+	active_moved_item.clear()
+	clear_drop_highlights()
+	hovered_drop_slot = null
+	_clear_selection()
+
+
+func cancel_active_drag() -> void:
+	clear_drop_highlights()
+	hovered_drop_slot = null
+
+	if active_moved_item.is_empty():
+		return
+
+	var item: ItemData = active_moved_item["item"]
+	selected_item_rotated = active_moved_item["rotated"]
+	place_item(
+		item,
+		active_moved_item["row"],
+		active_moved_item["column"],
+		active_moved_item["current_charges"]
+	)
+	active_moved_item.clear()
+	_clear_selection()
+
+
+func clear_drop_highlights() -> void:
+	for row_slots in slots:
+		for slot in row_slots:
+			slot.set_drop_highlight(0)
+
+
+func _rotate_drag_data(drag_data: Dictionary) -> void:
+	if not drag_data.has("item") or not drag_data.has("rotated"):
+		return
+
+	var item: ItemData = drag_data["item"]
+
+	if not item.can_rotate:
+		return
+
+	var rotated: bool = not bool(drag_data["rotated"])
+	drag_data["rotated"] = rotated
+	selected_item_rotated = rotated
+
+	if drag_data.get("source_card") is ItemCard:
+		var source_card: ItemCard = drag_data["source_card"]
+		source_card.set_rotated(rotated)
+
+	if drag_data.get("preview") is Control:
+		var preview: Control = drag_data["preview"]
+		var preview_width := item.height if rotated else item.width
+		var preview_height := item.width if rotated else item.height
+		var preview_size := Vector2(
+			preview_width * 64,
+			preview_height * 64
+		)
+		preview.custom_minimum_size = preview_size
+		preview.size = preview_size
+
+	if hovered_drop_slot != null:
+		can_drop_data_at(hovered_drop_slot, drag_data)
+	else:
+		clear_drop_highlights()
+
+
+func _highlight_item_area(
+	item: ItemData,
+	start_row: int,
+	start_column: int,
+	rotated: bool,
+	valid: bool
+) -> void:
+	var item_width := item.height if rotated else item.width
+	var item_height := item.width if rotated else item.height
+	var state := 1 if valid else -1
+
+	for row in range(start_row, mini(start_row + item_height, 3)):
+		for column in range(start_column, mini(start_column + item_width, 3)):
+			slots[row][column].set_drop_highlight(state)
+
+
+func _clear_item_cells(placed_item: Dictionary) -> void:
+	var item: ItemData = placed_item["item"]
+	var item_width := (
+		item.height if placed_item["rotated"] else item.width
+	)
+	var item_height := (
+		item.width if placed_item["rotated"] else item.height
+	)
+
+	for row in range(
+		placed_item["row"],
+		placed_item["row"] + item_height
+	):
+		for column in range(
+			placed_item["column"],
+			placed_item["column"] + item_width
+		):
+			slots[row][column].clear_item()
+
+
+func _has_placed_item(item_id: StringName) -> bool:
+	for placed_item in placed_items:
+		var placed_data: ItemData = placed_item["item"]
+
+		if placed_data.id == item_id:
+			return true
+
+	return false
+
+
+func _refresh_manifest_cards() -> void:
+	for child in items_container.get_children():
+		if child is ItemCard and child.item_data != null:
+			child.visible = not _has_placed_item(child.item_data.id)
+
+
+func _clear_selection() -> void:
+	if selected_item_card != null:
+		selected_item_card.set_rotated(false)
+
+	selected_item = null
+	selected_item_rotated = false
+	selected_item_card = null
 
 
 func find_placed_item_at_slot(
@@ -304,6 +518,7 @@ func remove_placed_item(index: int) -> void:
 			slots[row][column].clear_item()
 
 	placed_items.remove_at(index)
+	_refresh_manifest_cards()
 
 	print(
 		"Objeto retirado: ",
@@ -335,6 +550,8 @@ func load_inventory_state() -> void:
 			column,
 			rotated
 		)
+
+	_refresh_manifest_cards()
 
 
 func place_stored_item(
@@ -387,6 +604,7 @@ func _on_exit_pressed() -> void:
 
 
 func close_inventory() -> void:
+	cancel_active_drag()
 	save_inventory_state()
 
 	queue_free()

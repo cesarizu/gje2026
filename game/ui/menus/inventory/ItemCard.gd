@@ -34,6 +34,57 @@ func _gui_input(event: InputEvent) -> void:
 				item_selected.emit(item_data)
 
 
+func _get_drag_data(_at_position: Vector2) -> Variant:
+	if item_data == null:
+		return null
+
+	var preview_width := item_data.height if rotated else item_data.width
+	var preview_height := item_data.width if rotated else item_data.height
+	var preview := PanelContainer.new()
+	preview.custom_minimum_size = Vector2(
+		preview_width * 64,
+		preview_height * 64
+	)
+	var preview_style := StyleBoxFlat.new()
+	preview_style.bg_color = Color(0.05, 0.22, 0.25, 0.82)
+	preview_style.border_color = Color(0.25, 0.9, 0.92, 1.0)
+	preview_style.set_border_width_all(2)
+	preview_style.set_corner_radius_all(4)
+	preview.add_theme_stylebox_override("panel", preview_style)
+	preview.modulate = Color(1, 1, 1, 0.85)
+
+	var preview_icon := TextureRect.new()
+	preview_icon.texture = item_data.icon
+	preview_icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	preview_icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	preview_icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	preview.add_child(preview_icon)
+	set_drag_preview(preview)
+
+	return {
+		"source": "manifest",
+		"source_card": self,
+		"item": item_data,
+		"rotated": rotated,
+		"current_charges": item_data.max_charges,
+		"preview": preview
+	}
+
+
+func _notification(what: int) -> void:
+	if what != NOTIFICATION_DRAG_END:
+		return
+
+	var current_parent := get_parent()
+
+	while current_parent != null:
+		if current_parent is Inventory:
+			current_parent.clear_drop_highlights()
+			return
+
+		current_parent = current_parent.get_parent()
+
+
 func update_ui() -> void:
 	if item_data == null:
 		clear_ui()
