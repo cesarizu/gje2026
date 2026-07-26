@@ -20,6 +20,10 @@ normal = Vector2(1, 0)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gul5x"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h0der"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f7m8p"]
+
 [node name="Hill" type="Node2D" unique_id=1861721494]
 script = ExtResource("1_olsfu")
 
@@ -30,7 +34,7 @@ position = Vector2(1706, 120)
 texture = ExtResource("1_g1kj8")
 
 [node name="Player" parent="Content" unique_id=168436519 instance=ExtResource("2_t003o")]
-position = Vector2(420, 700)
+position = Vector2(600, 950)
 
 [node name="Camera2D" parent="Content/Player" index="2" unique_id=1935542993]
 limit_left = 0
@@ -80,9 +84,48 @@ icon = ExtResource("10_focv6")
 shape = SubResource("WorldBoundaryShape2D_i7rim")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=343760459]
-position = Vector2(3414, 0)
+position = Vector2(3380, 0)
 rotation = 4.712389
 shape = SubResource("WorldBoundaryShape2D_gul5x")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1067067915]
+polygon = PackedVector2Array(494, 623, 595, 632, 699, 642, 750, 602, 789, 622, 822, 581, 908, 645, 861, 700, 790, 765, 652, 792, 624, 748, 561, 779, 472, 748, 489, 656)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=472744751]
+polygon = PackedVector2Array(-1, 714, 159, 933, 217, 916, 419, 999, 450, 958, 705, 1047, 698, 1078, 698, 1078, -2, 1079)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=15908031]
+polygon = PackedVector2Array(1666, 1001, 1749, 878, 1813, 909, 1885, 903, 1919, 813, 1989, 837, 2050, 844, 2138, 803, 2243, 851, 2319, 854, 2302, 893, 2352, 972, 2342, 984, 2209, 1018, 2033, 1038, 2010, 1075, 1979, 1079, 1781, 1080, 1682, 1052)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=210107127]
+position = Vector2(0, 1080)
+shape = SubResource("WorldBoundaryShape2D_h0der")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=657345761]
+position = Vector2(0, -760)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_f7m8p")
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=109560951]
+polygon = PackedVector2Array(2354, 961, 2388, 878, 2523, 768, 2584, 846, 2631, 916, 2737, 854, 2772, 870, 2805, 967, 2778, 982, 2608, 1014, 2440, 1044, 2349, 986)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=99469564]
+polygon = PackedVector2Array(1968, 289, 1977, 228, 2047, 179, 2071, 234, 2068, 270, 1987, 298)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=822175036]
+polygon = PackedVector2Array(2040, 148, 2118, 90, 2150, 30, 2265, 78, 2313, 126, 2287, 147, 2170, 199, 2086, 223, 2066, 214)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=633147333]
+polygon = PackedVector2Array(2938, 325, 3007, 324, 2968, 290, 2990, 200, 3045, 224, 3094, 221, 3146, 282, 3172, 290, 3183, 314, 3238, 300, 3280, 343, 3307, 369, 3390, 389, 3379, 427, 3373, 503, 3400, 555, 3311, 551, 3206, 560, 3147, 563, 3112, 554, 3048, 464, 2984, 472, 2931, 428, 2941, 376)
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=272123411]
+polygon = PackedVector2Array(2630, -147, 2723, -143, 2709, -448, 2812, -389, 2848, -414, 2834, -443, 2897, -453, 2867, -500, 2771, -570, 2719, -580, 2689, -621, 2631, -596, 2476, -569, 2477, -531, 2511, -527, 2452, -476, 2497, -444, 2581, -463, 2526, -393, 2545, -374, 2632, -403)
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1270644957]
+polygon = PackedVector2Array(3104, 188, 3194, 209, 3215, 188, 3239, -112, 3322, -54, 3300, -139, 3384, -138, 3412, -155, 3412, -225, 3382, -225, 3393, -285, 3224, -231, 3077, -289, 3100, -228, 2940, -264, 3002, -171, 3162, -120, 3085, 150)
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=62592329]
+polygon = PackedVector2Array(3258, -301, 3347, -301, 3349, -575, 3349, -575, 3411, -551, 3468, -530, 3440, -596, 3533, -589, 3377, -683, 3314, -728, 3314, -684, 3093, -632, 3113, -596, 3212, -603, 3220, -581, 3150, -541, 3173, -516, 3291, -539, 3244, -324)
 
 [connection signal="interacted" from="ExitArea" to="." method="_on_exit_area_interacted"]
 
