@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bdyas75walddy"]
+
+[ext_resource type="Script" uid="uid://cohk8vm07ox71" path="res://game/utils/interactive_area.gd" id="1_071xe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7rim"]
+
+[node name="Bridge" type="Node2D" unique_id=1450121359]
+
+[node name="Content" type="Node2D" parent="." unique_id=891641893]
+
+[node name="Bg" type="Sprite2D" parent="Content" unique_id=547574972]
+
+[node name="ExitArea" type="Area2D" parent="." unique_id=1688173847]
+script = ExtResource("1_071xe")
+metadata/_custom_type_script = "uid://cohk8vm07ox71"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea" unique_id=1458367768]
+shape = SubResource("RectangleShape2D_i7rim")
+
+[node name="Button" type="Button" parent="ExitArea" unique_id=1671300538]
+offset_right = 48.0
+offset_bottom = 20.0

@@ -1,7 +1,7 @@
-class_name Hill
+class_name Bridge
 extends Node2D
 
-static var instance: Hill
+static var instance: Bridge
 
 
 func _enter_tree() -> void:
@@ -13,7 +13,7 @@ func _ready() -> void:
 
 
 func _on_exit_area_interacted() -> void:
-	Core.game.enter_snow()
+	Core.game.enter_bridge()
 
 
 func _on_inventory_area_2d_interacted() -> void:

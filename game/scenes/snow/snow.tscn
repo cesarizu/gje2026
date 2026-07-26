@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://b7w4cillxc0ed"]
+
+[ext_resource type="Script" uid="uid://cohk8vm07ox71" path="res://game/utils/interactive_area.gd" id="1_npocw"]
+[ext_resource type="Texture2D" uid="uid://b1n7d4n50ast3" path="res://game/scenes/snow/assets/snow-covered-mountain-peak-in-winter-free-png-1849137305.png" id="1_t7oqh"]
+[ext_resource type="PackedScene" uid="uid://oq21pisorm22" path="res://game/actors/player/player.tscn" id="2_o8btb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7rim"]
+
+[node name="Snow" type="Node2D" unique_id=1518478349]
+
+[node name="Content" type="Node2D" parent="." unique_id=1877262417]
+
+[node name="Bg" type="Sprite2D" parent="Content" unique_id=1409284313]
+position = Vector2(1181, -5)
+scale = Vector2(1.275433, 1.4040816)
+texture = ExtResource("1_t7oqh")
+
+[node name="Player" parent="Content" unique_id=168436519 instance=ExtResource("2_o8btb")]
+position = Vector2(964, 546)
+
+[node name="AnimatedSprite2D" parent="Content/Player" index="0" unique_id=1329092579]
+position = Vector2(-98.5, -26.666668)
+
+[node name="Camera2D" parent="Content/Player" index="2" unique_id=1935542993]
+limit_left = 0
+limit_top = -835
+limit_right = 1920
+limit_bottom = 1080
+
+[node name="ExitArea" type="Area2D" parent="." unique_id=783226890]
+script = ExtResource("1_npocw")
+metadata/_custom_type_script = "uid://cohk8vm07ox71"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea" unique_id=894569889]
+shape = SubResource("RectangleShape2D_i7rim")
+
+[node name="ExitButton" type="Button" parent="ExitArea" unique_id=1187665095]
+offset_right = 48.0
+offset_bottom = 20.0
+
+[editable path="Content/Player"]
