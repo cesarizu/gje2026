@@ -1,12 +1,6 @@
 class_name Ship
 extends Node2D
 
-static var instance: Ship
-
-
-func _enter_tree() -> void:
-	instance = self
-
 
 func _ready() -> void:
 	UI.reset_to_hud()
