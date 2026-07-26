@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 const SPEED = 300.0
+const RUN_SPEED_MULTIPLIER = 1.8
 
 static var instance: Player
 
@@ -11,6 +12,7 @@ static var instance: Player
 
 var flashlight_on: bool = false
 var last_direction: Vector2 = Vector2.RIGHT
+var running: bool = false
 
 
 func _enter_tree() -> void:
@@ -31,11 +33,15 @@ func _physics_process(_delta: float) -> void:
 func process_movement() -> void:
 	if !Dialogic.VAR.get_variable("player_can_move"):
 		velocity = Vector2.ZERO
+		running = false
 		return
+
 	var direction = Input.get_vector("player_move_left", "player_move_right", "player_move_up", "player_move_down")
 
+	running = Input.is_action_pressed(&"player_run") and direction != Vector2.ZERO
+
 	if direction != Vector2.ZERO:
-		velocity = direction * SPEED
+		velocity = direction * SPEED * (RUN_SPEED_MULTIPLIER if running else 1.0)
 		last_direction = direction
 	else:
 		velocity = Vector2.ZERO
@@ -43,8 +49,10 @@ func process_movement() -> void:
 
 func process_animation()-> void:
 	if velocity != Vector2.ZERO:
+		animated_sprite_2d.speed_scale = RUN_SPEED_MULTIPLIER if running else 1.0
 		play_animation("run", last_direction)
 	else:
+		animated_sprite_2d.speed_scale = 1.0
 		play_animation("idle", last_direction)
 
 
