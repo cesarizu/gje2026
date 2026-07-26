@@ -1,29 +1,64 @@
 [gd_scene format=3 uid="uid://10tvyup7onp8"]
 
-[ext_resource type="Script" uid="uid://t4ioglwpiwid" path="res://addons/holoprime_ui_framework/menus/menu.gd" id="1_2ywhy"]
+[ext_resource type="Script" uid="uid://cvow34mq7rb1c" path="res://game/ui/menus/game_over/game_over.gd" id="1_game_over"]
 
-[node name="GameOver" type="CanvasLayer" unique_id=301013375]
-script = ExtResource("1_2ywhy")
-metadata/_custom_type_script = "uid://t4ioglwpiwid"
+[node name="GameOver" type="CanvasLayer" unique_id=101930983 node_paths=PackedStringArray("default_focus")]
+layer = 100
+script = ExtResource("1_game_over")
+default_focus = [NodePath("Control/CenterContainer/GameOverContent/RetryButton")]
+release_focus_on_keyboard = false
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=2073988886]
+[node name="Control" type="Control" parent="." unique_id=1612379074]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.90000004)
 
-[node name="Label" type="Label" parent="." unique_id=1718357368]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -66.5
-offset_top = -18.0
-offset_right = 66.5
-offset_bottom = 18.0
+[node name="Background" type="ColorRect" parent="Control" unique_id=1903917864]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Game Over"
+mouse_filter = 2
+color = Color(0.015, 0.02, 0.025, 0.94)
+
+[node name="CenterContainer" type="CenterContainer" parent="Control" unique_id=1967236270]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverContent" type="VBoxContainer" parent="Control/CenterContainer" unique_id=1329448332]
+custom_minimum_size = Vector2(520, 0)
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="TitleLabel" type="Label" parent="Control/CenterContainer/GameOverContent" unique_id=1473985472]
+layout_mode = 2
+theme_override_font_sizes/font_size = 58
+text = "EXPEDICIÓN FALLIDA"
+horizontal_alignment = 1
+
+[node name="MessageLabel" type="Label" parent="Control/CenterContainer/GameOverContent" unique_id=388190369]
+layout_mode = 2
+text = "El último tramo termina aquí."
+horizontal_alignment = 1
+
+[node name="RetryButton" type="Button" parent="Control/CenterContainer/GameOverContent" unique_id=587479202]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Repetir expedición"
+
+[node name="ExitButton" type="Button" parent="Control/CenterContainer/GameOverContent" unique_id=1061496310]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Salir"
+
+[connection signal="pressed" from="Control/CenterContainer/GameOverContent/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="Control/CenterContainer/GameOverContent/ExitButton" to="." method="_on_exit_button_pressed"]
