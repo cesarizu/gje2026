@@ -26,8 +26,8 @@ func _physics_process(_delta: float) -> void:
 		"player_move_up",
 		"player_move_down"
 	)
-	#if direction != Vector2.ZERO:
-		#update_flashlight_direction(direction)
+	if direction != Vector2.ZERO:
+		update_flashlight_direction(direction)
 
 func process_movement() -> void:
 	if !Dialogic.VAR.get_variable("player_can_move"):
