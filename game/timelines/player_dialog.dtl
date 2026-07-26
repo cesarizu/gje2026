@@ -1,2 +1,4 @@
-player: Chuta, me he estrellado
-player: Necesito encontrar mi capsula de regreso o me quedaré atrapado en este planeta
+join player (question) center
+player (question): Chuta que pasó??
+player (sad): Creo que me estrellé
+player (alert2): Necesito buscar otra nave para regresar a casa

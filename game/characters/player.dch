@@ -10,20 +10,74 @@
 "style": "",
 "suffix": ""
 },
-&"default_portrait": "default",
+&"default_portrait": "alert",
 &"description": "",
 &"display_name": "Pit",
 &"mirror": false,
 &"nicknames": ["Astronauta"],
 &"offset": Vector2(0, 0),
 &"portraits": {
-"default": {
+"alert": {
 "export_overrides": {
-"image": "\"res://assets/images/Player/WhatsApp Image 2026-07-25 at 3.34.19 PM.jpeg\""
+"image": "\"res://assets/images/Player/splash/alert.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),
 "scale": 1.0,
+"scene": ""
+},
+"alert2": {
+"export_overrides": {
+"image": "\"res://assets/images/Player/splash/alert2.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"angry": {
+"export_overrides": {
+"image": "\"res://assets/images/Player/splash/engry.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"happy": {
+"export_overrides": {
+"image": "\"res://assets/images/Player/splash/happy.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"idle": {
+"export_overrides": {
+"image": "\"res://assets/images/Player/splash/idle.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"question": {
+"export_overrides": {
+"image": "\"res://assets/images/Player/splash/question.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"sad": {
+"export_overrides": {
+"image": "\"res://assets/images/Player/splash/sad.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
 "scene": ""
 }
 },
