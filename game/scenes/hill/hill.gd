@@ -3,6 +3,7 @@ extends Node2D
 
 
 func _ready() -> void:
+	Dialogic.VAR.player_can_move = true
 	UI.reset_to_hud()
 
 

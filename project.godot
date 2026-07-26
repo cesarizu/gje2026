@@ -37,6 +37,7 @@ directories/dch_directory={
 "ship": "res://game/characters/ship.dch"
 }
 directories/dtl_directory={
+"hills": "res://hills.dtl",
 "player_dialog": "res://game/timelines/player_dialog.dtl",
 "ship_exit": "res://ship_exit.dtl"
 }
@@ -77,7 +78,7 @@ audio/channel_defaults={
 }
 }
 variables={
-"player_can_move": ""
+"player_can_move": false
 }
 layout/style_list=["res://game/styles/default_style.tres"]
 layout/default_style="res://game/styles/default_style.tres"

@@ -1,0 +1,6 @@
+set {player_can_move} = false
+player (happy): El sol es bastante hermoso en este planeta. Me quedaría horas observando el paisaje...
+game: ADVERTENCIA\: OXIGENO AGOTANDOSE
+player (alert): Sin embargo, no tengo todo el tiempo del mundo...
+player: Esa grieta se ve un poco peligrosa, aunque arriesgarme a tener un encuentro con la fauna local suena igual de mal.
+set {player_can_move} = true
