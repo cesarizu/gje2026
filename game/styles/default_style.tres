@@ -50,7 +50,6 @@ overrides = {
 script = ExtResource("2_nfu1r")
 scene = ExtResource("5_1liad")
 overrides = {
-"box_size": "Vector2(700, 160)",
 "text_custom_size": "25.0",
 "text_use_global_size": "false"
 }
