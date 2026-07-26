@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cohk8vm07ox71" path="res://game/utils/interactive_area.gd" id="1_npocw"]
 [ext_resource type="PackedScene" uid="uid://oq21pisorm22" path="res://game/actors/player/player.tscn" id="2_o8btb"]
 [ext_resource type="Texture2D" uid="uid://bp300jumixwbj" path="res://game/scenes/snow/assets/bg_snow.png" id="3_iasno"]
+[ext_resource type="Texture2D" uid="uid://bt2i45qvult4e" path="res://game/scenes/snow/assets/water.png" id="4_7fpqp"]
 [ext_resource type="PackedScene" uid="uid://x8lft640ihod" path="res://addons/holoprime_ui_framework/shortcuts/shortcut_button.tscn" id="4_fvdth"]
 [ext_resource type="Shortcut" uid="uid://cke0a0ogk778b" path="res://game/ui/shortcuts/interact_shortcut.tres" id="5_iasno"]
 [ext_resource type="Texture2D" uid="uid://cqtjp15cpcxov" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/generic/generic_button_circle.svg" id="6_7fpqp"]
@@ -12,10 +13,7 @@
 size = Vector2(464, 279)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vifyx"]
-size = Vector2(1309, 1738)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_gul5x"]
-radius = 738.2987
+size = Vector2(927.78125, 447.5)
 
 [node name="Snow" type="Node2D" unique_id=1518478349]
 script = ExtResource("1_iasno")
@@ -23,20 +21,29 @@ script = ExtResource("1_iasno")
 [node name="Content" type="Node2D" parent="." unique_id=1877262417]
 
 [node name="Bg" type="Sprite2D" parent="Content" unique_id=1023911064]
-position = Vector2(1920, 0)
+position = Vector2(1511.5, 186.5)
+scale = Vector2(0.7872396, 0.8273148)
 texture = ExtResource("3_iasno")
 
 [node name="Player" parent="Content" unique_id=168436519 instance=ExtResource("2_o8btb")]
-position = Vector2(3526.0002, 916)
+position = Vector2(2816.0002, 919)
+
+[node name="AnimatedSprite2D" parent="Content/Player" index="0" unique_id=1329092579]
+animation = &"idle_right"
 
 [node name="Camera2D" parent="Content/Player" index="2" unique_id=1935542993]
 limit_left = 0
-limit_top = -835
-limit_right = 3400
+limit_top = -1077
+limit_right = 3836
 limit_bottom = 1080
 
+[node name="Water" type="Sprite2D" parent="Content" unique_id=1874159027]
+position = Vector2(2120, 241.00002)
+scale = Vector2(0.3200521, 0.31157407)
+texture = ExtResource("4_7fpqp")
+
 [node name="ExitArea" type="Area2D" parent="." unique_id=9832214 node_paths=PackedStringArray("show_hide")]
-position = Vector2(1875, -581)
+position = Vector2(1678, -369)
 script = ExtResource("1_npocw")
 show_hide = [NodePath("ShortcutButton")]
 metadata/_custom_type_script = "uid://cohk8vm07ox71"
@@ -58,13 +65,10 @@ icon = ExtResource("6_7fpqp")
 [node name="IceArea2D" type="Area2D" parent="." unique_id=676097653]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="IceArea2D" unique_id=1589979556]
-position = Vector2(669.5, -223)
+position = Vector2(2098.1094, 165.75)
 shape = SubResource("RectangleShape2D_vifyx")
 
-[node name="IceArea2_2D" type="Area2D" parent="." unique_id=1729685119]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="IceArea2_2D" unique_id=2135663418]
-position = Vector2(3086, -351)
-shape = SubResource("CircleShape2D_gul5x")
+[connection signal="interacted" from="ExitArea" to="." method="_on_exit_area_interacted"]
+[connection signal="body_entered" from="IceArea2D" to="." method="_on_ice_area_2d_body_entered"]
 
 [editable path="Content/Player"]
