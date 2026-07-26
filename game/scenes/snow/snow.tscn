@@ -26,16 +26,16 @@ scale = Vector2(0.7872396, 0.8273148)
 texture = ExtResource("3_iasno")
 
 [node name="Player" parent="Content" unique_id=168436519 instance=ExtResource("2_o8btb")]
-position = Vector2(2816.0002, 919)
+position = Vector2(2061, 738)
 
 [node name="AnimatedSprite2D" parent="Content/Player" index="0" unique_id=1329092579]
 animation = &"idle_right"
 
 [node name="Camera2D" parent="Content/Player" index="2" unique_id=1935542993]
 limit_left = 0
-limit_top = -1077
-limit_right = 3836
-limit_bottom = 1080
+limit_top = -698
+limit_right = 3030
+limit_bottom = 1076
 
 [node name="Water" type="Sprite2D" parent="Content" unique_id=1874159027]
 position = Vector2(2120, 241.00002)
