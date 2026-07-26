@@ -24,6 +24,43 @@ size = Vector2(464, 279)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rh4oo"]
 size = Vector2(252, 246.7105)
 
+[sub_resource type="Animation" id="Animation_qul2h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Content:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_suw2m"]
+resource_name = "alarm"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Content:modulate")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(1, 0.47000003, 0.47000003, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5hp40"]
+_data = {
+&"RESET": SubResource("Animation_qul2h"),
+&"alarm": SubResource("Animation_suw2m")
+}
+
 [node name="Ship" type="Node2D" unique_id=1798625998]
 script = ExtResource("1_v6oj8")
 
@@ -133,6 +170,10 @@ shortcut = ExtResource("9_qul2h")
 text = "Open Inventory"
 icon = ExtResource("8_qtiow")
 flat = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2036347400]
+libraries/ = SubResource("AnimationLibrary_5hp40")
+autoplay = &"alarm"
 
 [connection signal="interacted" from="ExitArea" to="." method="_on_exit_area_interacted"]
 [connection signal="interacted" from="InventoryArea2D" to="." method="_on_inventory_area_2d_interacted"]
