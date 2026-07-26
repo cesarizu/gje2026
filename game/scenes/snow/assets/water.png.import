@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1n7d4n50ast3"
-path="res://.godot/imported/snow-covered-mountain-peak-in-winter-free-png-1849137305.png-a541528674a5fe9781591ae913367f8d.ctex"
+uid="uid://bt2i45qvult4e"
+path="res://.godot/imported/water.png-c0cb72b32f374536c6756ae4ff1a0c8a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/scenes/snow/assets/snow-covered-mountain-peak-in-winter-free-png-1849137305.png"
-dest_files=["res://.godot/imported/snow-covered-mountain-peak-in-winter-free-png-1849137305.png-a541528674a5fe9781591ae913367f8d.ctex"]
+source_file="res://game/scenes/snow/assets/water.png"
+dest_files=["res://.godot/imported/water.png-c0cb72b32f374536c6756ae4ff1a0c8a.ctex"]
 
 [params]
 

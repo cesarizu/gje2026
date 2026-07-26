@@ -9,6 +9,7 @@ var _mosquito_hit := false
 
 
 func _ready() -> void:
+	Dialogic.VAR.player_can_move = true
 	UI.reset_to_hud()
 	await UI.fade_in()
 

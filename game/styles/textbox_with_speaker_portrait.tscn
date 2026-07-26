@@ -129,10 +129,10 @@ script = ExtResource("5_mnqy3")
 [node name="NextIndicator" type="Control" parent="Anchor" unique_id=1098796947]
 unique_name_in_owner = true
 anchors_preset = 0
-offset_left = 278.0
-offset_top = -64.0
-offset_right = 292.0
-offset_bottom = -55.0
+offset_left = 462.0
+offset_top = -66.0
+offset_right = 476.0
+offset_bottom = -57.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
 script = ExtResource("6_hwo24")

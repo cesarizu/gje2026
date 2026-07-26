@@ -30,6 +30,7 @@ func _physics_process(_delta: float) -> void:
 
 func process_movement() -> void:
 	if !Dialogic.VAR.get_variable("player_can_move"):
+		velocity = Vector2.ZERO
 		return
 	var direction = Input.get_vector("player_move_left", "player_move_right", "player_move_up", "player_move_down")
 

@@ -32,11 +32,14 @@ Dialogic="*uid://ds2q0uclmolvu"
 [dialogic]
 
 directories/dch_directory={
+"game": "res://game/characters/game.dch",
 "player": "res://game/characters/player.dch",
 "ship": "res://game/characters/ship.dch"
 }
 directories/dtl_directory={
-"player_dialog": "res://game/timelines/player_dialog.dtl"
+"hills": "res://hills.dtl",
+"player_dialog": "res://game/timelines/player_dialog.dtl",
+"ship_exit": "res://ship_exit.dtl"
 }
 layout/style_directory={
 "": "res://game/styles/default_style.tres",
@@ -75,7 +78,7 @@ audio/channel_defaults={
 }
 }
 variables={
-"player_can_move": ""
+"player_can_move": false
 }
 layout/style_list=["res://game/styles/default_style.tres"]
 layout/default_style="res://game/styles/default_style.tres"

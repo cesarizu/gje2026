@@ -1,6 +1,10 @@
 class_name Snow
 extends Node2D
 
+@onready var ice_sprite_2d: Sprite2D = %IceSprite2D
+@onready var ice: StaticBody2D = %Ice
+
+var _ice_hit := false
 
 func _ready() -> void:
 	UI.reset_to_hud()

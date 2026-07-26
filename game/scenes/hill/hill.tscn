@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://x8lft640ihod" path="res://addons/holoprime_ui_framework/shortcuts/shortcut_button.tscn" id="8_ewsh7"]
 [ext_resource type="Shortcut" uid="uid://cke0a0ogk778b" path="res://game/ui/shortcuts/interact_shortcut.tres" id="9_olsfu"]
 [ext_resource type="Texture2D" uid="uid://cqtjp15cpcxov" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/generic/generic_button_circle.svg" id="10_focv6"]
+[ext_resource type="Script" uid="uid://wtrto1gtiwdh" path="res://game/scenes/hill/show_dialog.gd" id="12_d8tse"]
 [ext_resource type="Texture2D" uid="uid://dn7df6uq6f6gd" path="res://game/scenes/hill/assets/hole.png" id="12_diq7m"]
 [ext_resource type="AudioStream" uid="uid://djg4pxqo0wkeb" path="res://game/audio/SFX_Alarm_Single.ogg" id="12_focv6"]
 [ext_resource type="AudioStream" uid="uid://dxxexu2x1o0tb" path="res://game/audio/Mus_Track1.ogg" id="13_qxk3y"]
@@ -28,6 +29,9 @@ distance = -31.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qxk3y"]
 size = Vector2(950, 196)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6q2t7"]
+size = Vector2(126, 676.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_edrbc"]
 radius = 170.423
@@ -199,6 +203,14 @@ shortcut = ExtResource("9_olsfu")
 text = "Exit"
 icon = ExtResource("10_focv6")
 alignment = 0
+
+[node name="ShowDialog" type="Area2D" parent="." unique_id=725136382]
+position = Vector2(453, -676)
+script = ExtResource("12_d8tse")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShowDialog" unique_id=1611521625]
+position = Vector2(914, 1346)
+shape = SubResource("RectangleShape2D_6q2t7")
 
 [node name="HoleSprite2D" type="Sprite2D" parent="." unique_id=1714549145]
 unique_name_in_owner = true
