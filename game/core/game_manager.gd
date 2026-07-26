@@ -40,35 +40,30 @@ func enter_ship() -> void:
 	await UI.fade_out()
 	state = GameState.PLAYING
 	get_tree().change_scene_to_packed(ship_scene)
-	await UI.fade_in()
 
 
 func enter_hill() -> void:
 	await UI.fade_out()
 	state = GameState.PLAYING
 	get_tree().change_scene_to_packed(hill_scene)
-	await UI.fade_in()
 
 
 func enter_snow() -> void:
 	await UI.fade_out()
 	state = GameState.PLAYING
 	get_tree().change_scene_to_packed(snow_scene)
-	await UI.fade_in()
 
 
 func enter_bridge() -> void:
 	await UI.fade_out()
 	state = GameState.PLAYING
 	get_tree().change_scene_to_packed(bridge_scene)
-	await UI.fade_in()
 
 
 func enter_pod() -> void:
 	await UI.fade_out()
 	state = GameState.PLAYING
 	get_tree().change_scene_to_packed(pod_scene)
-	await UI.fade_in()
 
 
 func end_game() -> void:
