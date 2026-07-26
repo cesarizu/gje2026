@@ -1,43 +1,89 @@
 [gd_scene format=3 uid="uid://b3730kor8k203"]
 
-[ext_resource type="Texture2D" uid="uid://dtc1g2u64gnsv" path="res://game/scenes/hill/assets/abstract-landscape-concept-with-copy-space.jpg" id="1_06nr6"]
+[ext_resource type="Texture2D" uid="uid://dnsdp6vwe46nl" path="res://game/scenes/hill/assets/bg_hill.png" id="1_g1kj8"]
+[ext_resource type="Script" uid="uid://b6lfywyrj4gb" path="res://game/scenes/hill/hill.gd" id="1_olsfu"]
 [ext_resource type="Script" uid="uid://cohk8vm07ox71" path="res://game/utils/interactive_area.gd" id="1_tlyer"]
 [ext_resource type="PackedScene" uid="uid://oq21pisorm22" path="res://game/actors/player/player.tscn" id="2_t003o"]
+[ext_resource type="Texture2D" uid="uid://dy8smwwaqrklv" path="res://game/scenes/hill/assets/palm1_hill.png" id="4_m8vw1"]
+[ext_resource type="Texture2D" uid="uid://bo8jo88x4pwms" path="res://game/scenes/hill/assets/palm2_hill.png" id="5_rkx3r"]
+[ext_resource type="Texture2D" uid="uid://cuctpgasnox4" path="res://game/scenes/hill/assets/palm3_hill.png" id="6_ewsh7"]
+[ext_resource type="Texture2D" uid="uid://5qhs3gl3nwpj" path="res://game/scenes/hill/assets/rocks_hill.png" id="7_olsfu"]
+[ext_resource type="PackedScene" uid="uid://x8lft640ihod" path="res://addons/holoprime_ui_framework/shortcuts/shortcut_button.tscn" id="8_ewsh7"]
+[ext_resource type="Shortcut" uid="uid://cke0a0ogk778b" path="res://game/ui/shortcuts/interact_shortcut.tres" id="9_olsfu"]
+[ext_resource type="Texture2D" uid="uid://cqtjp15cpcxov" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/generic/generic_button_circle.svg" id="10_focv6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_06nr6"]
-size = Vector2(166, 92)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxk3y"]
+size = Vector2(464, 279)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i7rim"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gul5x"]
 
 [node name="Hill" type="Node2D" unique_id=1861721494]
+script = ExtResource("1_olsfu")
 
 [node name="Content" type="Node2D" parent="." unique_id=264787953]
 
-[node name="Bg" type="Sprite2D" parent="Content" unique_id=760465783]
-position = Vector2(2030, 3.0000038)
-scale = Vector2(0.50012404, 0.49441963)
-texture = ExtResource("1_06nr6")
+[node name="Bg" type="Sprite2D" parent="Content" unique_id=2066867011]
+position = Vector2(1706, 120)
+texture = ExtResource("1_g1kj8")
 
 [node name="Player" parent="Content" unique_id=168436519 instance=ExtResource("2_t003o")]
-position = Vector2(964, 546)
+position = Vector2(420, 700)
 
 [node name="Camera2D" parent="Content/Player" index="2" unique_id=1935542993]
 limit_left = 0
 limit_top = -835
-limit_right = 1920
+limit_right = 3400
 limit_bottom = 1080
 
-[node name="ExitArea" type="Area2D" parent="." unique_id=1984025085]
-position = Vector2(1565, 604)
+[node name="Palm1Hill" type="Sprite2D" parent="Content" unique_id=1750724375]
+position = Vector2(1700, 120)
+texture = ExtResource("4_m8vw1")
+
+[node name="Palm2Hill" type="Sprite2D" parent="Content" unique_id=901869931]
+position = Vector2(1850, 200)
+texture = ExtResource("5_rkx3r")
+
+[node name="Palm3Hill" type="Sprite2D" parent="Content" unique_id=314427117]
+position = Vector2(1756, 120)
+texture = ExtResource("6_ewsh7")
+
+[node name="RocksHill" type="Sprite2D" parent="Content" unique_id=1411197887]
+position = Vector2(1706, 120)
+texture = ExtResource("7_olsfu")
+
+[node name="ExitArea" type="Area2D" parent="." unique_id=1501105532 node_paths=PackedStringArray("show_hide")]
+position = Vector2(2800, -700)
 script = ExtResource("1_tlyer")
+show_hide = [NodePath("ShortcutButton")]
 metadata/_custom_type_script = "uid://cohk8vm07ox71"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea" unique_id=505954664]
-position = Vector2(85, 49)
-shape = SubResource("RectangleShape2D_06nr6")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea" unique_id=2001803139]
+position = Vector2(0, -46.5)
+shape = SubResource("RectangleShape2D_qxk3y")
 
-[node name="ShortcutButton" type="Button" parent="ExitArea" unique_id=1898564392]
-offset_right = 170.0
-offset_bottom = 98.0
+[node name="ShortcutButton" parent="ExitArea" unique_id=1320667790 instance=ExtResource("8_ewsh7")]
+offset_left = -53.0
+offset_top = -156.0
+offset_right = 49.0
+offset_bottom = -94.0
+theme_type_variation = &"ShortcutButton"
+shortcut = ExtResource("9_olsfu")
+text = "Exit ship"
+icon = ExtResource("10_focv6")
 
-[connection signal="interacted" from="ExitArea" to="Content/Player" method="_on_exit_area_interacted"]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1107171620]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=828880120]
+shape = SubResource("WorldBoundaryShape2D_i7rim")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=343760459]
+position = Vector2(3414, 0)
+rotation = 4.712389
+shape = SubResource("WorldBoundaryShape2D_gul5x")
+
+[connection signal="interacted" from="ExitArea" to="." method="_on_exit_area_interacted"]
 
 [editable path="Content/Player"]

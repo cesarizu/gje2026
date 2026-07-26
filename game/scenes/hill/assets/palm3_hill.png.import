@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtc1g2u64gnsv"
-path="res://.godot/imported/abstract-landscape-concept-with-copy-space.jpg-78162913dfe52dab8540e1e0830858a2.ctex"
+uid="uid://cuctpgasnox4"
+path="res://.godot/imported/palm3_hill.png-3796b5e91ac49763bcc91efd65f52cd9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/scenes/hill/assets/abstract-landscape-concept-with-copy-space.jpg"
-dest_files=["res://.godot/imported/abstract-landscape-concept-with-copy-space.jpg-78162913dfe52dab8540e1e0830858a2.ctex"]
+source_file="res://game/scenes/hill/assets/palm3_hill.png"
+dest_files=["res://.godot/imported/palm3_hill.png-3796b5e91ac49763bcc91efd65f52cd9.ctex"]
 
 [params]
 

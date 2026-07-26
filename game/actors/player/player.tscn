@@ -595,3 +595,5 @@ shape = SubResource("CapsuleShape2D_edrbc")
 position = Vector2(-0.5, -1.1666667)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
