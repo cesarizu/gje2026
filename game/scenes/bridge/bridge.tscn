@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bdyas75walddy"]
 
 [ext_resource type="PackedScene" uid="uid://oq21pisorm22" path="res://game/actors/player/player.tscn" id="1_071xe"]
+[ext_resource type="Script" uid="uid://djg7k1reorj78" path="res://game/scenes/bridge/bridge.gd" id="1_r7bdi"]
 [ext_resource type="Texture2D" uid="uid://b8dc16a7pkonb" path="res://game/scenes/bridge/assets/OIP-1330072306.jpg" id="1_v6qms"]
 [ext_resource type="Script" uid="uid://cohk8vm07ox71" path="res://game/utils/interactive_area.gd" id="2_gw5fg"]
 [ext_resource type="PackedScene" uid="uid://x8lft640ihod" path="res://addons/holoprime_ui_framework/shortcuts/shortcut_button.tscn" id="3_v6qms"]
@@ -11,6 +12,7 @@
 size = Vector2(464, 279)
 
 [node name="Bridge" type="Node2D" unique_id=1450121359]
+script = ExtResource("1_r7bdi")
 
 [node name="Content" type="Node2D" parent="." unique_id=891641893]
 
