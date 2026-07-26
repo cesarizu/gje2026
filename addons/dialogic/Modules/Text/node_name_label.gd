@@ -18,9 +18,9 @@ func _ready() -> void:
 func _set(property, what):
 	if property == 'text' and typeof(what) == TYPE_STRING:
 		text = what
-		if hide_when_empty:
-			name_label_root.visible = !what.is_empty()
-		else:
-			name_label_root.show()
+		#if hide_when_empty:
+			#name_label_root.visible = !what.is_empty()
+		#else:
+			#name_label_root.show()
 		return true
 	return false
