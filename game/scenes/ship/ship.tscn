@@ -83,7 +83,7 @@ polygon = PackedVector2Array(-29, -441, 98, -436, 171, -420, 112, -344, 264, -38
 polygon = PackedVector2Array(811, -126, 758, -59, 664, 22, 641, 132, 724, 247, 705, 454, 726, 549, 754, 540, 779, 254, 740, 183, 687, 93, 731, 1, 802, -34)
 
 [node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Limits" unique_id=1956492890]
-polygon = PackedVector2Array(1014, -133, 1037, -43, 1108, -1, 1145, 95, 1115, 185, 1058, 247, 1074, 376, 1097, 521, 1117, 560, 1140, 452, 1106, 259, 1203, 121, 1157, 3, 1076, -57)
+polygon = PackedVector2Array(1014, -133, 1037, -43, 1108, -1, 1145, 95, 1115, 185, 1058, 247, 1074, 376, 1097, 521, 1118, 521, 1140, 452, 1106, 259, 1203, 121, 1157, 3, 1076, -57)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Limits" unique_id=1484443385]
 shape = SubResource("WorldBoundaryShape2D_rh4oo")
