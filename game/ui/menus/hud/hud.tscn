@@ -2,7 +2,24 @@
 
 [ext_resource type="Script" uid="uid://craxqbj7l7mer" path="res://game/ui/menus/hud/hud.gd" id="1_sae3p"]
 [ext_resource type="Texture2D" uid="uid://bubb055q6n3v6" path="res://game/icons/mochila.png" id="2_sae3p"]
+[ext_resource type="Script" uid="uid://b8hbe41h4y32v" path="res://addons/holoprime_ui_framework/shortcuts/shortcut_texture_2d.gd" id="3_qmp6s"]
 [ext_resource type="Texture2D" uid="uid://4vllwjur4wre" path="res://game/icons/linterna.png" id="3_uhqbv"]
+[ext_resource type="Shortcut" uid="uid://8upnevd721gw" path="res://game/ui/shortcuts/use_object_shortcut.tres" id="4_2hyrx"]
+[ext_resource type="Shortcut" uid="uid://ho1akmypi1jn" path="res://game/ui/shortcuts/inventory_shortcut.tres" id="6_sjdgw"]
+
+[sub_resource type="Texture2D" id="Texture2D_yeiif"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("3_qmp6s")
+shortcut = ExtResource("4_2hyrx")
+metadata/_custom_type_script = "uid://b8hbe41h4y32v"
+
+[sub_resource type="Texture2D" id="Texture2D_vnn0b"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("3_qmp6s")
+shortcut = ExtResource("6_sjdgw")
+metadata/_custom_type_script = "uid://b8hbe41h4y32v"
 
 [node name="Hud" type="CanvasLayer" unique_id=710360588]
 script = ExtResource("1_sae3p")
@@ -24,12 +41,6 @@ propagate_maximum_size = false
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="BackpackButton" type="TextureButton" parent="BackpackMargin/BackpackVBox" unique_id=1242244987]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 2
-texture_normal = ExtResource("2_sae3p")
-
 [node name="BackpackMargin2" type="MarginContainer" parent="." unique_id=280652344]
 anchors_preset = 2
 anchor_top = 1.0
@@ -44,14 +55,25 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="FlashlightControl" type="HBoxContainer" parent="BackpackMargin2" unique_id=564118824]
-unique_name_in_owner = true
-visible = false
+[node name="ItemsOrder" type="HBoxContainer" parent="BackpackMargin2" unique_id=564118824]
 layout_mode = 2
 alignment = 2
 
-[node name="FlashligthButton" type="TextureButton" parent="BackpackMargin2/FlashlightControl" unique_id=2107871225]
+[node name="FlashligthButton" type="TextureButton" parent="BackpackMargin2/ItemsOrder" unique_id=2107871225]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 texture_normal = ExtResource("3_uhqbv")
+
+[node name="Sprite2D" type="Sprite2D" parent="BackpackMargin2/ItemsOrder/FlashligthButton" unique_id=970203298]
+texture = SubResource("Texture2D_yeiif")
+
+[node name="BackpackButton" type="TextureButton" parent="BackpackMargin2/ItemsOrder" unique_id=1242244987]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = ExtResource("2_sae3p")
+
+[node name="Sprite2D" type="Sprite2D" parent="BackpackMargin2/ItemsOrder/BackpackButton" unique_id=511701951]
+texture = SubResource("Texture2D_vnn0b")

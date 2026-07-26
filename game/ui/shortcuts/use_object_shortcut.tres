@@ -1,0 +1,7 @@
+[gd_resource type="Shortcut" format=3 uid="uid://8upnevd721gw"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_rh4oo"]
+action = &"player_use_object"
+
+[resource]
+events = [SubResource("InputEventAction_rh4oo")]
