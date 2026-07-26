@@ -15,13 +15,18 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qxk3y"]
 size = Vector2(464, 279)
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i7rim"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gul5x"]
+
 [node name="Hill" type="Node2D" unique_id=1861721494]
 script = ExtResource("1_olsfu")
 
 [node name="Content" type="Node2D" parent="." unique_id=264787953]
 
 [node name="Bg" type="Sprite2D" parent="Content" unique_id=2066867011]
-position = Vector2(1700, 120)
+position = Vector2(1706, 120)
 texture = ExtResource("1_g1kj8")
 
 [node name="Player" parent="Content" unique_id=168436519 instance=ExtResource("2_t003o")]
@@ -42,11 +47,11 @@ position = Vector2(1850, 200)
 texture = ExtResource("5_rkx3r")
 
 [node name="Palm3Hill" type="Sprite2D" parent="Content" unique_id=314427117]
-position = Vector2(1750, 120)
+position = Vector2(1756, 120)
 texture = ExtResource("6_ewsh7")
 
 [node name="RocksHill" type="Sprite2D" parent="Content" unique_id=1411197887]
-position = Vector2(1700, 120)
+position = Vector2(1706, 120)
 texture = ExtResource("7_olsfu")
 
 [node name="ExitArea" type="Area2D" parent="." unique_id=1501105532 node_paths=PackedStringArray("show_hide")]
@@ -68,6 +73,16 @@ theme_type_variation = &"ShortcutButton"
 shortcut = ExtResource("9_olsfu")
 text = "Exit ship"
 icon = ExtResource("10_focv6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1107171620]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=828880120]
+shape = SubResource("WorldBoundaryShape2D_i7rim")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=343760459]
+position = Vector2(3414, 0)
+rotation = 4.712389
+shape = SubResource("WorldBoundaryShape2D_gul5x")
 
 [connection signal="interacted" from="ExitArea" to="." method="_on_exit_area_interacted"]
 
