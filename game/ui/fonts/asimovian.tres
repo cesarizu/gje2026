@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" format=3 uid="uid://c5wuvoltgjb8l"]
+
+[ext_resource type="FontFile" uid="uid://c8g71e86kg6w7" path="res://game/ui/fonts/Asimovian-Regular.ttf" id="1_xofk5"]
+
+[resource]
+base_font = ExtResource("1_xofk5")

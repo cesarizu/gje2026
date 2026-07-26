@@ -1,6 +1,6 @@
 extends Menu
 
-@onready var flashlight_control: HBoxContainer = %FlashlightControl
+@onready var flashlight_control: TextureButton = %FlashligthButton
 @onready var flashlight_button: TextureButton = %FlashligthButton
 
 var player: Node = null

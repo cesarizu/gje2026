@@ -4,7 +4,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 var last_direction: Vector2 = Vector2.RIGHT
 @onready var animated_sprite_2d = $AnimatedSprite2D
-@onready var flashlight_light: PointLight2D = %FlashlightLight
+@onready var flashlight_light: Node2D = %FlashlightPivote
 
 var flashlight_on: bool = false
 
@@ -57,13 +57,13 @@ func play_animation(prefix: String, dir: Vector2) -> void:
 
 func set_flashlight_enabled(enabled: bool) -> void:
 	flashlight_on = enabled
-	flashlight_light.enabled = enabled
+	flashlight_light.visible = enabled
 
 func toggle_flashlight() -> void:
 	set_flashlight_enabled(not flashlight_on)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("toggle_flashlight"):
+	if event.is_action_pressed("player_use_object"):
 		if RunInventory.has_item("flashlight"):
 			toggle_flashlight()
 

@@ -398,6 +398,20 @@ func _rotate_drag_data(drag_data: Dictionary) -> void:
 		preview.custom_minimum_size = preview_size
 		preview.size = preview_size
 
+		if drag_data.get("preview_icon") is TextureRect:
+			var preview_icon: TextureRect = drag_data["preview_icon"]
+			var preview_icon_root: Control = drag_data.get(
+				"preview_icon_root",
+				preview_icon.get_parent()
+			)
+			preview_icon_root.custom_minimum_size = preview_size
+			_fit_rotated_icon(
+				preview_icon,
+				preview_icon_root,
+				rotated,
+				preview_size
+			)
+
 	if hovered_drop_slot != null:
 		can_drop_data_at(hovered_drop_slot, drag_data)
 	else:
@@ -472,7 +486,7 @@ func _rebuild_placed_item_visuals() -> void:
 		var end_column := start_column + item_width - 1
 		var start_slot: InventorySlot = slots[start_row][start_column]
 		var end_slot: InventorySlot = slots[end_row][end_column]
-		var visual := _create_placed_item_visual(item)
+		var visual := _create_placed_item_visual(item, rotated)
 		visual.position = start_slot.position
 		visual.size = (
 			end_slot.position
@@ -486,7 +500,10 @@ func _on_placed_items_layer_resized() -> void:
 	call_deferred("_rebuild_placed_item_visuals")
 
 
-func _create_placed_item_visual(item: ItemData) -> Control:
+func _create_placed_item_visual(
+	item: ItemData,
+	rotated: bool
+) -> Control:
 	var panel := PanelContainer.new()
 	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
@@ -502,15 +519,46 @@ func _create_placed_item_visual(item: ItemData) -> Control:
 	content.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	margin.add_child(content)
 
+	var icon_root := Control.new()
+	icon_root.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	icon_root.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	content.add_child(icon_root)
+
 	var icon := TextureRect.new()
 	icon.texture = item.icon
 	icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	icon.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	content.add_child(icon)
+	icon_root.resized.connect(
+		func() -> void:
+			_fit_rotated_icon(
+				icon,
+				icon_root,
+				rotated,
+				icon_root.size
+			)
+	)
+	icon_root.add_child(icon)
+	_fit_rotated_icon(icon, icon_root, rotated, icon_root.size)
 
 	return panel
+
+
+func _fit_rotated_icon(
+	icon: TextureRect,
+	icon_root: Control,
+	is_rotated: bool,
+	available_size: Vector2
+) -> void:
+	var icon_size := (
+		Vector2(available_size.y, available_size.x)
+		if is_rotated
+		else available_size
+	)
+	icon.size = icon_size
+	icon.position = (available_size - icon_size) / 2.0
+	icon.pivot_offset = icon_size / 2.0
+	icon.rotation = PI / 2.0 if is_rotated else 0.0
 
 
 func _clear_selection() -> void:

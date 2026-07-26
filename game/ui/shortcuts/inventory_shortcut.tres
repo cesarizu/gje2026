@@ -1,0 +1,7 @@
+[gd_resource type="Shortcut" format=3 uid="uid://ho1akmypi1jn"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_rh4oo"]
+action = &"inventory"
+
+[resource]
+events = [SubResource("InputEventAction_rh4oo")]
