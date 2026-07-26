@@ -101,8 +101,6 @@ func end_game() -> void:
 	await get_tree().create_timer(2).timeout
 	state = GameState.GAME_OVER
 	UI.push_game_over()
-	await get_tree().create_timer(5).timeout
-	return_to_start_menu()
 
 
 func restart_game() -> void:

@@ -16,7 +16,6 @@ var rotated: bool = false
 
 @onready var item_icon: TextureRect = %ItemIcon
 @onready var name_label: Label = %NameLabel
-@onready var charges_label: Label = %ChargesLabel
 
 
 func _ready() -> void:
@@ -110,23 +109,12 @@ func update_ui() -> void:
 
 	name_label.text = item_data.item_name
 	item_icon.texture = item_data.icon
-	charges_label.visible = item_data.uses_charges
-
-	if item_data.uses_charges:
-		charges_label.text = "%d/%d" % [
-			current_charges,
-			item_data.max_charges
-		]
-	else:
-		charges_label.text = ""
 
 	tooltip_text = _build_tooltip()
 
 
 func clear_ui() -> void:
 	name_label.text = ""
-	charges_label.text = ""
-	charges_label.visible = false
 	item_icon.texture = null
 	tooltip_text = ""
 
