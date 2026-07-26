@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bwss7rivu14ve"]
 
+[ext_resource type="Texture2D" uid="uid://cbedd7riijkon" path="res://game/icons/multitool.png" id="1_q04rf"]
 [ext_resource type="Script" uid="uid://caxfluwpro32s" path="res://game/data/items/ItemData.gd" id="1_wy7oo"]
 
 [resource]
@@ -7,6 +8,7 @@ script = ExtResource("1_wy7oo")
 id = &"multitool"
 item_name = "Multiherramienta"
 description = "Sirve para abrir, cortar y reparar."
+icon = ExtResource("1_q04rf")
 height = 2
 max_charges = 3
 use_text = "Usar herramienta"
