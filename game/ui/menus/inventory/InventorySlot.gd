@@ -105,10 +105,12 @@ func clear_item() -> void:
 
 func set_drop_highlight(state: int) -> void:
 	if state == 0:
+		z_index = 0
 		if base_panel_style != null:
 			add_theme_stylebox_override("panel", base_panel_style)
 		return
 
+	z_index = 10
 	var style := StyleBoxFlat.new()
 	style.bg_color = (
 		Color(0.08, 0.35, 0.24, 0.9)

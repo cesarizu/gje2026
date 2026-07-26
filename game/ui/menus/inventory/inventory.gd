@@ -6,6 +6,7 @@ const INVENTORY_SLOT = preload(
 )
 
 @onready var backpack_grid: GridContainer = %BackpackGrid
+@onready var placed_items_layer: Control = %PlacedItemsLayer
 @onready var items_container: GridContainer = %ItemsContainer
 @onready var exit_button: Button = %ExitButton
 
@@ -25,6 +26,13 @@ func _ready() -> void:
 	create_backpack_grid()
 	connect_item_cards()
 	load_inventory_state()
+	if not placed_items_layer.resized.is_connected(
+		_on_placed_items_layer_resized
+	):
+		placed_items_layer.resized.connect(
+			_on_placed_items_layer_resized
+		)
+	call_deferred("_rebuild_placed_item_visuals")
 
 	exit_button.pressed.connect(_on_exit_pressed)
 
@@ -252,6 +260,7 @@ func place_item(
 		"current_charges": current_charges
 	})
 
+	_rebuild_placed_item_visuals()
 	_refresh_manifest_cards()
 
 
@@ -267,6 +276,7 @@ func begin_backpack_drag(slot: InventorySlot) -> Dictionary:
 	active_moved_item = placed_items[placed_index].duplicate()
 	placed_items.remove_at(placed_index)
 	_clear_item_cells(active_moved_item)
+	_rebuild_placed_item_visuals()
 
 	return {
 		"source": "backpack",
@@ -446,6 +456,63 @@ func _refresh_manifest_cards() -> void:
 			child.visible = not _has_placed_item(child.item_data.id)
 
 
+func _rebuild_placed_item_visuals() -> void:
+	for child in placed_items_layer.get_children():
+		placed_items_layer.remove_child(child)
+		child.queue_free()
+
+	for placed_item in placed_items:
+		var item: ItemData = placed_item["item"]
+		var rotated: bool = placed_item["rotated"]
+		var item_width := item.height if rotated else item.width
+		var item_height := item.width if rotated else item.height
+		var start_row: int = placed_item["row"]
+		var start_column: int = placed_item["column"]
+		var end_row := start_row + item_height - 1
+		var end_column := start_column + item_width - 1
+		var start_slot: InventorySlot = slots[start_row][start_column]
+		var end_slot: InventorySlot = slots[end_row][end_column]
+		var visual := _create_placed_item_visual(item)
+		visual.position = start_slot.position
+		visual.size = (
+			end_slot.position
+			+ end_slot.size
+			- start_slot.position
+		)
+		placed_items_layer.add_child(visual)
+
+
+func _on_placed_items_layer_resized() -> void:
+	call_deferred("_rebuild_placed_item_visuals")
+
+
+func _create_placed_item_visual(item: ItemData) -> Control:
+	var panel := PanelContainer.new()
+	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+	var margin := MarginContainer.new()
+	margin.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	margin.add_theme_constant_override("margin_left", 10)
+	margin.add_theme_constant_override("margin_top", 10)
+	margin.add_theme_constant_override("margin_right", 10)
+	margin.add_theme_constant_override("margin_bottom", 10)
+	panel.add_child(margin)
+
+	var content := VBoxContainer.new()
+	content.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	margin.add_child(content)
+
+	var icon := TextureRect.new()
+	icon.texture = item.icon
+	icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	icon.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	content.add_child(icon)
+
+	return panel
+
+
 func _clear_selection() -> void:
 	if selected_item_card != null:
 		selected_item_card.set_rotated(false)
@@ -519,6 +586,7 @@ func remove_placed_item(index: int) -> void:
 
 	placed_items.remove_at(index)
 	_refresh_manifest_cards()
+	_rebuild_placed_item_visuals()
 
 	print(
 		"Objeto retirado: ",
@@ -552,6 +620,7 @@ func load_inventory_state() -> void:
 		)
 
 	_refresh_manifest_cards()
+	_rebuild_placed_item_visuals()
 
 
 func place_stored_item(

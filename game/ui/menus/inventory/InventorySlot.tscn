@@ -2,21 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dsccddmax2tqx" path="res://game/ui/menus/inventory/InventorySlot.gd" id="1_7leu3"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_676cj"]
-bg_color = Color(0.09411765, 0.15686275, 0.19607843, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.2627451, 0.7764706, 0.78431374, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_virtual"]
 
 [node name="InventorySlot" type="PanelContainer" unique_id=660055398]
-custom_minimum_size = Vector2(200, 200)
-theme_override_styles/panel = SubResource("StyleBoxFlat_676cj")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_virtual")
 script = ExtResource("1_7leu3")
 
 [node name="ContentMargin" type="MarginContainer" parent="." unique_id=1373187888]
@@ -33,6 +24,7 @@ mouse_filter = 2
 
 [node name="ItemIcon" type="TextureRect" parent="ContentMargin/ContentCenter" unique_id=1162699049]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 mouse_filter = 2
