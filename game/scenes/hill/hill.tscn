@@ -11,7 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://x8lft640ihod" path="res://addons/holoprime_ui_framework/shortcuts/shortcut_button.tscn" id="8_ewsh7"]
 [ext_resource type="Shortcut" uid="uid://cke0a0ogk778b" path="res://game/ui/shortcuts/interact_shortcut.tres" id="9_olsfu"]
 [ext_resource type="Texture2D" uid="uid://cqtjp15cpcxov" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/generic/generic_button_circle.svg" id="10_focv6"]
-[ext_resource type="Script" uid="uid://wtrto1gtiwdh" path="res://game/scenes/hill/show_dialog.gd" id="12_diq7m"]
+[ext_resource type="Script" uid="uid://wtrto1gtiwdh" path="res://game/scenes/hill/show_dialog.gd" id="12_d8tse"]
+[ext_resource type="Texture2D" uid="uid://dn7df6uq6f6gd" path="res://game/scenes/hill/assets/hole.png" id="12_diq7m"]
 [ext_resource type="AudioStream" uid="uid://djg4pxqo0wkeb" path="res://game/audio/SFX_Alarm_Single.ogg" id="12_focv6"]
 [ext_resource type="AudioStream" uid="uid://dxxexu2x1o0tb" path="res://game/audio/Mus_Track1.ogg" id="13_qxk3y"]
 [ext_resource type="Texture2D" uid="uid://b6l33delw56" path="res://game/scenes/hill/assets/mosquito.png" id="14_ktdo1"]
@@ -31,6 +32,12 @@ size = Vector2(950, 196)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6q2t7"]
 size = Vector2(126, 676.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_edrbc"]
+radius = 170.423
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rh4oo"]
+radius = 599.33295
 
 [sub_resource type="Animation" id="Animation_olsfu"]
 resource_name = "alarm"
@@ -66,7 +73,7 @@ curve = SubResource("Curve_diq7m")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_edrbc"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(300, 300, 300)
+emission_box_extents = Vector3(500, 500, 0)
 spread = 180.0
 initial_velocity_min = 100.0
 initial_velocity_max = 100.0
@@ -130,15 +137,15 @@ position = Vector2(0, 1080)
 shape = SubResource("WorldBoundaryShape2D_h0der")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Limits" unique_id=657345761]
-position = Vector2(0, -839)
+position = Vector2(3, -701)
 rotation = -3.1415925
 shape = SubResource("WorldBoundaryShape2D_f7m8p")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Limits" unique_id=472744751]
-polygon = PackedVector2Array(-4, -851, 237, -851, 573, -409, 646, -144, 1165, 76, 1241, 359, 1179, 450, 992, 554, 805, 583, 892, 641, 841, 686, 789, 752, 652, 779, 641, 735, 562, 776, 481.29285, 733.9051, 524, 807, 355, 799, 270, 941, 419, 999, 450, 958, 705, 1047, 698, 1078, 698, 1078, -2, 1079)
+polygon = PackedVector2Array(-4, -851, 126, -845, 546, -420, 601, -477, 739, -452, 942, -192, 915, -96, 826.74994, -67.38153, 636, 21, 340, 61, 493, 137, 500, 233, 717, 215, 723, 144, 1221, 212, 1211, 448, 992, 554, 805, 583, 892, 641, 841, 686, 789, 752, 652, 779, 641, 735, 562, 776, 481.29285, 733.9051, 524, 807, 355, 799, 270, 941, 419, 999, 450, 958, 705, 1047, 698, 1078, 698, 1078, -2, 1079)
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Limits" unique_id=1496184489]
-polygon = PackedVector2Array(959, -841, 2678, -859, 2613, -570, 2422, -241, 2406, -98, 2274, 90, 2304, 132, 2058, 225, 2064, 274, 2003, 315, 1893, 285, 1798, 282, 1733, 213, 1746, 22, 1669, -158, 1451, -299, 1100, -637)
+polygon = PackedVector2Array(1018, -845, 2678, -859, 2613, -570, 2422, -241, 2406, -98, 2274, 90, 2304, 132, 2058, 225, 2064, 274, 2003, 315, 1893, 285, 1798, 282, 1733, 213, 1746, 22, 1656, -156, 1798, -252, 1636, -376, 1556, -314, 1466, -316, 1453, -199, 1396, -269, 1164, -253, 940, -539, 827, -594, 1100, -637)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Limits" unique_id=15908031]
 polygon = PackedVector2Array(1666, 1001, 1749, 878, 1813, 909, 1885, 903, 1919, 813, 1989, 837, 2050, 844, 2138, 803, 2243, 851, 2319, 854, 2302, 893, 2352, 972, 2400, 884, 2533, 785, 2629, 937, 2748, 853, 2799, 956, 2437, 1050, 2437, 1088, 1693, 1092)
@@ -156,7 +163,7 @@ polygon = PackedVector2Array(3136, 132, 3121, 170, 3161, 205, 3206, 193, 3208, 1
 polygon = PackedVector2Array(3246, -343, 3235, -308, 3317, -303, 3308, -346)
 
 [node name="ExitArea" type="Area2D" parent="." unique_id=1501105532 node_paths=PackedStringArray("show_hide")]
-position = Vector2(2800, -700)
+position = Vector2(2823, -615)
 script = ExtResource("1_tlyer")
 show_hide = [NodePath("ShortcutButton")]
 metadata/_custom_type_script = "uid://cohk8vm07ox71"
@@ -166,10 +173,10 @@ position = Vector2(165, -88)
 shape = SubResource("RectangleShape2D_qxk3y")
 
 [node name="ShortcutButton" parent="ExitArea" unique_id=1320667790 instance=ExtResource("8_ewsh7")]
-offset_left = -106.0
-offset_top = -140.0
-offset_right = 247.0
-offset_bottom = -78.0
+offset_left = -105.0
+offset_top = -206.0
+offset_right = 248.0
+offset_bottom = -144.0
 theme_type_variation = &"ShortcutButton"
 shortcut = ExtResource("9_olsfu")
 text = "Exit"
@@ -177,7 +184,7 @@ icon = ExtResource("10_focv6")
 alignment = 0
 
 [node name="ExitArea2" type="Area2D" parent="." unique_id=316520031 node_paths=PackedStringArray("show_hide")]
-position = Vector2(453, -676)
+position = Vector2(462, -603)
 script = ExtResource("1_tlyer")
 show_hide = [NodePath("ShortcutButton")]
 metadata/_custom_type_script = "uid://cohk8vm07ox71"
@@ -187,10 +194,10 @@ position = Vector2(165, -88)
 shape = SubResource("RectangleShape2D_qxk3y")
 
 [node name="ShortcutButton" parent="ExitArea2" unique_id=292980377 instance=ExtResource("8_ewsh7")]
-offset_left = -106.0
-offset_top = -140.0
-offset_right = 247.0
-offset_bottom = -78.0
+offset_left = -176.0
+offset_top = -210.0
+offset_right = 177.0
+offset_bottom = -148.0
 theme_type_variation = &"ShortcutButton"
 shortcut = ExtResource("9_olsfu")
 text = "Exit"
@@ -199,11 +206,39 @@ alignment = 0
 
 [node name="ShowDialog" type="Area2D" parent="." unique_id=725136382]
 position = Vector2(453, -676)
-script = ExtResource("12_diq7m")
+script = ExtResource("12_d8tse")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShowDialog" unique_id=1611521625]
-position = Vector2(1202, 1331.75)
+position = Vector2(914, 1346)
 shape = SubResource("RectangleShape2D_6q2t7")
+
+[node name="HoleSprite2D" type="Sprite2D" parent="." unique_id=1714549145]
+unique_name_in_owner = true
+visible = false
+position = Vector2(905, -335)
+texture = ExtResource("12_diq7m")
+
+[node name="Hole" type="StaticBody2D" parent="." unique_id=1822569322]
+unique_name_in_owner = true
+position = Vector2(1005, -283)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hole" unique_id=418419873]
+polygon = PackedVector2Array(-205, 224, -95, 184, -70, 105, 132, 81, 89, 45, 386, 11, 442, 90, 451, -33, 298, -168, -340, 164)
+
+[node name="HoleArea2D" type="Area2D" parent="." unique_id=446527396]
+position = Vector2(1075, -182)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HoleArea2D" unique_id=602129156]
+shape = SubResource("CircleShape2D_edrbc")
+
+[node name="MosquitoArea2D" type="Area2D" parent="." unique_id=651823209]
+position = Vector2(2915, -169)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MosquitoArea2D" unique_id=927744474]
+position = Vector2(-34, -75)
+shape = SubResource("CircleShape2D_rh4oo")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=309743710]
 libraries/ = SubResource("AnimationLibrary_focv6")
@@ -219,7 +254,7 @@ autoplay = true
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1252019186]
 position = Vector2(2935, -246)
-amount = 20
+amount = 40
 texture = ExtResource("14_ktdo1")
 lifetime = 10.0
 preprocess = 10.0
@@ -227,5 +262,7 @@ process_material = SubResource("ParticleProcessMaterial_edrbc")
 
 [connection signal="interacted" from="ExitArea" to="." method="_on_exit_area_interacted"]
 [connection signal="interacted" from="ExitArea2" to="." method="_on_exit_area_interacted"]
+[connection signal="body_entered" from="HoleArea2D" to="." method="_on_hole_area_2d_body_entered"]
+[connection signal="body_entered" from="MosquitoArea2D" to="." method="_on_mosquito_area_2d_body_entered"]
 
 [editable path="Content/Player"]

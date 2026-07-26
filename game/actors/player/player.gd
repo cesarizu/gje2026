@@ -2,13 +2,23 @@ class_name Player
 extends CharacterBody2D
 
 const SPEED = 300.0
-var last_direction: Vector2 = Vector2.RIGHT
+
+static var instance: Player
+
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var flashlight_light: Node2D = %FlashlightPivote
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 var flashlight_on: bool = false
+var last_direction: Vector2 = Vector2.RIGHT
 
-signal flashlight_changed(enabled: bool)
+
+func _enter_tree() -> void:
+	instance = self
+
+
+func _ready() -> void:
+	Core.game.lifes_changed.connect(_on_lifes_changed)
 
 
 func _physics_process(_delta: float) -> void:
@@ -77,3 +87,7 @@ func update_flashlight_direction() -> void:
 			flashlight_light.rotation_degrees = 0
 		else:
 			flashlight_light.rotation_degrees = 180
+
+
+func _on_lifes_changed() -> void:
+	animation_player.play(&"hit")

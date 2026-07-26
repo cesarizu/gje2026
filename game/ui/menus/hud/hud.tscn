@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://craxqbj7l7mer" path="res://game/ui/menus/hud/hud.gd" id="1_sae3p"]
 [ext_resource type="Texture2D" uid="uid://bubb055q6n3v6" path="res://game/icons/mochila.png" id="2_sae3p"]
+[ext_resource type="Texture2D" uid="uid://bewtpm5bxdfh5" path="res://game/ui/menus/hud/assets/lifes.png" id="2_sjdgw"]
 [ext_resource type="Script" uid="uid://b8hbe41h4y32v" path="res://addons/holoprime_ui_framework/shortcuts/shortcut_texture_2d.gd" id="3_qmp6s"]
 [ext_resource type="Texture2D" uid="uid://4vllwjur4wre" path="res://game/icons/linterna.png" id="3_uhqbv"]
 [ext_resource type="Shortcut" uid="uid://8upnevd721gw" path="res://game/ui/shortcuts/use_object_shortcut.tres" id="4_2hyrx"]
@@ -23,23 +24,31 @@ metadata/_custom_type_script = "uid://b8hbe41h4y32v"
 
 [node name="Hud" type="CanvasLayer" unique_id=710360588]
 script = ExtResource("1_sae3p")
+save_last_focused = null
+release_focus_on_keyboard = null
 hide_on_focus_out = false
 metadata/_custom_type_script = "uid://t4ioglwpiwid"
 
 [node name="BackpackMargin" type="MarginContainer" parent="." unique_id=447083488]
 offset_right = 1908.0
 offset_bottom = 137.0
-offset_transform_enabled = true
 offset_transform_position = Vector2(-20, -20)
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="BackpackVBox" type="VBoxContainer" parent="BackpackMargin" unique_id=1373543829]
+[node name="BackpackHBox" type="HBoxContainer" parent="BackpackMargin" unique_id=86469679]
 propagate_maximum_size = false
 layout_mode = 2
 theme_override_constants/separation = 4
+
+[node name="LifesTextureProgressBar" type="TextureProgressBar" parent="BackpackMargin/BackpackHBox" unique_id=409878958]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 3.0
+value = 3.0
+texture_progress = ExtResource("2_sjdgw")
 
 [node name="BackpackMargin2" type="MarginContainer" parent="." unique_id=280652344]
 anchors_preset = 2

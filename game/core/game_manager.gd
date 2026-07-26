@@ -2,6 +2,7 @@ class_name GameManager
 extends Node
 
 signal state_changed(new_state: GameState)
+signal lifes_changed()
 
 enum GameState {
 	NONE,
@@ -24,34 +25,55 @@ var state: GameState = GameState.NONE:
 		state = value
 		state_changed.emit(state)
 
+var lifes := 3:
+	set(value):
+		if lifes != value:
+			var do_emit := lifes > value
+			lifes = max(0, value)
+			if do_emit:
+				lifes_changed.emit()
+			if lifes == 0:
+				end_game()
+
 
 func go_to_start_menu() -> void:
 	state = GameState.NOT_STARTED
+	await UI.fade_out()
 	UI.reset_to_start_menu()
+	await UI.fade_in()
 
 
 func start_game() -> void:
+	lifes = 3
 	enter_ship()
 
 
 func enter_ship() -> void:
+	await UI.fade_out()
 	state = GameState.PLAYING
 	get_tree().change_scene_to_packed(ship_scene)
 
 
 func enter_hill() -> void:
+	await UI.fade_out()
 	state = GameState.PLAYING
 	get_tree().change_scene_to_packed(hill_scene)
 
+
 func enter_snow() -> void:
+	await UI.fade_out()
 	state = GameState.PLAYING
 	get_tree().change_scene_to_packed(snow_scene)
 
+
 func enter_bridge() -> void:
+	await UI.fade_out()
 	state = GameState.PLAYING
 	get_tree().change_scene_to_packed(bridge_scene)
 
+
 func enter_pod() -> void:
+	await UI.fade_out()
 	state = GameState.PLAYING
 	get_tree().change_scene_to_packed(pod_scene)
 
@@ -59,23 +81,35 @@ func enter_pod() -> void:
 func end_game() -> void:
 	if not is_playing():
 		return
+
 	state = GameState.GAME_OVER
 	UI.push_game_over()
+	await get_tree().create_timer(5).timeout
+	return_to_start_menu()
 
 
 func restart_game() -> void:
+	await UI.fade_out()
 	enter_ship()
+	await UI.fade_in()
 
 
 func return_to_start_menu() -> void:
+	await UI.fade_out()
 	state = GameState.NOT_STARTED
 	get_tree().change_scene_to_packed(boot_scene)
+	await UI.fade_in()
 
 
 func quit_game() -> void:
+	await UI.fade_out()
 	state = GameState.NONE
 	get_tree().quit()
 
 
 func is_playing() -> bool:
 	return state == GameState.PLAYING
+
+
+func hit() -> void:
+	lifes = lifes - 1

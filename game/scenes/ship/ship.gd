@@ -4,6 +4,7 @@ var alert_showed = false
 
 func _ready() -> void:
 	UI.reset_to_hud()
+	await UI.fade_in()
 	Dialogic.start("player_dialog")
 
 
