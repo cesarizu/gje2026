@@ -118,7 +118,7 @@ shape = SubResource("WorldBoundaryShape2D_gul5x")
 polygon = PackedVector2Array(494, 623, 595, 632, 699, 642, 750, 602, 789, 622, 822, 581, 908, 645, 861, 700, 790, 765, 652, 792, 624, 748, 561, 779, 472, 748, 489, 656)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=472744751]
-polygon = PackedVector2Array(-1, 714, 159, 933, 217, 916, 419, 999, 450, 958, 705, 1047, 698, 1078, 698, 1078, -2, 1079)
+polygon = PackedVector2Array(-1, 714, 159, 933, 217, 906, 419, 999, 450, 958, 705, 1047, 698, 1078, 698, 1078, -2, 1079)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=15908031]
 polygon = PackedVector2Array(1666, 1001, 1749, 878, 1813, 909, 1885, 903, 1919, 813, 1989, 837, 2050, 844, 2138, 803, 2243, 851, 2319, 854, 2302, 893, 2352, 972, 2342, 984, 2209, 1018, 2033, 1038, 2010, 1075, 1979, 1079, 1781, 1080, 1682, 1052)

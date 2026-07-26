@@ -15,6 +15,7 @@ enum GameState {
 @export var hill_scene: PackedScene
 @export var snow_scene: PackedScene
 @export var bridge_scene: PackedScene
+@export var pod_scene: PackedScene
 
 var state: GameState = GameState.NONE:
 	set(value):
@@ -49,6 +50,10 @@ func enter_snow() -> void:
 func enter_bridge() -> void:
 	state = GameState.PLAYING
 	get_tree().change_scene_to_packed(bridge_scene)
+
+func enter_pod() -> void:
+	state = GameState.PLAYING
+	get_tree().change_scene_to_packed(pod_scene)
 
 
 func end_game() -> void:
