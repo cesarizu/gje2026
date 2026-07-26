@@ -17,6 +17,10 @@ func _enter_tree() -> void:
 	instance = self
 
 
+func _ready() -> void:
+	Core.game.lifes_changed.connect(_on_lifes_changed)
+
+
 func _physics_process(_delta: float) -> void:
 	process_movement()
 	process_animation()
@@ -84,5 +88,5 @@ func update_flashlight_direction() -> void:
 			flashlight_light.rotation_degrees = 180
 
 
-func hit() -> void:
+func _on_lifes_changed() -> void:
 	animation_player.play(&"hit")

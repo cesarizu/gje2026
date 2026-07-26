@@ -29,7 +29,7 @@ func _on_hole_area_2d_body_entered(body: Node2D) -> void:
 		hole_sprite_2d.show()
 		hole.queue_free()
 	elif not _hole_hit:
-		Player.instance.hit()
+		Core.game.hit()
 		_hole_hit = true
 
 
@@ -40,5 +40,5 @@ func _on_mosquito_area_2d_body_entered(body: Node2D) -> void:
 	if RunInventory.has_item(&"repellent"):
 		pass
 	elif not _mosquito_hit:
-		Player.instance.hit()
+		Core.game.hit()
 		_mosquito_hit = true
