@@ -39,6 +39,7 @@ directories/dch_directory={
 directories/dtl_directory={
 "hills": "res://hills.dtl",
 "player_dialog": "res://game/timelines/player_dialog.dtl",
+"rift": "res://rift.dtl",
 "ship_exit": "res://ship_exit.dtl"
 }
 layout/style_directory={
