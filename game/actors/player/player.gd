@@ -13,6 +13,7 @@ static var instance: Player
 var flashlight_on: bool = false
 var last_direction: Vector2 = Vector2.RIGHT
 var running: bool = false
+var is_dead: bool = false
 
 
 func _enter_tree() -> void:
@@ -24,6 +25,10 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
+	if is_dead:
+		velocity = Vector2.ZERO
+		return
+
 	process_movement()
 	process_animation()
 	move_and_slide()
@@ -76,6 +81,9 @@ func toggle_flashlight() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if is_dead:
+		return
+
 	if event.is_action_pressed("player_use_object"):
 		if RunInventory.has_item("flashlight"):
 			toggle_flashlight()
@@ -98,11 +106,26 @@ func update_flashlight_direction() -> void:
 
 
 func hit() -> void:
-	if not Core.game.is_playing() or Core.game.lifes <= 0:
+	if is_dead or not Core.game.is_playing() or Core.game.lifes <= 0:
 		return
 
 	Core.game.hit()
 
 
 func _on_lifes_changed() -> void:
-	animation_player.play(&"hit")
+	if Core.game.lifes <= 0:
+		die()
+	else:
+		animation_player.play(&"hit")
+
+
+func die() -> void:
+	if is_dead:
+		return
+
+	is_dead = true
+	velocity = Vector2.ZERO
+	running = false
+	set_flashlight_enabled(false)
+	animated_sprite_2d.speed_scale = 1.0
+	animated_sprite_2d.play(&"death")
