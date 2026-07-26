@@ -12,6 +12,7 @@
 [ext_resource type="Shortcut" uid="uid://cke0a0ogk778b" path="res://game/ui/shortcuts/interact_shortcut.tres" id="9_olsfu"]
 [ext_resource type="Texture2D" uid="uid://cqtjp15cpcxov" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/generic/generic_button_circle.svg" id="10_focv6"]
 [ext_resource type="AudioStream" uid="uid://djg4pxqo0wkeb" path="res://game/audio/SFX_Alarm_Single.ogg" id="12_focv6"]
+[ext_resource type="AudioStream" uid="uid://dxxexu2x1o0tb" path="res://game/audio/Mus_Track1.ogg" id="13_qxk3y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qxk3y"]
 size = Vector2(464, 279)
@@ -158,6 +159,10 @@ autoplay = &"alarm"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AnimationPlayer" unique_id=1389054267]
 bus = &"Ambient"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1763624451]
+stream = ExtResource("13_qxk3y")
+autoplay = true
 
 [connection signal="interacted" from="ExitArea" to="." method="_on_exit_area_interacted"]
 

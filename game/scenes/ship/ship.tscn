@@ -141,11 +141,11 @@ texture = ExtResource("6_suw2m")
 polygon = PackedVector2Array(102, 1067, 427, 848, 636, 910, 885, 758, 1205, 668, 1334, 551, 1587, 576, 1778, 613, 1957, 777, 1962, 1117, -24, 1161, -31, 1057)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Limits" unique_id=1931679854]
-polygon = PackedVector2Array(-4, -279, 144, -235, 229, -111, 171, 424, -1, 427)
+polygon = PackedVector2Array(4, -127, 198, -118, 221, -100, 157, 439, 0, 443)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Limits" unique_id=1305401000]
 position = Vector2(-12, -2)
-polygon = PackedVector2Array(1937, -201, 1849, -267, 1727, -241, 1620, -127, 1690, 424, 1944, 436)
+polygon = PackedVector2Array(1939, -164, 1666, -169, 1636, -152, 1690, 437, 1944, 447)
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Limits" unique_id=1089622815]
 polygon = PackedVector2Array(-29, -441, 98, -436, 171, -420, 112, -344, 264, -383, 468, -367, 692, -358, 738, -259, 807, -370, 949, -411, 1147, -439, 1216, -439, 1214, -609, 1649, -616, 1663, -446, 1983, -432, 1971, -862, -26, -851)
