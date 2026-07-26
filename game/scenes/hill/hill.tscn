@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cqtjp15cpcxov" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/generic/generic_button_circle.svg" id="10_focv6"]
 [ext_resource type="AudioStream" uid="uid://djg4pxqo0wkeb" path="res://game/audio/SFX_Alarm_Single.ogg" id="12_focv6"]
 [ext_resource type="AudioStream" uid="uid://dxxexu2x1o0tb" path="res://game/audio/Mus_Track1.ogg" id="13_qxk3y"]
+[ext_resource type="Texture2D" uid="uid://b6l33delw56" path="res://game/scenes/hill/assets/mosquito.png" id="14_ktdo1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qxk3y"]
 size = Vector2(950, 196)
@@ -50,6 +51,28 @@ tracks/0/use_blend = true
 _data = {
 &"alarm": SubResource("Animation_olsfu")
 }
+
+[sub_resource type="Curve" id="Curve_diq7m"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1862955, 1), 0.0, 0.0, 0, 0, Vector2(0.875803, 0.99593496), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_ktdo1"]
+curve = SubResource("Curve_diq7m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_edrbc"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(300, 300, 300)
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_ktdo1")
+turbulence_enabled = true
+turbulence_influence_min = 1.0
+turbulence_influence_max = 1.0
+turbulence_initial_displacement_min = 1.0000015
+turbulence_initial_displacement_max = 1.0000015
 
 [node name="Hill" type="Node2D" unique_id=1861721494]
 script = ExtResource("1_olsfu")
@@ -110,6 +133,7 @@ icon = ExtResource("10_focv6")
 alignment = 0
 
 [node name="Limits" type="StaticBody2D" parent="." unique_id=1107171620]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Limits" unique_id=828880120]
 shape = SubResource("WorldBoundaryShape2D_i7rim")
@@ -157,6 +181,14 @@ bus = &"Ambient"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1763624451]
 stream = ExtResource("13_qxk3y")
 autoplay = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1252019186]
+position = Vector2(2935, -246)
+amount = 20
+texture = ExtResource("14_ktdo1")
+lifetime = 10.0
+preprocess = 10.0
+process_material = SubResource("ParticleProcessMaterial_edrbc")
 
 [connection signal="interacted" from="ExitArea" to="." method="_on_exit_area_interacted"]
 
