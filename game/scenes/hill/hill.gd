@@ -28,6 +28,7 @@ func _on_hole_area_2d_body_entered(body: Node2D) -> void:
 	if RunInventory.has_item(&"thermal_blanket") or RunInventory.has_item(&"rope"):
 		hole_sprite_2d.show()
 		hole.queue_free()
+		Dialogic.start("rift_with_rope")
 	elif not _hole_hit:
 		Core.game.hit()
 		_hole_hit = true

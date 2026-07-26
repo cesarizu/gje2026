@@ -40,6 +40,7 @@ directories/dtl_directory={
 "hills": "res://hills.dtl",
 "player_dialog": "res://game/timelines/player_dialog.dtl",
 "rift": "res://rift.dtl",
+"rift_with_rope": "res://rift_with_rope.dtl",
 "ship_exit": "res://ship_exit.dtl"
 }
 layout/style_directory={

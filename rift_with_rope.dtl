@@ -1,0 +1,3 @@
+set {player_can_move} = false
+game: El camino no será más fácil a partir de ahora.
+set {player_can_move} = true
