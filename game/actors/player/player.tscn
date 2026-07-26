@@ -598,21 +598,20 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_edrbc"]
-radius = 2.166667
-height = 4.333334
+radius = 3.1666667
+height = 6.666667
 
 [node name="Player" type="CharacterBody2D" unique_id=168436519]
 scale = Vector2(6, 6)
 script = ExtResource("1_3p4xn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1329092579]
-position = Vector2(-0.33333343, -1.666667)
+position = Vector2(-0.16666664, -16.166668)
 scale = Vector2(0.03, 0.03)
 sprite_frames = SubResource("SpriteFrames_6q2t7")
 animation = &"idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=192181036]
-position = Vector2(1.5, 12.833334)
 shape = SubResource("CapsuleShape2D_edrbc")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1935542993]
@@ -624,6 +623,8 @@ drag_vertical_enabled = true
 
 [node name="FlashlightPivote" type="Node2D" parent="." unique_id=2113433068]
 unique_name_in_owner = true
+visible = false
+position = Vector2(0, -18)
 
 [node name="FlashlightLight" type="PointLight2D" parent="FlashlightPivote" unique_id=757700851]
 position = Vector2(0, 16)
