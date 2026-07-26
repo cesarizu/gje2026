@@ -38,6 +38,20 @@ var lifes := MAX_LIFES:
 				end_game()
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed(&"go_full_screen"):
+		toggle_full_screen()
+		get_viewport().set_input_as_handled()
+
+
+func toggle_full_screen() -> void:
+	var window := get_window()
+	if window.mode == Window.MODE_FULLSCREEN or window.mode == Window.MODE_EXCLUSIVE_FULLSCREEN:
+		window.mode = Window.MODE_WINDOWED
+	else:
+		window.mode = Window.MODE_FULLSCREEN
+
+
 func go_to_start_menu() -> void:
 	state = GameState.NOT_STARTED
 	await UI.fade_out()
