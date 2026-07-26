@@ -97,5 +97,12 @@ func update_flashlight_direction() -> void:
 			flashlight_light.rotation_degrees = 180
 
 
+func hit() -> void:
+	if not Core.game.is_playing() or Core.game.lifes <= 0:
+		return
+
+	Core.game.hit()
+
+
 func _on_lifes_changed() -> void:
 	animation_player.play(&"hit")

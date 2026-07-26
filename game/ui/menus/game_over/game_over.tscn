@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://10tvyup7onp8"]
 
 [ext_resource type="Script" uid="uid://cvow34mq7rb1c" path="res://game/ui/menus/game_over/game_over.gd" id="1_game_over"]
+[ext_resource type="Texture2D" uid="uid://dbyqpkinvmqyj" path="res://game/ui/menus/game_over/assets/gameoverscreen.png" id="2_background"]
 
 [node name="GameOver" type="CanvasLayer" unique_id=101930983 node_paths=PackedStringArray("default_focus")]
 layer = 100
@@ -16,7 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="ColorRect" parent="Control" unique_id=1903917864]
+[node name="Background" type="TextureRect" parent="Control" unique_id=1903917864]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,7 +25,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.015, 0.02, 0.025, 0.94)
+texture = ExtResource("2_background")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="DimOverlay" type="ColorRect" parent="Control" unique_id=275928283]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.015, 0.02, 0.025, 0.38)
 
 [node name="CenterContainer" type="CenterContainer" parent="Control" unique_id=1967236270]
 layout_mode = 1

@@ -30,7 +30,7 @@ func _on_hole_area_2d_body_entered(body: Node2D) -> void:
 		hole.queue_free()
 		Dialogic.start("rift_with_rope")
 	elif not _hole_hit:
-		Core.game.hit()
+		Player.instance.hit()
 		_hole_hit = true
 		Dialogic.start("rift")
 
@@ -42,5 +42,5 @@ func _on_mosquito_area_2d_body_entered(body: Node2D) -> void:
 	if RunInventory.has_item(&"repellent"):
 		pass
 	elif not _mosquito_hit:
-		Core.game.hit()
+		Player.instance.hit()
 		_mosquito_hit = true
