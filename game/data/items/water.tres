@@ -5,10 +5,11 @@
 
 [resource]
 script = ExtResource("1_jqmp5")
-item_name = "Botella de Agua"
-description = "Recupera hidratación."
+id = &"water"
+item_name = "Agua"
+description = "Alivia el calor, recupera hidratación y reduce la fatiga."
 icon = ExtResource("1_l5mqu")
 height = 2
 max_charges = 3
-use_text = "Recupera 20% de agua"
+use_text = "Beber un sorbo"
 metadata/_custom_type_script = "uid://caxfluwpro32s"

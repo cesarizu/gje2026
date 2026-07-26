@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cq1c56aq3ppdl"]
+
+[ext_resource type="Script" uid="uid://caxfluwpro32s" path="res://game/data/items/ItemData.gd" id="1_3e12i"]
+
+[resource]
+script = ExtResource("1_3e12i")
+id = &"antidote"
+item_name = "Antídoto"
+description = "Elimina los niveles I y II de toxicidad."
+can_rotate = false
+use_text = "Eliminar toxicidad"
+metadata/_custom_type_script = "uid://caxfluwpro32s"

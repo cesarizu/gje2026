@@ -5,10 +5,11 @@
 
 [resource]
 script = ExtResource("1_ndyqu")
+id = &"flashlight"
 item_name = "Linterna"
-description = "linterna"
+description = "Ilumina zonas oscuras."
 icon = ExtResource("1_7x4xa")
 height = 3
 max_charges = 3
-use_text = "Alumbra por 10 segundos"
+use_text = "Iluminar oscuridad"
 metadata/_custom_type_script = "uid://caxfluwpro32s"

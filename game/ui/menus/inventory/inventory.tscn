@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://c785sn71qxsqw" path="res://game/data/items/flashlight.tres" id="4_t0odh"]
 [ext_resource type="Resource" uid="uid://dgibarl4fjh4r" path="res://game/data/items/oxygen_tank.tres" id="5_lug5u"]
 [ext_resource type="Resource" uid="uid://gahb1c6ayboj" path="res://game/data/items/water.tres" id="6_xmtj7"]
+[ext_resource type="Theme" uid="uid://bkmwp1g2d5tx4" path="res://game/ui/temas/ultimo_tramo_theme.tres" id="7_6hnd1"]
 
 [node name="Inventory" type="CanvasLayer" unique_id=996149556]
 script = ExtResource("1_c08o0")
@@ -107,3 +108,13 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 columns = 3
+
+[node name="ExitButton" type="Button" parent="Control" unique_id=325137348]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1783.0
+offset_top = 85.0
+offset_right = 1878.0
+offset_bottom = 147.0
+theme = ExtResource("7_6hnd1")
+text = "X"

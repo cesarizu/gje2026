@@ -5,10 +5,10 @@
 
 [resource]
 script = ExtResource("1_wsxly")
-item_name = "Vendaje"
-description = "vendaje"
+id = &"bandage"
+item_name = "Vendas"
+description = "Detienen el sangrado."
 icon = ExtResource("1_ene1w")
 can_rotate = false
-max_charges = 2
-use_text = "Cura 10 de vida"
+use_text = "Detener sangrado"
 metadata/_custom_type_script = "uid://caxfluwpro32s"

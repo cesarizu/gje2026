@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://181trawrarqf"]
+
+[ext_resource type="Script" uid="uid://caxfluwpro32s" path="res://game/data/items/ItemData.gd" id="1_bnmbk"]
+[ext_resource type="Texture2D" uid="uid://0yi05flnxf34" path="res://game/icons/Espuma_Inventario.png" id="2_foam"]
+
+[resource]
+script = ExtResource("1_bnmbk")
+id = &"sealant_foam"
+item_name = "Espuma selladora"
+description = "Repara fugas."
+icon = ExtResource("2_foam")
+can_rotate = false
+use_text = "Reparar fuga"
+metadata/_custom_type_script = "uid://caxfluwpro32s"

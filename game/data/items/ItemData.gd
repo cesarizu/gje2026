@@ -2,6 +2,7 @@ extends Resource
 class_name ItemData
 
 @export_group("Información")
+@export var id: StringName = ""
 @export var item_name: String = ""
 @export_multiline var description: String = ""
 @export var icon: Texture2D

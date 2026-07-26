@@ -5,12 +5,13 @@
 
 [resource]
 script = ExtResource("1_a6fg3")
-item_name = "Tanque oxigeno"
-description = "Respiracion"
+id = &"oxygen_tank"
+item_name = "Tanque auxiliar"
+description = "Amplía la reserva de oxígeno en 30 O₂."
 icon = ExtResource("1_cm5u0")
 width = 2
 height = 2
 can_rotate = false
 max_charges = 30
-use_text = "cada carga permite respirar 10 segundos"
+use_text = "Suministrar oxígeno"
 metadata/_custom_type_script = "uid://caxfluwpro32s"

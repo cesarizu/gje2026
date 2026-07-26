@@ -4,11 +4,24 @@ extends CharacterBody2D
 const SPEED = 300.0
 var last_direction: Vector2 = Vector2.RIGHT
 @onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var flashlight_light: PointLight2D = %FlashlightLight
+
+var flashlight_on: bool = false
+
+signal flashlight_changed(enabled: bool)
 
 func _physics_process(_delta: float) -> void:
 	process_movement()
 	process_animation()
 	move_and_slide()
+	var direction := Input.get_vector(
+		"player_move_left",
+		"player_move_right",
+		"player_move_up",
+		"player_move_down"
+	)
+	if direction != Vector2.ZERO:
+		update_flashlight_direction(direction)
 
 func process_movement() -> void:
 	var direction = Input.get_vector("player_move_left", "player_move_right", "player_move_up", "player_move_down")
@@ -33,3 +46,30 @@ func play_animation(prefix: String, dir: Vector2) -> void:
 		animated_sprite_2d.play(prefix + "_up")
 	elif dir.y > 0:
 		animated_sprite_2d.play(prefix + "_down")
+
+func set_flashlight_enabled(enabled: bool) -> void:
+	flashlight_on = enabled
+	flashlight_light.enabled = enabled
+
+func toggle_flashlight() -> void:
+	set_flashlight_enabled(not flashlight_on)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("toggle_flashlight"):
+		if RunInventory.has_item("flashlight"):
+			toggle_flashlight()
+
+func update_flashlight_direction(direction: Vector2) -> void:
+	if direction == Vector2.ZERO:
+		return
+
+	if abs(direction.x) > abs(direction.y):
+		if direction.x > 0:
+			flashlight_light.rotation_degrees = -90
+		else:
+			flashlight_light.rotation_degrees = 90
+	else:
+		if direction.y > 0:
+			flashlight_light.rotation_degrees = 0
+		else:
+			flashlight_light.rotation_degrees = 180

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b8qck82km5kni" path="res://game/scenes/ship/assets/bg.png" id="2_l35cx"]
 [ext_resource type="PackedScene" uid="uid://oq21pisorm22" path="res://game/actors/player/player.tscn" id="4_b83qn"]
 [ext_resource type="Texture2D" uid="uid://c3uvjewmwgsdd" path="res://game/scenes/ship/assets/left.png" id="4_qtiow"]
+[ext_resource type="Texture2D" uid="uid://c5nkpi51kgtfj" path="res://game/icons/light_mask.png" id="4_suw2m"]
 [ext_resource type="Script" uid="uid://cohk8vm07ox71" path="res://game/utils/interactive_area.gd" id="5_5r2ea"]
 [ext_resource type="PackedScene" uid="uid://x8lft640ihod" path="res://addons/holoprime_ui_framework/shortcuts/shortcut_button.tscn" id="5_fbtr2"]
 [ext_resource type="Texture2D" uid="uid://chl16vufkp0je" path="res://game/scenes/ship/assets/right.png" id="5_qul2h"]
@@ -34,7 +35,7 @@ z_index = -1
 position = Vector2(960, 125)
 texture = ExtResource("2_l35cx")
 
-[node name="Player" parent="Content" unique_id=168436519 instance=ExtResource("4_b83qn")]
+[node name="Player" parent="Content" unique_id=168436519 groups=["player"] instance=ExtResource("4_b83qn")]
 position = Vector2(964, 546)
 
 [node name="Camera2D" parent="Content/Player" index="2" unique_id=1935542993]
@@ -42,6 +43,12 @@ limit_left = 0
 limit_top = -835
 limit_right = 1920
 limit_bottom = 1080
+
+[node name="FlashlightLight" type="PointLight2D" parent="Content/Player" unique_id=520204888]
+unique_name_in_owner = true
+enabled = false
+texture = ExtResource("4_suw2m")
+texture_scale = 0.2
 
 [node name="Left" type="Sprite2D" parent="Content" unique_id=1864700051]
 position = Vector2(114, -108)
@@ -124,6 +131,7 @@ offset_bottom = -92.0
 theme_type_variation = &"ShortcutButton"
 shortcut = ExtResource("9_qul2h")
 text = "Open Inventory"
+icon = ExtResource("8_qtiow")
 flat = true
 
 [connection signal="interacted" from="ExitArea" to="." method="_on_exit_area_interacted"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://gn1bin32wx7d"]
+
+[ext_resource type="Script" uid="uid://caxfluwpro32s" path="res://game/data/items/ItemData.gd" id="1_j3sdi"]
+
+[resource]
+script = ExtResource("1_j3sdi")
+id = &"repellent"
+item_name = "Repelente"
+description = "Mantiene alejada a la fauna."
+height = 2
+max_charges = 2
+use_text = "Ahuyentar fauna"
+metadata/_custom_type_script = "uid://caxfluwpro32s"

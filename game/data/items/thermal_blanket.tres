@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://ctwberska53xx"]
+
+[ext_resource type="Script" uid="uid://caxfluwpro32s" path="res://game/data/items/ItemData.gd" id="1_2rt2t"]
+[ext_resource type="Texture2D" uid="uid://wl8xr442cdif" path="res://game/icons/Manta_inventario.png" id="2_blanket"]
+
+[resource]
+script = ExtResource("1_2rt2t")
+id = &"thermal_blanket"
+item_name = "Manta térmica"
+description = "Protección reutilizable contra el frío y el calor."
+icon = ExtResource("2_blanket")
+width = 2
+height = 2
+can_rotate = false
+use_text = "Regular temperatura (reutilizable)"
+metadata/_custom_type_script = "uid://caxfluwpro32s"

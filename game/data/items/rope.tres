@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cw8pvy0bwm8b6"]
+
+[ext_resource type="Script" uid="uid://caxfluwpro32s" path="res://game/data/items/ItemData.gd" id="1_1k0lr"]
+[ext_resource type="Texture2D" uid="uid://d1pjsjet2s1n3" path="res://game/icons/Cuerdo_Inventario.png" id="2_rope"]
+
+[resource]
+script = ExtResource("1_1k0lr")
+id = &"rope"
+item_name = "Cuerda"
+description = "Permite superar barrancos y realizar descensos."
+icon = ExtResource("2_rope")
+height = 3
+use_text = "Instalar cuerda"
+metadata/_custom_type_script = "uid://caxfluwpro32s"
