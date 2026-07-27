@@ -81,7 +81,10 @@ texture = SubResource("Texture2D_yeiif")
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
+size_flags_vertical = 4
 texture_normal = ExtResource("2_sae3p")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="BackpackMargin2/ItemsOrder/BackpackButton" unique_id=511701951]
 texture = SubResource("Texture2D_vnn0b")

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://oq21pisorm22" path="res://game/actors/player/player.tscn" id="1_071xe"]
 [ext_resource type="Script" uid="uid://djg7k1reorj78" path="res://game/scenes/bridge/bridge.gd" id="1_r7bdi"]
 [ext_resource type="Script" uid="uid://cohk8vm07ox71" path="res://game/utils/interactive_area.gd" id="2_gw5fg"]
-[ext_resource type="Texture2D" uid="uid://bgfbsd5mtedcs" path="res://game/scenes/bridge/assets/bg_bridge.png" id="2_r7bdi"]
+[ext_resource type="Texture2D" uid="uid://dt50rppoklvm" path="res://game/scenes/bridge/assets/bg_bridge.png" id="2_r7bdi"]
 [ext_resource type="PackedScene" uid="uid://x8lft640ihod" path="res://addons/holoprime_ui_framework/shortcuts/shortcut_button.tscn" id="3_v6qms"]
 [ext_resource type="Shortcut" uid="uid://cke0a0ogk778b" path="res://game/ui/shortcuts/interact_shortcut.tres" id="4_r7bdi"]
 [ext_resource type="Texture2D" uid="uid://cqtjp15cpcxov" path="res://addons/holoprime_ui_framework/examples/kenney_input-prompts/generic/generic_button_circle.svg" id="5_vv8ly"]
@@ -11,27 +11,35 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_71aef"]
 size = Vector2(464, 279)
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gul5x"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i7rim"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h0der"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f7m8p"]
+
 [node name="Bridge" type="Node2D" unique_id=1450121359]
 script = ExtResource("1_r7bdi")
 
 [node name="Content" type="Node2D" parent="." unique_id=891641893]
 
 [node name="Bg" type="Sprite2D" parent="Content" unique_id=780871901]
-position = Vector2(1541.5, 296.75)
+position = Vector2(1530, 25.00003)
 scale = Vector2(1.8319378, 1.6392136)
 texture = ExtResource("2_r7bdi")
 
 [node name="Player" parent="Content" unique_id=168436519 instance=ExtResource("1_071xe")]
-position = Vector2(986, 904)
+position = Vector2(920, 564)
 
 [node name="AnimatedSprite2D" parent="Content/Player" index="0" unique_id=1329092579]
 animation = &"idle_right"
 
 [node name="Camera2D" parent="Content/Player" index="2" unique_id=1935542993]
 limit_left = 0
-limit_top = -1077
-limit_right = 3836
-limit_bottom = 1080
+limit_top = -733
+limit_right = 3064
+limit_bottom = 812
 
 [node name="ExitArea" type="Area2D" parent="." unique_id=890394488 node_paths=PackedStringArray("show_hide")]
 position = Vector2(2006, -226)
@@ -53,9 +61,26 @@ shortcut = ExtResource("4_r7bdi")
 text = "Exit ship"
 icon = ExtResource("5_vv8ly")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=897262648]
+[node name="Limits" type="StaticBody2D" parent="." unique_id=1711213332]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=110908996]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limits" unique_id=1377007199]
+position = Vector2(50, 0)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_gul5x")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Limits" unique_id=918664215]
+position = Vector2(0, 780)
+shape = SubResource("WorldBoundaryShape2D_i7rim")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Limits" unique_id=886946107]
+position = Vector2(3000, 0)
+rotation = 4.712389
+shape = SubResource("WorldBoundaryShape2D_h0der")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Limits" unique_id=1296099860]
+position = Vector2(0, -600)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_f7m8p")
 
 [connection signal="interacted" from="ExitArea" to="." method="_on_exit_area_interacted"]
 

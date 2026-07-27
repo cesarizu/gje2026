@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://cw8pvy0bwm8b6" path="res://game/data/items/rope.tres" id="12_rope"]
 [ext_resource type="Resource" uid="uid://bwss7rivu14ve" path="res://game/data/items/multitool.tres" id="13_multitool"]
 [ext_resource type="Texture2D" uid="uid://248h5g2si3ei" path="res://game/icons/Inventory_Background.png" id="13_olvjb"]
+[ext_resource type="Texture2D" uid="uid://bq5xmxc85cfjv" path="res://game/ui/menus/inventory/assets/caja.png" id="14_manifest_box"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_unified"]
 
@@ -77,56 +78,71 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_unified")
 
-[node name="ManifestContainer" type="VBoxContainer" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel" unique_id=1661649782]
+[node name="ManifestBackground" type="TextureRect" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("14_manifest_box")
+expand_mode = 1
+stretch_mode = 0
+
+[node name="ManifestContentMargin" type="MarginContainer" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 45
+theme_override_constants/margin_top = 55
+theme_override_constants/margin_right = 45
+theme_override_constants/margin_bottom = 55
+
+[node name="ManifestContainer" type="VBoxContainer" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContentMargin" unique_id=1661649782]
 layout_mode = 2
 
-[node name="ManifestTitle" type="Label" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer" unique_id=1847381588]
+[node name="ManifestTitle" type="Label" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContentMargin/ManifestContainer" unique_id=1847381588]
 layout_mode = 2
 text = "MANIFIESTO"
 horizontal_alignment = 1
 
-[node name="ItemsContainer" type="GridContainer" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer" unique_id=1639502317]
+[node name="ItemsContainer" type="GridContainer" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContentMargin/ManifestContainer" unique_id=1639502317]
 unique_name_in_owner = true
 layout_mode = 2
 columns = 3
 
-[node name="WaterCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" unique_id=658877064 instance=ExtResource("2_0jv1k")]
+[node name="WaterCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContentMargin/ManifestContainer/ItemsContainer" unique_id=658877064 instance=ExtResource("2_0jv1k")]
 layout_mode = 2
 item_data = ExtResource("6_xmtj7")
 
-[node name="BandageCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" unique_id=1457280981 instance=ExtResource("2_0jv1k")]
+[node name="BandageCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContentMargin/ManifestContainer/ItemsContainer" unique_id=1457280981 instance=ExtResource("2_0jv1k")]
 layout_mode = 2
 item_data = ExtResource("3_6hnd1")
 
-[node name="SealantFoamCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" unique_id=1870394093 instance=ExtResource("2_0jv1k")]
+[node name="SealantFoamCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContentMargin/ManifestContainer/ItemsContainer" unique_id=1870394093 instance=ExtResource("2_0jv1k")]
 layout_mode = 2
 item_data = ExtResource("8_foam")
 
-[node name="AntidoteCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" unique_id=630351112 instance=ExtResource("2_0jv1k")]
+[node name="AntidoteCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContentMargin/ManifestContainer/ItemsContainer" unique_id=630351112 instance=ExtResource("2_0jv1k")]
 layout_mode = 2
 item_data = ExtResource("9_antidote")
 
-[node name="RepellentCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" unique_id=1967103408 instance=ExtResource("2_0jv1k")]
+[node name="RepellentCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContentMargin/ManifestContainer/ItemsContainer" unique_id=1967103408 instance=ExtResource("2_0jv1k")]
 layout_mode = 2
 item_data = ExtResource("10_repellent")
 
-[node name="FlashlightCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" unique_id=2019207768 instance=ExtResource("2_0jv1k")]
+[node name="FlashlightCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContentMargin/ManifestContainer/ItemsContainer" unique_id=2019207768 instance=ExtResource("2_0jv1k")]
 layout_mode = 2
 item_data = ExtResource("4_t0odh")
 
-[node name="AuxiliaryTankCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" unique_id=1048485135 instance=ExtResource("2_0jv1k")]
+[node name="AuxiliaryTankCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContentMargin/ManifestContainer/ItemsContainer" unique_id=1048485135 instance=ExtResource("2_0jv1k")]
 layout_mode = 2
 item_data = ExtResource("5_lug5u")
 
-[node name="ThermalBlanketCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" unique_id=1372797896 instance=ExtResource("2_0jv1k")]
+[node name="ThermalBlanketCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContentMargin/ManifestContainer/ItemsContainer" unique_id=1372797896 instance=ExtResource("2_0jv1k")]
 layout_mode = 2
 item_data = ExtResource("11_blanket")
 
-[node name="RopeCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" unique_id=1913232286 instance=ExtResource("2_0jv1k")]
+[node name="RopeCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContentMargin/ManifestContainer/ItemsContainer" unique_id=1913232286 instance=ExtResource("2_0jv1k")]
 layout_mode = 2
 item_data = ExtResource("12_rope")
 
-[node name="MultitoolCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContainer/ItemsContainer" unique_id=2020676587 instance=ExtResource("2_0jv1k")]
+[node name="MultitoolCard" parent="Control/MainMargin/MainContainer/InventoryContent/ManifestPanel/ManifestContentMargin/ManifestContainer/ItemsContainer" unique_id=2020676587 instance=ExtResource("2_0jv1k")]
 layout_mode = 2
 item_data = ExtResource("13_multitool")
 
